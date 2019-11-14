@@ -38,3 +38,17 @@
     width: $width;
     height: $height; 
 }
+
+@mixin marginAuto($top-bottom) {
+   margin-top: $top-bottom;
+   margin-bottom: $top-bottom;
+   margin-right: auto;
+   margin-left: auto;
+}
+
+@mixin paddingAll($top, $right, $bottom, $left) {
+   padding-top: $top;
+   padding-right: $right;
+   padding-bottom: $bottom;
+   padding-left: $left;
+}
