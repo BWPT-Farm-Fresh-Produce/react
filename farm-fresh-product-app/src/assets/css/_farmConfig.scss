@@ -1,0 +1,152 @@
+  
+
+$brand-color: #FFFFA0;
+$brand-color-alt: #009bdf;
+$primary-font: Rubik, sans-serif;
+$primary-font-alt: Arial, sans-serif;
+$size-unit-rem: false; // Do not try to crash the Application by setting to true;
+//------------------------------
+// SIZES
+//-----------------------------
+
+
+$base-space: 5 !default;
+$no-space: 0 !default;
+$space-default: 1 !default;
+$spacer:  $base-space * 4 !default; // 20
+$spacer-l:  $spacer * 2 !default; // 40
+$spacer-s:  $spacer / 2 !default; // 10
+$spacer-xs:  $spacer-s / 2 !default; // 5
+$spacer-m-l:  $spacer * 1.5 !default; // 30
+$spacer-m-s: $spacer-s * 1.5 !default; //15
+$spacer-x-m: $spacer * 2.5 !default; //50
+$spacer-x-l: $spacer-x-m * 2 !default; //100
+
+$expand-full: $spacer-x-l;
+
+//--------------------------------
+// COLORS
+//-------------------------------
+$color-transparent: transparent !default;
+$white: #FFFFFF;
+$off-white: #f8f8f8;
+$white2: #e7e7e7;
+$white3: #dedede;
+$black: #000000;
+$gray: #808080;
+$gray-brand: #515761;
+$gray-brand-alt: #555555;
+$gray-light: #D3D3D3;
+$gray-lightest: #DDDDDD;
+$gray-lighter: #CCCCCC;
+
+$red-light: #ffb4b4;
+$red-bright: #ff6666;
+
+$black-rgba-1: rgba(0,0,0,0.1);
+$black-rgba-3: rgba(0,0,0,0.3);
+
+$background: $white;
+$background-alt: $off-white;
+$default-text-color: $black;
+
+//----------------
+//  DELETE-BUTTONS
+//-----------------   
+$delete-btn-bg: $red-light;
+$delete-btn-alt: $red-bright;
+
+//------------------
+// SHADOWS
+//------------------
+$text-shadow: 1px 2px 2px rgba(0,0,0,0.3);
+$box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+$box-shadow-light: 5px 5px 5px rgba(0,0,0,0.3);
+$box-shadow-sm: 1px 3px 3px rgba(0,0,0,0.5);
+$box-shadow-sm-light: 1px 3px 3px rgba(0,0,0,0.3);
+
+//---------------------
+// BPRDER
+//--------------------
+$border: $white2;
+$border-light: $gray-lightest;
+
+$border-width: 1 !default;
+$border-width-alt: 2 !default;
+$border-width-large: 5 !default;
+
+$border-style: solid !default;
+$border-style-alt: dotted !default;
+
+$border-radius-default: 0 !default;
+$border-radius-round: 50% !default;
+$border-radius-large: 50px !default;
+$border-radius-medium: 25px !default;
+$border-radius-small: 10px !default;
+$border-radius-standard: 5px !default;
+
+//----------------------
+// Z-INDEX
+//----------------------
+$zindex-0: 0;
+$zindex-9: $spacer-s - 1;
+$zindex-99: $spacer-x-l - 1;
+$zindex-999: ($spacer-x-l * 10) -1;
+$zindex-9999: ($spacer-x-l * 100) -1;
+
+//-------------------
+// FONT
+//--------------------
+$font-xxsmall: 10 !default;
+$font-xsmall: 12 !default;
+$font-small: 14 !default;
+$font-base: 16 !default;
+$font-medium: 18 !default;
+$font-large: 20 !default;
+$font-xlarge: 24 !default;
+$font-xxlarge: 30 !default;
+$font-xxxlarge: 32 !default;
+$font-xxxxlarge: 36 !default;
+
+$font-weight-border: bolder !default;
+$font-weight-bord: bold !default;
+$font-weight-normal: normal !default;
+$font-weight-800: 800 !default;
+$font-weight-700: 700 !default;
+$font-weight-600: 600 !default;
+$font-weight-400: 400 !default;
+
+$base-line-height: 5 !default;
+$lh-xxsmall: $base-line-height * 3 !default;
+$lh-xsmall: $base-line-height * 4 !default;
+$lh-small: $base-line-height * 5 !default;
+$lh-base: $base-line-height * 6 !default;
+$lh-large: $base-line-height * 7 !default;
+$lh-xlarge: $base-line-height * 8 !default;
+$lh-xxlarge: $base-line-height * 9 !default;
+$lh-xxxlarge: $lh-small * 2 !default;
+
+$font-color: $gray-brand !default;
+$font-color-alt: $gray-brand-alt !default;
+$font-color-dark: $black !default;
+$font-color-light: $white !default;
+$font-color-disabled: $gray !default;
+
+
+//--------------
+// MIXINS
+//------------------
+ @import 'mixins';
+
+
+
+
+
+
+
+
+
+
+
+
+
