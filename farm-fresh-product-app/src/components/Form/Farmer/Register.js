@@ -9,22 +9,38 @@ import '../form.scss';
 function Register (props){
   const {errors,touched, status}= props;   
   const [users, setUsers] = useState([]);  
+  const [isBackgroundChanged, setIsBackgroundChanged] = useState(false);
 
   useEffect(() => {
     if(status) {
        setUsers([...users, status])
     }
   }, [status]);
-
+ const toggleBackground = (event) => {
+   if(!isBackgroundChanged) {
+       event.target.style.backgroundColor = '#006400';
+       event.target.style.color = '#FFFF00';
+   } else {
+      event.target.style.backgroundColor = '#4CAF50';
+      event.target.style.color = '#FFFFFF';
+   }
+      setIsBackgroundChanged(!isBackgroundChanged);
+ }
  return(
    <Form>
     <div className='sign-up-sign-in-form'>
       <div className='nav-links'>
         <NavLink to='/'>
-          <button  size="lg" className='custom-btn'>Register</button>
+          <button  
+           size="lg"
+           className='custom-btn'
+           onClick={(event) => toggleBackground(event)}>Register</button>
         </NavLink>
         <NavLink to='/login'>
-           <button  size="lg" className='custom-btn'>Login</button>
+           <button  
+           size="lg" 
+           className='custom-btn'
+           onClick={(event) => toggleBackground(event)}>Login</button>
         </NavLink>
       </div> 
     </div>
