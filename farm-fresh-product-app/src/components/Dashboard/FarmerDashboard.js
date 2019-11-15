@@ -1,38 +1,30 @@
-import React from 'react';
-import {withFormik, Form, Field} from 'formik'
-import * as Yup from 'Yup'
+import React, {useEffect, useState} from 'react';
+
+import axios from 'axios';
 
 const FarmerDashboard = () => {
+   const [farmerProduce, setFarmerProduce] = useState([]);
+   useEffect(()=>{
+      axios
+      .get('https://farm-fresh-bw.herokuapp.com/api/farmers/produce/categories')
+      .then(response=>{
+         console.log(response)
+         setFarmerProduce(response.data.categories)
+      })
+      .catch(error=>{
+         console.log(error)
+      })
+   },[]
+   )
    return(
       <div className='farmerdashboard'>
       <h2>Farmer's Dashboard</h2>
       <h3>Produce</h3>
-      <Form>
-         <label htmlFor="produce">Produce</label>
-         <Field className='produce' type='text' name='produce' placeholder='Produce Name'/>
-         <label htmlFor="qty">Quantity</label>
-         <Field className='qty' type='number' name='quantity' placeholder='Quantity'/>
-         <label htmlFor="org">Organic</label>
-         <Field className='organic' type='checkbox' name='organic' />
-         <label htmlFor="nongmo">Non Gmo</label>
-         <Field className='nonGmo' type='checkbox' name='nonGmo'/>
-      </Form>
+      {farmerProduce.map(farmer=>(
+         farmer.categories
+      ))}
+      
    </div>
    );
-},
-
-const FormikFarmDashboard = withFormik({
-   mapPropsToValues(values){
-     return{ 
-        produce: values.produce || '',
-        quantity: values.quantity || '',
-        organic: values.organic || false,
-        nonGmo: values.nonGmo|| false,
-
-   }
-},
-validationSchema: Yup.object().shape({
-   
-})
-
-})
+}
+export default FarmerDashboard;

@@ -19,6 +19,7 @@ function App() {
            <Route  path="/page-not-found-error" component={PageNotFound} />
            <Route  path="/unauthorized-error" component={UnauthorizedError} />
          </Switch>
+         
       </div>
     </div>
   );
