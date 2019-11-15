@@ -1,15 +1,15 @@
 import React from 'react'
 
-export default function ProductItems () {
+export default function ProductItems ({ item }) {
 
     return (
         <div>
-            <h2>ProductItems page</h2>
-            <img src={ } />
-            <h3>Product title</h3>
-            <p>blurb about what is included</p>
-            <p>Cost: </p>
-            <p>Producer: </p>
+            <h5>ProductItems page</h5>
+            <img src={item.image} />
+            <h3>Type of Produce Box: {item.name}</h3>
+            <p>Blurb:{item.status}</p>
+            <p>Cost:{item.species}</p>
+            <p>Producer:{item.origin.name} </p>
         </div>
     )
 }

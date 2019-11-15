@@ -8,8 +8,11 @@
 ## Step 3
 - added Router dependency
     - wrapped App in Router on INDEX.js
-- added useState and useEffect to ConsumerProductList.js
-- 
+
+- added Route to App for three routes
+
+- added useState and useEffect to ProductList.js
+    -  setup useEffect axios call >>> no API link to call! 
 
 ## Step 
 - Added the following as dependencies inside React app Consumer components 
