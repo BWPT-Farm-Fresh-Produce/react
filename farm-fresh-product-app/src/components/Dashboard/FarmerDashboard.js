@@ -1,5 +1,6 @@
 import React from 'react';
 import {withFormik, Form, Field} from 'formik'
+import * as Yup from 'Yup'
 
 const FarmerDashboard = () => {
    return(
@@ -25,9 +26,13 @@ const FormikFarmDashboard = withFormik({
      return{ 
         produce: values.produce || '',
         quantity: values.quantity || '',
-        organic: values.organic || '',
+        organic: values.organic || false,
+        nonGmo: values.nonGmo|| false,
 
    }
+},
+validationSchema: Yup.object().shape({
+   
+})
 
-   }
 })
