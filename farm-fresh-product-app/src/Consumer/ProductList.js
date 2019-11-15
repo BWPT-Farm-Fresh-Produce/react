@@ -21,10 +21,11 @@ export default function ProductList () {
             })
     }, [])
 
+    //how to add LINK to 
     return (
         <div className='product-list'>
-            <h2>ProductList page</h2>
-            {product.map(item => {return (<ProductItems item={item}/>)})}
+            <h2>Customizable Produce & Grocery Boxes</h2>
+            {product.map(item => {return (<ProductItems item={item}/>)})}  
         </div>
         
     )
