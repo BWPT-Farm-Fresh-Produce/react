@@ -86,15 +86,15 @@ export default withRouter(withFormik({
    }),
    handleSubmit: (values, FormikBag) => {
       
-      axios.post("https://bw-one-line-a-day.herokuapp.com/api/auth/Login", values)
+      axios.post("https://farm-fresh-bw.herokuapp.com/api/auth/farmer/login", values)
            .then( response => {              
               console.log(response.data.user)
               console.log('sign-up Line70', FormikBag);
               FormikBag.setStatus(response.data.user);
               FormikBag.props.history.push('/loading');
               setTimeout(() =>{
-                FormikBag.props.history.push('/sign-in')
-              },2000);
+                FormikBag.props.history.push('/farmer-dashboard');
+              },1400);
              
            })
            .catch( error=> {

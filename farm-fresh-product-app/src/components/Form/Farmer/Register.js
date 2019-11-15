@@ -97,7 +97,7 @@ export default withRouter(withFormik({
               console.log('sign-up Line81', FormikBag);
               FormikBag.setStatus(response.data.user);
               FormikBag.resetForm({});
-              // FormikBag.props.history.push('/loading');
+              FormikBag.props.history.push('/loading');
               setTimeout(() =>{
                 FormikBag.props.history.push('/login')
               },2000);

@@ -1,18 +1,8 @@
 import React from 'react';
-import Loader from 'react-loader-spinner';
-
-export default class Load extends React.Component {
- //other logic
-   render() {
-    return(
-     <Loader
-        type="ThreeDots"
-        color="#00BFFF"
-        height={100}
-        width={100}
-        timeout={3000} //3 secs
-
-     />
-    );
-   }
-}
+import Loading from 'react-loading-components';
+ 
+const Load = (props) => (
+  <Loading style={{margin: '400px auto'}} type='three_dots' width={300} height={300} fill='#f44242' />
+);
+ 
+export default Load;
