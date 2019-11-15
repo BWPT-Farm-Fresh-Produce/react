@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import './Errors.scss';
+import './errors.scss';
 
 
 export default function UnauthorizedError(props) {

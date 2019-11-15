@@ -3,7 +3,7 @@
 .error {
   @include flexBox(column,center,center);  
   @include marginAuto(100px);
-  @include paddingAll(50px 100px 50px 100px);
+  @include paddingAll(50px,100px, 50px, 100px);
   box-shadow: $box-shadow-light;
   width: 650px;  
    h1 {
