@@ -36,7 +36,8 @@ function Login (props){
       <label htmlFor="uname"><b>Username</b></label>
       <Field type="text" name="username" placeholder="username" className="input"/>
       
-      {errors.password && touched.password && <p className='error password'>{errors.password}</p>}
+      
+      {errors.password && touched.password && <p className='error login-password'>{errors.password}</p>}
       <label htmlFor="psw"><b>Password</b></label>
       <Field type="password" name="password" placeholder="password" className="input"/>    
       <div className='sign-in-sign-up-button'>

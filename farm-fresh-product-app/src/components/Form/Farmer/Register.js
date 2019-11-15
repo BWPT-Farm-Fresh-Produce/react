@@ -35,10 +35,15 @@ function Register (props){
       { touched.username && errors.username && <p className='error'>{errors.username}</p>}
       <label htmlFor="uname"><b>Username</b></label>
       <Field type="text" name="username" placeholder="username" className="input"/>
+
+      { touched.email && errors.email && <p className='error email'>{errors.email}</p>}
+      <label htmlFor="email"><b>Email</b></label>
+      <Field type="email" name="email" placeholder="email" className="input"/>
       
       {errors.password && touched.password && <p className='error password'>{errors.password}</p>}
       <label htmlFor="psw"><b>Password</b></label>
-      <Field type="password" name="password" placeholder="password" className="input"/>    
+      <Field type="password" name="password" placeholder="password" className="input"/> 
+
       <div className='sign-in-sign-up-button'>
         <button className='sign-button' type='submit' variant="danger" size="lg">Register</button>
       </div>
@@ -56,25 +61,29 @@ function Register (props){
 export default withRouter(withFormik({
    mapPropsToValues: (values) => {
      return {
-       username: values.name || '',      
-       password: values.password || ''      
-      
+       username: values.name || '',  
+       email: values.email || '',    
+       password: values.password || '' 
+
      }
    },
+
    validationSchema: yup.object().shape({
-      username:yup.string().required("Username is required"),      
+      username:yup.string().required("Username is required"),   
+      email:yup.string().required("Email is required"),     
       password:yup.string().required() .min(3, 'Should be at lease 8 characters')         
    }),
-   handleSubmit: (values, FormikBag) => {
-      
-      axios.post("https://bw-one-line-a-day.herokuapp.com/api/auth/register", values)
+
+   handleSubmit: (values, FormikBag) => {      
+      axios.post("https://farm-fresh-bw.herokuapp.com/api/auth/farmer/register", values)
            .then( response => {              
               console.log(response.data.user)
-              console.log('sign-up Line70', FormikBag);
+              console.log('sign-up Line81', FormikBag);
               FormikBag.setStatus(response.data.user);
-              FormikBag.props.history.push('/loading');
+              FormikBag.resetForm({});
+              // FormikBag.props.history.push('/loading');
               setTimeout(() =>{
-                FormikBag.props.history.push('/log-in')
+                FormikBag.props.history.push('/login')
               },2000);
              
            })
@@ -83,7 +92,7 @@ export default withRouter(withFormik({
               console.log(error.response.status)
               console.log(typeof error.response.status)
               if(error.response.status===500) {
-                  FormikBag.props.history.push('/loading');
+                  // FormikBag.props.history.push('/loading');
                 setTimeout( () => {
                   FormikBag.props.history.push('/server-error');
                   FormikBag.setStatus(error);

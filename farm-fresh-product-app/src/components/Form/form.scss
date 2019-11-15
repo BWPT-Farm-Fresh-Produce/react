@@ -40,22 +40,25 @@ form {
         border-color: #f5c6cb;
         border-radius: 4px; 
         padding: 5px 10px; 
-        top: 164px;
+        top: 157px;
         width: 268px;
       }
+      .email, .login-password {
+        top: 227px;
+      }
       .password {
-        top: 250px;
+        top: 297px;
       }
       .input { 
         width: 100%;
-         padding: 12px 20px; 
-         margin: 8px 0; 
+         padding: 9px 12px 9px 12px; 
+         margin: 3px 0px 8px 0px; 
          display: inline-block; 
          border: 1px solid #ccc;
           box-sizing: border-box;
       }
       label { 
-        padding: 4px 36px 4px 2px;
+        padding: 4px 36px 0px 2px;
         text-align: left;
         display: inline-block; 
         width: 100%;
