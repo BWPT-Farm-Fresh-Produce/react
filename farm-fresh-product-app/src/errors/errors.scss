@@ -4,7 +4,7 @@
   @include flexBox(column,center,center);  
   @include marginAuto(100px);
   @include paddingAll(50px,100px, 50px, 100px);
-  box-shadow: $box-shadow-light;
+  box-shadow: $box-shadow-sm-light;
   width: 650px;  
    h1 {
      color: $red-bright;

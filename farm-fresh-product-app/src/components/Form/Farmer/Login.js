@@ -4,7 +4,7 @@ import {withRouter, NavLink} from 'react-router-dom';
 import PersonImage from '../../../assets/images/person.png';
 import axios from 'axios';
 import * as yup from 'yup';
-import '../Form.sass';
+import '../form.scss';
 
 function Login (props){
   const {errors,touched, status}= props;   
