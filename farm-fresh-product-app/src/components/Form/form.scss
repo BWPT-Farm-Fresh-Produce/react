@@ -43,11 +43,26 @@ form {
         top: 157px;
         width: 268px;
       }
+      .username {
+        top: 50px;
+      }
       .email, .login-password {
         top: 227px;
       }
+      .email-customer {
+        top:120px;
+      }
       .password {
         top: 297px;
+      }
+      .password-customer {
+        top: 332px;
+      }
+      .city_id {
+        top:190px;
+      }
+      .state_id {
+        top:262px;
       }
       .input { 
         width: 100%;
