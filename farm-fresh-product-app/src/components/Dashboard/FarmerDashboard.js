@@ -1,15 +1,15 @@
 import React, {useEffect, useState} from 'react';
 
 import axios from 'axios';
-
+import '../Dashboard/farmerdashboard.scss'
 const FarmerDashboard = () => {
    const [farmerProduce, setFarmerProduce] = useState([]);
    useEffect(()=>{
       axios
-      .get('https://farm-fresh-bw.herokuapp.com/api/farmers/produce/categories')
+      .get('https://cors-anywhere.herokuapp.com/https://swapi.co/api/people')
       .then(response=>{
          console.log(response)
-         setFarmerProduce(response.data.categories)
+         setFarmerProduce(response.data.results)
       })
       .catch(error=>{
          console.log(error)
@@ -17,14 +17,20 @@ const FarmerDashboard = () => {
    },[]
    )
    return(
-      <div className='farmerdashboard'>
-      <h2>Farmer's Dashboard</h2>
+   <div className='dashboad'>
+      <h2 className='farmdTitle'>Farmer's Dashboard</h2>
       <h3>Produce</h3>
-      {farmerProduce.map(farmer=>(
-         farmer.categories
-      ))}
-      
+      <div className='farmerproduce'>
+      {farmerProduce.map((farmer,index)=>(
+         <div key={index} className='farmerProducts'>
+         <p className='productcontent'>{farmer.name}</p>
+         <p className='productcontent'>{farmer.homeworld}</p>
+         </div>
+         
+         ))}
+         </div>
    </div>
+      
    );
 }
 export default FarmerDashboard;
