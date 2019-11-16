@@ -86,7 +86,7 @@ export default withRouter(withFormik({
    }),
    handleSubmit: (values, FormikBag) => {
       
-      axios.post("https://farm-fresh-bw.herokuapp.com//api/auth/shop/login", values)
+      axios.post("https://farm-fresh-bw.herokuapp.com/api/auth/shop/login", values)
            .then( response => {              
               console.log(response.data.user)
               console.log('sign-up Line70', FormikBag);

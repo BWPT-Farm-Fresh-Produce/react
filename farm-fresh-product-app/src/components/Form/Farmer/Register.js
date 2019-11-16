@@ -99,7 +99,7 @@ export default withRouter(withFormik({
               FormikBag.resetForm({});
               FormikBag.props.history.push('/loading');
               setTimeout(() =>{
-                FormikBag.props.history.push('/login')
+                FormikBag.props.history.push('/farmer-login')
               },2000);
              
            })
