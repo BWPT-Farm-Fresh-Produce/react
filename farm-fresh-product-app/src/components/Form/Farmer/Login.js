@@ -38,7 +38,7 @@ function Login (props){
           className='custom-btn'
           onClick={(event) => toggleBackground(event)}>Register</button>
         </NavLink>
-        <NavLink to='/login'>
+        <NavLink to='/farmer-login'>
            <button  
            size="lg" 
            className='custom-btn'

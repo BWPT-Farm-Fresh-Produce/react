@@ -1,7 +1,7 @@
 import React, {useState,useEffect} from 'react';
 import { withFormik, Form, Field } from "formik";
 import {withRouter, NavLink} from 'react-router-dom';
-import PersonImage from '../../../assets/images/person.png';
+import PersonImage from '../../../assets/images/person.jpg';
 import axios from 'axios';
 import * as yup from 'yup';
 import '../form.scss';
