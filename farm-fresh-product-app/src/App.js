@@ -11,6 +11,7 @@ import UnauthorizedError from './errors/UnauthorizedError';
 import Load from './components/Load/Load';
 import './App.scss';
 
+
 function App() {
   return (
     <div className="App">
@@ -23,9 +24,10 @@ function App() {
            <Route path="/customer-login" component={CusstomerLogin} />
            <Route path="/loading" component={Load} />
            <Route path="/farmer-dashboard" component={FarmerDashboard} />
-           <Route path="/server-side-error" component={ServerSideError} />
-           <Route path="/page-not-found-error" component={PageNotFound} />
-           <Route path="/unauthorized-error" component={UnauthorizedError} />
+           <Route  path="/server-side-error" component={ServerSideError} />
+           <Route  path="/page-not-found-error" component={PageNotFound} />
+           <Route  path="/unauthorized-error" component={UnauthorizedError} />
+           <Route path="/farmer-dashboard" component={FarmerDashboard}/>
          </Switch>
       </div>
     </div>
