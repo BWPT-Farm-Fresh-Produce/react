@@ -31,6 +31,8 @@ export function reducer(state=initialState, action) {
           isLoading:false,
           isLoaded:false,
           error: action.payload
-        }    
+        }   
+      default:
+        return state;
    }
 }

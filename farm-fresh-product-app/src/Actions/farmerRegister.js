@@ -4,19 +4,21 @@ export const SIGN_UP_START = "SIGN_UP_START";
 export const SIGN_UP_SUCCESS = "SIGN_UP_SUCCESS";
 export const SIGN_UP_ERROR = "SIGN_UP_ERROR";
 
-export function farmerRegister(props, user) {
+export function farmerRegister(values,props) {
     return (dispatch) => {
           dispatch({type:SIGN_UP_START});
-          axios.post("https://farm-fresh-bw.herokuapp.com/api/auth/shop/register", user)
+          console.log(values)
+          console.log(props)
+          axios.post("https://farm-fresh-bw.herokuapp.com/api/auth/farmer/register", values)
            .then( response => {              
               console.log(response.data.user)
-              console.log('sign-up Line81', FormikBag);
+              // console.log('sign-up Line81', FormikBag);
 
               // FormikBag.setStatus(response.data.user);
               // FormikBag.resetForm({});
               props.history.push('/loading');
               setTimeout(() =>{
-              props.history.push('/customer-login')
+              props.history.push('/farmer-login')
               },2000);
              
            })

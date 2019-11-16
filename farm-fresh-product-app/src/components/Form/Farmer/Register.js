@@ -1,6 +1,8 @@
 import React, {useState,useEffect} from 'react';
 import { withFormik, Form, Field } from "formik";
 import {withRouter, NavLink} from 'react-router-dom';
+import { connect } from 'react-redux';
+import { farmerRegister } from '../../../actions/farmerRegister';
 import PersonImage from '../../../assets/images/person.png';
 import axios from 'axios';
 import * as yup from 'yup';
@@ -74,7 +76,7 @@ function Register (props){
   )
 };
 
-export default withRouter(withFormik({
+const farmerRegisterForm =  withRouter(withFormik({
    mapPropsToValues: (values) => {
      return {
        username: values.name || '',  
@@ -90,30 +92,45 @@ export default withRouter(withFormik({
       password:yup.string().required() .min(3, 'Should be at lease 8 characters')         
    }),
 
-   handleSubmit: (values, FormikBag) => {      
-      axios.post("https://farm-fresh-bw.herokuapp.com/api/auth/farmer/register", values)
-           .then( response => {              
-              console.log(response.data.user)
-              console.log('sign-up Line81', FormikBag);
-              FormikBag.setStatus(response.data.user);
-              FormikBag.resetForm({});
-              FormikBag.props.history.push('/loading');
-              setTimeout(() =>{
-                FormikBag.props.history.push('/farmer-login')
-              },2000);
+   handleSubmit: (values, {props}) => {      
+       props.farmerRegister(values, props);
+      // axios.post("https://farm-fresh-bw.herokuapp.com/api/auth/farmer/register", values)
+      //      .then( response => {              
+      //         console.log(response.data.user)
+      //         console.log('sign-up Line81', FormikBag);
+      //         FormikBag.setStatus(response.data.user);
+      //         FormikBag.resetForm({});
+      //         FormikBag.props.history.push('/loading');
+      //         setTimeout(() =>{
+      //           FormikBag.props.history.push('/farmer-login')
+      //         },2000);
              
-           })
-           .catch( error=> {
-              console.log(typeof error)
-              console.log(error.response.status)
-              console.log(typeof error.response.status)
-              if(error.response.status===500) {
-                  // FormikBag.props.history.push('/loading');
-                setTimeout( () => {
-                  FormikBag.props.history.push('/server-error');
-                  FormikBag.setStatus(error);
-                })                 
-              }
-           })
+          //  })
+          //  .catch( error=> {
+          //     console.log(typeof error)
+          //     console.log(error.response.status)
+          //     console.log(typeof error.response.status)
+          //     if(error.response.status===500) {
+          //         // FormikBag.props.history.push('/loading');
+          //       setTimeout( () => {
+          //         FormikBag.props.history.push('/server-error');
+          //         FormikBag.setStatus(error);
+          //       })                 
+          //     }
+          //  })
    }
 })(Register));
+
+const mapDispatchToProps = {
+  farmerRegister
+}
+
+function mapStateToProps(state) {
+   return {
+     isLoading:state.farmRegister.isLoading,
+     isLoaded:state.farmRegister.isLoaded
+   }
+}
+
+export default connect(mapStateToProps,
+                       mapDispatchToProps)(farmerRegisterForm);
