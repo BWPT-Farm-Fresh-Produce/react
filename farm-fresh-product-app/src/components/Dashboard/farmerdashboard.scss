@@ -1,0 +1,19 @@
+.farmerdtitle {
+  text-align: center;
+}
+
+.farmerproduce {
+  display: flex;
+  margin: 0px auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+}
+.farmerProducts {
+  border: 2px solid #f1f1f1;
+  width: 300px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  
+}
