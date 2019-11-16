@@ -17,7 +17,7 @@ const FarmerDashboard = () => {
    },[]
    )
    return(
-   <div className='dashboad'>
+      <div className='dashboad'>
       <h2 className='farmdTitle'>Farmer's Dashboard</h2>
       <h3>Produce</h3>
       <div className='farmerproduce'>
@@ -29,8 +29,9 @@ const FarmerDashboard = () => {
          
          ))}
          </div>
-   </div>
+   </div> 
       
    );
-}
+};
+
 export default FarmerDashboard;

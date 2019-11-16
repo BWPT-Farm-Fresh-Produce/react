@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import './index.scss';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import App from './App';
 
 
