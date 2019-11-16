@@ -1,7 +1,7 @@
 import React, {useState,useEffect} from 'react';
 import { withFormik, Form, Field } from "formik";
 import {withRouter, NavLink} from 'react-router-dom';
-import PersonImage from '../../../assets/images/person.png';
+import PersonImage from '../../../assets/images/person.jpg';
 import axios from 'axios';
 import * as yup from 'yup';
 import '../form.scss';
@@ -30,13 +30,13 @@ function Register (props){
    <Form>
     <div className='sign-up-sign-in-form'>
       <div className='nav-links'>
-        <NavLink to='/'>
+        <NavLink to='/customer-register'>
           <button  
            size="lg"
            className='custom-btn'
            onClick={(event) => toggleBackground(event)}>Register</button>
         </NavLink>
-        <NavLink to='/farmer-login'>
+        <NavLink to='/customer-login'>
            <button  
            size="lg" 
            className='custom-btn'
@@ -44,21 +44,30 @@ function Register (props){
         </NavLink>
       </div> 
     </div>
-    <div className="imgcontainer">
-            <img src={PersonImage} alt="Avatar" className="avatar" />
-          </div>
+    {/* <div className="imgcontainer">
+        <img src={PersonImage} alt="Avatar" className="avatar" />
+    </div> */}
     <div className="container">
-      { touched.username && errors.username && <p className='error'>{errors.username}</p>}
+      { touched.username && errors.username && <p className='error username'>{errors.username}</p>}
       <label htmlFor="uname"><b>Username</b></label>
       <Field type="text" name="username" placeholder="username" className="input"/>
 
-      { touched.email && errors.email && <p className='error email'>{errors.email}</p>}
+      { touched.email && errors.email && <p className='error email-customer'>{errors.email}</p>}
       <label htmlFor="email"><b>Email</b></label>
-      <Field type="email" name="email" placeholder="email" className="input"/>
+      <Field type="email" name="email" placeholder="email" className="input"/>      
       
-      {errors.password && touched.password && <p className='error password'>{errors.password}</p>}
+
+      {errors.city_id && touched.city_id && <p className='error password city_id'>{errors.city_id}</p>}
+      <label htmlFor="psw"><b>City ID</b></label>
+      <Field type="text" name="city_id" placeholder="Your city ID" className="input"/>
+
+      {errors.state_id && touched.state_id && <p className='error password state_id'>{errors.state_id}</p>}
+      <label htmlFor="psw"><b>State ID</b></label>
+      <Field type="text" name="state_id" placeholder="Your state ID" className="input"/> 
+
+      {errors.password && touched.password && <p className='error password-customer'>{errors.password}</p>}
       <label htmlFor="psw"><b>Password</b></label>
-      <Field type="password" name="password" placeholder="password" className="input"/> 
+      <Field type="password" name="password" placeholder="password" className="input"/>
 
       <div className='sign-in-sign-up-button'>
         <button className='sign-button' type='submit' variant="danger" size="lg">Register</button>
@@ -79,7 +88,9 @@ export default withRouter(withFormik({
      return {
        username: values.name || '',  
        email: values.email || '',    
-       password: values.password || '' 
+       password: values.password || '',
+       city_id: values.city_id || '',
+       state_id: values.state_id || ''
 
      }
    },
@@ -87,11 +98,13 @@ export default withRouter(withFormik({
    validationSchema: yup.object().shape({
       username:yup.string().required("Username is required"),   
       email:yup.string().required("Email is required"),     
-      password:yup.string().required() .min(3, 'Should be at lease 8 characters')         
+      password:yup.string().required() .min(3, 'Should be at lease 8 characters'),
+      city_id: yup.string().required('City ID is required'),
+      state_id: yup.string().required('State ID is required')     
    }),
 
    handleSubmit: (values, FormikBag) => {      
-      axios.post("https://farm-fresh-bw.herokuapp.com/api/auth/farmer/register", values)
+      axios.post("https://farm-fresh-bw.herokuapp.com/api/auth/shop/register", values)
            .then( response => {              
               console.log(response.data.user)
               console.log('sign-up Line81', FormikBag);
@@ -99,7 +112,7 @@ export default withRouter(withFormik({
               FormikBag.resetForm({});
               FormikBag.props.history.push('/loading');
               setTimeout(() =>{
-                FormikBag.props.history.push('/farmer-login')
+                FormikBag.props.history.push('/customer-login')
               },2000);
              
            })

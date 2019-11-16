@@ -1,7 +1,7 @@
 import React, {useState,useEffect} from 'react';
 import { withFormik, Form, Field } from "formik";
 import {withRouter, NavLink} from 'react-router-dom';
-import PersonImage from '../../../assets/images/person.png';
+import PersonImage from '../../../assets/images/person.jpg';
 import axios from 'axios';
 import * as yup from 'yup';
 import '../form.scss';
@@ -32,13 +32,13 @@ function Login (props){
    <Form>
     <div className='sign-up-sign-in-form'>
       <div className='nav-links'>
-        <NavLink to='/'>
+        <NavLink to='/customer-register'>
           <button  
           size="lg" 
           className='custom-btn'
           onClick={(event) => toggleBackground(event)}>Register</button>
         </NavLink>
-        <NavLink to='/farmer-login'>
+        <NavLink to='/customer-login'>
            <button  
            size="lg" 
            className='custom-btn'
@@ -86,7 +86,7 @@ export default withRouter(withFormik({
    }),
    handleSubmit: (values, FormikBag) => {
       
-      axios.post("https://farm-fresh-bw.herokuapp.com/api/auth/farmer/login", values)
+      axios.post("https://farm-fresh-bw.herokuapp.com/api/auth/shop/login", values)
            .then( response => {              
               console.log(response.data.user)
               console.log('sign-up Line70', FormikBag);

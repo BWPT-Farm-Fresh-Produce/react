@@ -1,7 +1,9 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Register from './components/Form/Farmer/Register';
-import Login from './components/Form/Farmer/Login';
+import FarmerRegister from './components/Form/Farmer/Register';
+import FarmerLogin from './components/Form/Farmer/Login';
+import CurstomerRegister from './components/Form/Customer/Register';
+import CusstomerLogin from './components/Form/Customer/Login';
 import FarmerDashboard from './components/Dashboard/FarmerDashboard';
 import PageNotFound from './errors/PageNotFound';
 import ServerSideError from './errors/ServerSideError';
@@ -15,13 +17,15 @@ function App() {
       <h2>Farm App</h2>
       <div className="main-container">
          <Switch>
-           <Route exact path="/" component={Register} />
-           <Route path="/login" component={Login} />
+           <Route exact path="/" component={FarmerRegister} />
+           <Route path="/farmer-login" component={FarmerLogin} />
+           <Route path="/customer-register" component={CurstomerRegister} />
+           <Route path="/customer-login" component={CusstomerLogin} />
            <Route path="/loading" component={Load} />
            <Route path="/farmer-dashboard" component={FarmerDashboard} />
-           <Route  path="/server-side-error" component={ServerSideError} />
-           <Route  path="/page-not-found-error" component={PageNotFound} />
-           <Route  path="/unauthorized-error" component={UnauthorizedError} />
+           <Route path="/server-side-error" component={ServerSideError} />
+           <Route path="/page-not-found-error" component={PageNotFound} />
+           <Route path="/unauthorized-error" component={UnauthorizedError} />
          </Switch>
       </div>
     </div>
