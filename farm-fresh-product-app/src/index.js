@@ -8,7 +8,7 @@ import thunk from 'redux-thunk';
 import { reducer as farmerRegister} from '../src/reducers/farmerRegister';
 import { reducer as farmerLogin} from '../src/reducers/farmerLogin'
 import './index.scss';
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+// import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import App from './App';
 
 const reducer = combineReducers(
