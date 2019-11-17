@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
-
 import axios from 'axios';
-import '../Dashboard/farmerdashboard.scss'
+import './farmerdashboard.scss';
+
 const FarmerDashboard = () => {
    const [farmerProduce, setFarmerProduce] = useState([]);
    useEffect(()=>{

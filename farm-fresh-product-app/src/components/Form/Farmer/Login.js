@@ -3,7 +3,6 @@ import { withFormik, Form, Field } from "formik";
 import {withRouter, NavLink} from 'react-router-dom';
 import { farmerLogin } from '../../../actions/farmerLogin';
 import {connect} from 'react-redux';
-import axios from 'axios';
 import PersonImage from '../../../assets/images/person.png';
 import * as yup from 'yup';
 import '../form.scss';
@@ -85,7 +84,7 @@ const FarmerLoginForm =  withRouter(withFormik({
 
    validationSchema: yup.object().shape({
       username:yup.string().required("Username is required"),      
-      password:yup.string().required() .min(3, 'Should be at lease 8 characters')         
+      password:yup.string().required().min(3, 'Should be at lease 8 characters')         
    }),
 
    handleSubmit: (values, {props, ...actions}) => {
