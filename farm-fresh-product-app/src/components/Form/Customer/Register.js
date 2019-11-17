@@ -1,7 +1,6 @@
 import React, {useState,useEffect} from 'react';
 import { withFormik, Form, Field } from "formik";
 import {withRouter, NavLink} from 'react-router-dom';
-import PersonImage from '../../../assets/images/person.jpg';
 import axios from 'axios';
 import * as yup from 'yup';
 import '../form.scss';
@@ -98,7 +97,7 @@ export default withRouter(withFormik({
    validationSchema: yup.object().shape({
       username:yup.string().required("Username is required"),   
       email:yup.string().required("Email is required"),     
-      password:yup.string().required() .min(3, 'Should be at lease 8 characters'),
+      password:yup.string().required().min(3, 'Should be at lease 8 characters'),
       city_id: yup.string().required('City ID is required'),
       state_id: yup.string().required('State ID is required')     
    }),

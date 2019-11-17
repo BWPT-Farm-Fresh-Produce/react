@@ -88,7 +88,7 @@ const farmerRegisterForm =  withRouter(withFormik({
    validationSchema: yup.object().shape({
       username:yup.string().required("Username is required"),   
       email:yup.string().required("Email is required"),     
-      password:yup.string().required() .min(3, 'Should be at lease 8 characters')         
+      password:yup.string().required().min(3,'Should be at lease 8 characters')         
    }),
 
    handleSubmit: (values, {props,...actions}) => {      
