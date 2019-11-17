@@ -17,8 +17,9 @@ const FarmerDashboard = () => {
    },[]
    )
    return(
-      <div className='dashboad'>
-      <h2 className='farmdTitle'>Farmer's Dashboard</h2>
+      <div className='dashboard'>
+      <button className='logoff-btn'>Log Off</button>
+      <h1 className='farmdTitle'>Farmer's Dashboard</h1>
       <h3>Produce</h3>
       <div className='farmerproduce'>
       {farmerProduce.map((farmer,index)=>(
@@ -26,9 +27,11 @@ const FarmerDashboard = () => {
          <p className='productcontent'>{farmer.name}</p>
          <p className='productcontent'>{farmer.homeworld}</p>
          </div>
-         
+
          ))}
          </div>
+
+
    </div> 
       
    );

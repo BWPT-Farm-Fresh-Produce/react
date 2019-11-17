@@ -1,5 +1,6 @@
 .farmerdtitle {
   text-align: center;
+  text-emphasis: bold;
 }
 
 .farmerproduce {
@@ -17,3 +18,20 @@
   margin-bottom: 20px;
   
 }
+
+.logoff-btn {
+   position: absolute;
+   top: 10px;
+   right: 10px;
+   background-color: #4CAF50;
+   color: white; 
+   padding: 14px 20px; 
+   border: none; 
+   cursor: pointer; 
+   width: 10%; 
+   height: 44px;
+}
+h2{
+   display: none;
+}
+
