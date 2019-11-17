@@ -93,7 +93,7 @@ export default withRouter(withFormik({
               FormikBag.setStatus(response.data.user);
               FormikBag.props.history.push('/loading');
               setTimeout(() =>{
-                FormikBag.props.history.push('/farmer-dashboard');
+                FormikBag.props.history.push('/customer-dashboard');
               },1400);
              
            })
