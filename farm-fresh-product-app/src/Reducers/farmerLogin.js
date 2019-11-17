@@ -12,7 +12,7 @@ const initialState = {
     error:null
 }
 
-export function reducer(state=initialState, action) {
+export default function farmerLogin(state=initialState, action) {
    switch(action.type) {
       case LOGIN_START:
         return{

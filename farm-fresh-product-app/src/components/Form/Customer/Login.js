@@ -15,7 +15,7 @@ function Login (props){
     if(status) {
        setUsers([...users, status])
     }
-  }, [status]);
+  }, [status,users]);
 
   const toggleBackground = (event) => {
     if(!isBackgroundChanged) {
