@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-
+import Background from '../../assets/images/background.jpg'
 import axios from 'axios';
 import '../Dashboard/farmerdashboard.scss'
 const FarmerDashboard = () => {
@@ -17,7 +17,9 @@ const FarmerDashboard = () => {
    },[]
    )
    return(
+      
       <div className='dashboard'>
+      
       <button className='logoff-btn'>Log Off</button>
       <button className='edit'>Edit</button>
       <button className='delete'>Delete</button>
@@ -25,6 +27,7 @@ const FarmerDashboard = () => {
       <h1 className='farmdTitle'>Farmer's Dashboard</h1>
       <h3>Produce</h3>
       <div className='farmerproduce'>
+      
       {farmerProduce.map((farmer,index)=>(
          <div key={index} className='farmerProducts'>
          <p className='productcontent'>{farmer.name}</p>
@@ -36,6 +39,7 @@ const FarmerDashboard = () => {
 
 
    </div> 
+ 
       
    );
 };
