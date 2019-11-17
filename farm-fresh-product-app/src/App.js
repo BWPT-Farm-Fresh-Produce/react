@@ -1,14 +1,14 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import FarmerRegister from './components/Form/Farmer/Register';
-import FarmerLogin from './components/Form/Farmer/Login';
-import CurstomerRegister from './components/Form/Customer/Register';
-import CusstomerLogin from './components/Form/Customer/Login';
-import FarmerDashboard from './components/Dashboard/FarmerDashboard';
+import FarmerRegister from './components/form/farmer/Register';
+import FarmerLogin from './components/form/farmer/Login';
+import CustomerRegister from './components/form/customer/Register';
+import CustomerLogin from './components/form/customer/Login';
+import FarmerDashboard from './components/dashboard/FarmerDashboard';
 import PageNotFound from './errors/PageNotFound';
 import ServerSideError from './errors/ServerSideError';
 import UnauthorizedError from './errors/UnauthorizedError';
-import Load from './components/Load/Load';
+import Load from './components/load/Load';
 import './App.scss';
 
 
@@ -20,8 +20,8 @@ function App() {
          <Switch>
            <Route exact path="/" component={FarmerRegister} />
            <Route path="/farmer-login" component={FarmerLogin} />
-           <Route path="/customer-register" component={CurstomerRegister} />
-           <Route path="/customer-login" component={CusstomerLogin} />
+           <Route path="/customer-register" component={CustomerRegister} />
+           <Route path="/customer-login" component={CustomerLogin} />
            <Route path="/loading" component={Load} />
            <Route path="/farmer-dashboard" component={FarmerDashboard} />
            <Route  path="/server-side-error" component={ServerSideError} />

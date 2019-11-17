@@ -2,7 +2,7 @@ import React, {useState,useEffect} from 'react';
 import { withFormik, Form, Field } from "formik";
 import {withRouter, NavLink} from 'react-router-dom';
 import { connect } from 'react-redux';
-import { farmerRegister } from '../../../actions/farmerRegister';
+import  farmerRegister  from '../../../actions/farmerRegister';
 import PersonImage from '../../../assets/images/person.png';
 import * as yup from 'yup';
 import '../form.scss';
