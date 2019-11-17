@@ -6,9 +6,7 @@ export const SIGN_UP_ERROR = "SIGN_UP_ERROR";
 
 export function farmerRegister(values,props) {
     return (dispatch) => {
-          dispatch({type:SIGN_UP_START});
-          console.log(values)
-          console.log(props)
+          dispatch({type:SIGN_UP_START});         
           axios.post("https://farm-fresh-bw.herokuapp.com/api/auth/farmer/register", values)
            .then( response => {              
               console.log(response.data.user)
@@ -16,10 +14,10 @@ export function farmerRegister(values,props) {
 
               // FormikBag.setStatus(response.data.user);
               // FormikBag.resetForm({});
-              props.history.push('/loading');
+             
               setTimeout(() =>{
               props.history.push('/farmer-login')
-              },2000);
+              },500);
              
            })
            .catch( error=> {

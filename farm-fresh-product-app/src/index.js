@@ -6,11 +6,16 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import { reducer as farmerRegister} from '../src/reducers/farmerRegister';
+import { reducer as farmerLogin} from '../src/reducers/farmerLogin'
 import './index.scss';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import App from './App';
 
-const reducer = combineReducers({farmRegister:farmerRegister});
+const reducer = combineReducers(
+  {
+  farmRegister:farmerRegister, 
+  farmLogin:farmerLogin
+});
 const middleware = applyMiddleware(thunk,logger);
 const store = createStore(reducer,middleware);
 
