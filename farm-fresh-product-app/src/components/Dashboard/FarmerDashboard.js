@@ -19,6 +19,9 @@ const FarmerDashboard = () => {
    return(
       <div className='dashboard'>
       <button className='logoff-btn'>Log Off</button>
+      <button className='edit'>Edit</button>
+      <button className='delete'>Delete</button>
+      <button className='add'>Add</button>
       <h1 className='farmdTitle'>Farmer's Dashboard</h1>
       <h3>Produce</h3>
       <div className='farmerproduce'>
