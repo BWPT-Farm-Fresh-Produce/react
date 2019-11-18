@@ -1,0 +1,22 @@
+@import '../../assets/css/farmConfig';
+
+.header {
+   @include flexBox(row,flex-end,center);
+   background:$brand-color;
+   box-shadow: $box-shadow-sm-light;
+   min-height: 90px;
+   width:100%;
+   .logoff-btn {
+    position: absolute;
+    top: 22px;
+    right: 15px;
+    background-color:#ff6347;
+    color: white; 
+    padding: 12px 18px; 
+    border: none; 
+    border-radius:2px;
+    cursor: pointer; 
+    width: 10%; 
+    height: 44px;
+ }
+}
