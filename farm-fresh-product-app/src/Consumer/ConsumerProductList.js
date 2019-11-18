@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import ProductItems from './ProductItems';
+import ConsumerProductItems from './ConsumerProductItems';
 
 import axios from 'axios';
 
-export default function ProductList () {
+export default function ConsumerProductList () {
     const [product, setProduct] = useState ([]);
 
     useEffect(() => {
@@ -25,7 +25,12 @@ export default function ProductList () {
     return (
         <div className='product-list'>
             <h2>Customizable Produce & Grocery Boxes</h2>
-            {product.map(item => {return (<ProductItems item={item}/>)})}  
+            {product.map(item => {
+                return (
+                    <ConsumerProductItems item={item}/>
+                    )}
+                )
+            }  
         </div>
         
     )
