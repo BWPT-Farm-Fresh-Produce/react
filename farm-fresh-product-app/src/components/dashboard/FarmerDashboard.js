@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
-
 import axios from 'axios';
-import '../dashboard/farmerdashboard.scss'
+import Header from '../header/Header';
+import '../dashboard/farmerdashboard.scss';
+
 const FarmerDashboard = () => {
    const [farmerProduce, setFarmerProduce] = useState([]);
    useEffect(()=>{
@@ -18,7 +19,7 @@ const FarmerDashboard = () => {
    )
    return(
       <div className='dashboard'>
-      <button className='logoff-btn'>Log Off</button>
+       <Header />
       <h1 className='farmdTitle'>Farmer's Dashboard</h1>
       <h3>Produce</h3>
       <div className='farmerproduce'>
