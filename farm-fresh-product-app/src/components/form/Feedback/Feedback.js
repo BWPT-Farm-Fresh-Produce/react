@@ -13,7 +13,7 @@ const Feedback = ({isSubmitting}) =>{
    );
 };
 
-const FormikFeedBack = withFormik({
+const FormikFeedback = withFormik({
   mapPropsToValues(values){
    return{
       name: values.name || '',
@@ -34,4 +34,4 @@ setSubmitting(false);
 
 })(Feedback)
 
-export default FormikFeedBack;
+export default FormikFeedback;
