@@ -8,7 +8,11 @@ const FarmerDashboard = () => {
    const [farmerProduce, setFarmerProduce] = useState([]);
    useEffect(()=>{
       axios
-      .get('https://farm-fresh-bw.herokuapp.com/api/farmers/produce/categories')
+      .get('https://farm-fresh-bw.herokuapp.com/api/farmers/produce/categories', {
+         headers: {
+            authorization: localStorage.getItem('token')
+         }
+      })
       .then(response=>{
          console.log(response)
          setFarmerProduce(response.data.results)
