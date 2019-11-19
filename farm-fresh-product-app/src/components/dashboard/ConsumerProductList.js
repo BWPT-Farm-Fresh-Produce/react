@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, Route } from 'react-router-dom';
 import axios from 'axios';
 
-import ProductCard from './ProductCard';
+import ConsumerProductCard from './ConsumerProductCard';
 
 export default function ConsumerProductList (props) {
     const [product, setProduct] = useState([]);
@@ -26,14 +26,14 @@ export default function ConsumerProductList (props) {
         <div>
             <h2>ProductList</h2>
             {product.map(attribute => (
-                <Link to={`/product-list/${attribute.id}`}><ProductCard {...props} key={product.id} item = {attribute} />
+                <Link to={`/product-list/${attribute.id}`}><ConsumerProductCard {...props} key={product.id} item = {attribute} />
                 </Link>
                 )
             )}}
         
         <Route 
             exact path='/product-list/:id'
-            render={props => <ProductCard {...props} attribute ={product} />}
+            render={props => <ConsumerProductCard {...props} attribute ={product} />}
         />
         </div>
     )
