@@ -8,8 +8,8 @@ import FarmerDashboard from './components/dashboard/FarmerDashboard';
 import PageNotFound from './errors/PageNotFound';
 import ServerSideError from './errors/ServerSideError';
 import UnauthorizedError from './errors/UnauthorizedError';
-import Load from './components/Load/Load';
-import Feedback from './components/Form/Feedback/Feedback';
+import Load from './components/load/Load';
+import Feedback from './components/form/Feedback/Feedback';
 import './App.scss';
 
 
