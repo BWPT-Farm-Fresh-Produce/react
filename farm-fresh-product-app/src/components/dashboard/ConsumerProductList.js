@@ -3,14 +3,18 @@ import { Link, Route } from 'react-router-dom';
 import axios from 'axios';
 
 import Header from '../header/Header';
-import ProductCard from './ProductCard';
+import ConsumerProductCard from './ConsumerProductCard';
 
 export default function ConsumerProductList (props) {
     const [product, setProduct] = useState([]);
 
     useEffect(() => {
         axios
-            .get(`https://farm-fresh-bw.herokuapp.com/api/consumers/shop/categories`)
+            .get(`https://farm-fresh-bw.herokuapp.com/api/consumers/shop/categories`, {
+                headers: {
+                    authorization: localStorage.getItem('token')
+                }
+            })
 
             .then(response => {
                 const productInfo = response.data;
@@ -28,14 +32,14 @@ export default function ConsumerProductList (props) {
             <Header /> 
             <h2>ProductList</h2>
             {product.map(attribute => (
-                <Link to={`/product-list/${attribute.id}`}><ProductCard {...props} key={product.id} item = {attribute} />
+                <Link to={`/product-list/${attribute.id}`}><ConsumerProductCard {...props} key={product.id} item = {attribute} />
                 </Link>
                 )
             )}}
         
         <Route 
             exact path='/product-list/:id'
-            render={props => <ProductCard {...props} attribute ={product} />}
+            render={props => <ConsumerProductCard {...props} attribute ={product} />}
         />
         </div>
     )
