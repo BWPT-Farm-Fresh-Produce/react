@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Header from '../header/Header'
 
     export default function ConsumerProductCard ( props ) {
 
@@ -27,6 +28,7 @@ import axios from 'axios';
     }
     return (
         <div>
+            <Header />
             <h3>~from ProductCard~</h3>
             <img src={value.image} />
             <p>Title: {value.name}</p>
