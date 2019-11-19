@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, Route } from 'react-router-dom';
 import axios from 'axios';
 
+import Header from '../header/Header';
 import ProductCard from './ProductCard';
 
 export default function ConsumerProductList (props) {
@@ -24,6 +25,7 @@ export default function ConsumerProductList (props) {
 
     return (
         <div>
+            <Header /> 
             <h2>ProductList</h2>
             {product.map(attribute => (
                 <Link to={`/product-list/${attribute.id}`}><ProductCard {...props} key={product.id} item = {attribute} />
