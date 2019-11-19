@@ -9,29 +9,19 @@ export function farmerRegister(values,props) {
           dispatch({type:SIGN_UP_START});         
           axios.post("https://farm-fresh-bw.herokuapp.com/api/auth/farmer/register", values)
            .then( response => {              
-              console.log(response.data.user)
-              // console.log('sign-up Line81', FormikBag);
-
-              // FormikBag.setStatus(response.data.user);
-              // FormikBag.resetForm({});
-             
-              setTimeout(() =>{
-              props.history.push('/farmer-login')
-              },500);
-             
-           })
+              console.log(response.data.user);
+              props.history.push('/farmer-login');
+           })           
            .catch( error=> {
               console.log(typeof error)
               console.log(error.response.status)
               console.log(typeof error.response.status)
               if(error.response.status===500) {
-                  // FormikBag.props.history.push('/loading');
-                setTimeout( () => {
+                  // FormikBag.props.history.push('/loading');               
                   props.history.push('/server-error');
-                  dispatch({type:SIGN_UP_ERROR, payload:error});
-                })                 
+                  dispatch({type:SIGN_UP_ERROR, payload:error});                              
               }
-           })    
+           })   
 
     }
 }
