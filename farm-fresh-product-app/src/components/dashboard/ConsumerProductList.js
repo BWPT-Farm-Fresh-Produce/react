@@ -1,37 +1,40 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-
-import ProductItems from './ProductItems';
-
+import { Link, Route } from 'react-router-dom';
 import axios from 'axios';
 
-export default function ConsumerProductList () {
-    const [product, setProduct] = useState ([]);
+import ProductCard from './ProductCard';
+
+export default function ConsumerProductList (props) {
+    const [product, setProduct] = useState([]);
 
     useEffect(() => {
         axios
-            .get(`https://rickandmortyapi.com/api/character/`)
+            .get(`https://farm-fresh-bw.herokuapp.com/api/consumers/shop/categories`)
+
             .then(response => {
-                const itemInfo = response.data.results;
-                console.log(itemInfo);
-                setProduct(itemInfo)
+                const productInfo = response.data;
+                console.log(productInfo);
+                setProduct(productInfo);
             })
+
             .catch(error => {
-                console.log('Error, oh to error.', error)
+                console.log('Error, oh to error:', error)
             })
     }, [])
 
-    //how to add LINK to 
     return (
-        <div className='product-list'>
-            <h2>Customizable Produce & Grocery Boxes</h2>
-            {product.map(item => {
-                return (
-                    <ProductItems item={item}/>
-                    )}
+        <div>
+            <h2>ProductList</h2>
+            {product.map(attribute => (
+                <Link to={`/product-list/${attribute.id}`}><ProductCard {...props} key={product.id} item = {attribute} />
+                </Link>
                 )
-            }  
+            )}}
+        
+        <Route 
+            exact path='/product-list/:id'
+            render={props => <ProductCard {...props} attribute ={product} />}
+        />
         </div>
-
     )
-} 
+}

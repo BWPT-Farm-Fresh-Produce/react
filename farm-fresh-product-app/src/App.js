@@ -5,6 +5,7 @@ import FarmerLogin from './components/form/farmer/Login';
 import CurstomerRegister from './components/form/customer/Register';
 import CusstomerLogin from './components/form/customer/Login';
 import FarmerDashboard from './components/dashboard/FarmerDashboard';
+import ConsumerProductList from './components/dashboard/ConsumerProductList';
 import PageNotFound from './errors/PageNotFound';
 import ServerSideError from './errors/ServerSideError';
 import UnauthorizedError from './errors/UnauthorizedError';
@@ -24,6 +25,7 @@ function App() {
            <Route path="/customer-login" component={CusstomerLogin} />
            <Route path="/loading" component={Load} />
            <Route path="/farmer-dashboard" component={FarmerDashboard} />
+           <Route path='/product-list' component={ConsumerProductList}/>
            <Route  path="/server-side-error" component={ServerSideError} />
            <Route  path="/page-not-found-error" component={PageNotFound} />
            <Route  path="/unauthorized-error" component={UnauthorizedError} />
