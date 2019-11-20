@@ -3,12 +3,13 @@ import {NavLink} from 'react-router-dom'
 import axios from 'axios';
 import Header from '../header/Header';
 import '../dashboard/farmerdashboard.scss';
+import SideMenu from '../dashboard/SideMenu'
 
 const FarmerDashboard = () => {
    const [farmerProduce, setFarmerProduce] = useState([]);
    useEffect(()=>{
       axios
-      .get('https://farm-fresh-bw.herokuapp.com/api/farmers/produce/categories', {
+      .get('https://cors-anywhere.herokuapp.com/https://swapi.co/api/people', {
          headers: {
             authorization: localStorage.getItem('token')
          }
@@ -27,10 +28,11 @@ const FarmerDashboard = () => {
       
       <div className='dashboard'>
        <Header />
+
       <h1 className='farmdTitle'>Farmer's Dashboard</h1>
       <h3>Produce</h3>
       <div className='farmerproduce'>
-      
+      <SideMenu />
       {farmerProduce.map((farmer,index)=>(
          <div key={index} className='farmerProducts'>
          <p className='productcontent'>{farmer.name}</p>
