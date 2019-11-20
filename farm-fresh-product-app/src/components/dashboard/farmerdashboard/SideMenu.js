@@ -5,6 +5,7 @@ const Sidebar =()=>{
 
    return(
    <div className="vertical-menu">
+   <button className='non-active'>Manage Produce</button>
   <button className="active">Add Farm Item</button>
   <button className='active'>Edit Farm Item</button>
   <button className='active'>Delete Farm Item</button>

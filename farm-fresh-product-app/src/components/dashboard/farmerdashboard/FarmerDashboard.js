@@ -33,7 +33,7 @@ const FarmerDashboard = () => {
        <Header />
 
       <h1 className='farmdTitle'>Farmer's Dashboard</h1>
-      <h3>Manage Produce</h3>
+      
       <div className='farmcontainer'>
       <SideMenu />
       <div className='farmerproduce'>
