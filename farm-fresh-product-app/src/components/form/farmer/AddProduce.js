@@ -1,9 +1,14 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {withFormik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
 import './addproduce.scss';
-const AddProduce = ({touched, errors}) =>{
+import axios from 'axios';
+const AddProduce = ({touched, errors, status}) =>{
 
+   const farmItems, setFarmItems = useState([]);
+   useEffect(()=>{
+      status && setFarmItems(item => [...farmItems, status])
+   }, [status])
 
    return(
       
@@ -38,8 +43,17 @@ const FormikAddProduce= withFormik({
      price:  Yup.string().required('Enter the price'),
      category: Yup.string().required('Enter the ID')
   }),
-  handleSubmit({resetForm}){
-     resetForm();
+  handleSubmit({resetForm, setStatus}){
+     axios
+     .post('https://farm-fresh-bw.herokuapp.com//api/farmers/produce/:farmId',values)
+     .then(response=>{
+        console.log(response);
+        setStatus()
+        resetForm();
+     })
+     .catch(error=>{
+      console.log(error)
+     })
   }
   
 })(AddProduce)
