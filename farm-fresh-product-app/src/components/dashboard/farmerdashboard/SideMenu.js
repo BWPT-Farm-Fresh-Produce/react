@@ -1,5 +1,5 @@
 import React from 'react';
-import '../dashboard/farmerdashboard.scss';
+import './farmerdashboard.scss';
 
 const Sidebar =()=>{
 
