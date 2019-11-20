@@ -3,15 +3,17 @@ import {withFormik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
 import './addproduce.scss';
 import axios from 'axios';
-const AddProduce = ({touched, errors, status}) =>{
+import Header from '../../header/Header'
+const AddProduce = ({touched, errors, status, isSubmitting}) =>{
 
-   const farmItems, setFarmItems = useState([]);
+   const [farmItems, setFarmItems] = useState([]);
    useEffect(()=>{
-      status && setFarmItems(item => [...farmItems, status])
+      status && setFarmItems(farmItems => [...farmItems, status])
    }, [status])
 
    return(
-      
+      <>
+      <Header/>
       <Form>
          <div className='container'>
          { touched.name && errors.name && <p className='error name'>{errors.name}</p>}
@@ -22,9 +24,10 @@ const AddProduce = ({touched, errors, status}) =>{
          <Field type='text' name='price' placeholder='Price' className='input'/>
          {touched.category && errors.category && <p className='error id'>{errors.category}</p>}
          <Field type='text' name='category' placeholder='ID' className='input'/>
-         <button className ='sign-up' type='submit'>Add</button>
+         <button className='sign-up' type='submit' disabled={isSubmitting}>Add</button>
          </div>
          </Form>
+         </>
    );
 }
 
@@ -43,13 +46,20 @@ const FormikAddProduce= withFormik({
      price:  Yup.string().required('Enter the price'),
      category: Yup.string().required('Enter the ID')
   }),
-  handleSubmit({resetForm, setStatus}){
+  handleSubmit(values,{resetForm, setStatus, setSubmitting}){
+     const farmid = params.match.params.id;
+
      axios
-     .post('https://farm-fresh-bw.herokuapp.com//api/farmers/produce/:farmId',values)
+     .post(`https://farm-fresh-bw.herokuapp.com//api/farmers/produce/:farmId${farmid}`,{
+        headers: {
+         authorization: localStorage.getItem('token'),
+         values
+   }})
      .then(response=>{
         console.log(response);
-        setStatus()
+        setStatus(response.data)
         resetForm();
+        setSubmitting(false);
      })
      .catch(error=>{
       console.log(error)
