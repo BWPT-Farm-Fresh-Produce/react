@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, Route } from 'react-router-dom';
 import axios from 'axios';
 
-import Header from '../header/Header';
+import Header from '../../header/Header';
 import ConsumerProductCard from './ConsumerProductCard';
 
 export default function ConsumerProductList(props) {
