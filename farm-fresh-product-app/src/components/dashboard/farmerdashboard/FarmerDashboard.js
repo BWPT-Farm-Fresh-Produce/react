@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {NavLink} from 'react-router-dom'
 import axios from 'axios';
-import Header from '../header/Header';
-import '../dashboard/farmerdashboard.scss';
+import Header from '../../header/Header';
+import SideMenu from './SdieMenu';
+import './farmerdashboard.scss';
 
 const FarmerDashboard = () => {
    const [farmerProduce, setFarmerProduce] = useState([]);
@@ -26,8 +27,8 @@ const FarmerDashboard = () => {
    return(
       
       <div className='dashboard'>
-       <Header />
-      <h1 className='farmdTitle'>Farmer's Dashboard</h1>
+       <Header />      
+      
       <h3>Produce</h3>
       <div className='farmerproduce'>
       
