@@ -1,7 +1,7 @@
 import React from 'react'
 import {withFormik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
-import '../addProduce/addproduce.scss';
+import './addproduce.scss';
 const AddProduce = ({touched, errors}) =>{
 
 
