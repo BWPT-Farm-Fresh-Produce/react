@@ -13,7 +13,8 @@ export function farmerLogin(values,props) {
            .then( response => {              
               console.log(response.data);
               if(response) {
-                window.localStorage.setItem(FARMER_LOGIN_KEY, JSON.stringify(response.data.token));
+                const user = {token:response.data.token, id:response.data.user.id}
+                window.localStorage.setItem(FARMER_LOGIN_KEY, JSON.stringify(user));
                 dispatch({type:LOGIN_SUCCESS,payload:response.data.user});                
               }                         
               setTimeout(() =>{
