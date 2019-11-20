@@ -93,14 +93,16 @@ h2 {
  
  .vertical-menu button:hover {
    background-color: #ccc;
+
  }
  
  .vertical-menu button.active {
    background: #2a8000;
    color: white;
  }
- .vertical-menu button.nonactive {
+ .vertical-menu button.non-active {
     cursor: none;
+
  }
  
  .smenu {
