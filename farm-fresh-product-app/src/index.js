@@ -8,7 +8,6 @@ import thunk from 'redux-thunk';
 import farmerRegister  from '../src/reducers/farmerRegister';
 import farmerLogin  from '../src/reducers/farmerLogin'
 import './index.scss';
-import 'react-sliding-pane/dist/react-sliding-pane.css';
 import App from './App';
 
 const reducer = combineReducers(
