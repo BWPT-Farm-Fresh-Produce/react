@@ -4,6 +4,9 @@ import axios from 'axios';
 import Header from '../header/Header';
 import '../dashboard/farmerdashboard.scss';
 import SideMenu from '../dashboard/SideMenu'
+import Header from '../../header/Header';
+import SideMenu from './SdieMenu';
+import './farmerdashboard.scss';
 
 const FarmerDashboard = () => {
    const [farmerProduce, setFarmerProduce] = useState([]);

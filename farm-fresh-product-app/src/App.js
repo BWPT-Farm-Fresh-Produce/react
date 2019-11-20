@@ -4,7 +4,7 @@ import FarmerRegister from './components/form/farmer/Register';
 import FarmerLogin from './components/form/farmer/Login';
 import CurstomerRegister from './components/form/customer/Register';
 import CusstomerLogin from './components/form/customer/Login';
-import FarmerDashboard from './components/dashboard/FarmerDashboard';
+import FarmerDashboard from './components/dashboard/farmerdashboard/FarmerDashboard';
 import PageNotFound from './errors/PageNotFound';
 import ServerSideError from './errors/ServerSideError';
 import UnauthorizedError from './errors/UnauthorizedError';
