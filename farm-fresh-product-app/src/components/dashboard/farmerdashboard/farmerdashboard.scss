@@ -3,6 +3,7 @@
   text-emphasis: bold;
 }
 
+
 .farmerproduce {
   display: flex;
   margin: 0px auto;
@@ -10,19 +11,18 @@
   flex-wrap: wrap;
   justify-content: center;
   
-}
+ }
+
+
 .farmerProducts {
   border: 2px solid #f1f1f1;
-  width: 300px;
+  width: 250px;
   margin-right: 20px;
   margin-bottom: 20px;
+  margin-left: 50px;
   
 }
-
-.logoff-btn {
-   position: absolute;
-   top: 10px;
-   right: 10px;
+button{
    background-color: #4CAF50;
    color: white; 
    padding: 14px 20px; 
@@ -31,7 +31,44 @@
    width: 10%; 
    height: 44px;
 }
-h2{
+.logoff-btn {
+   position: absolute;
+   top: 10px;
+   right: 10px;
+  
+}
+.feedBack{
+   position: absolute;
+   top: 10px;
+   right: 8px;
+}
+h2 {
    display: none;
 }
 
+.edit {
+   height: 30px;
+   padding: 10px 10px; 
+   position: absolute;
+   left: 10px;
+   top: 60px;
+   width: 50px;
+}
+
+.delete {
+   height: 30px;
+   padding: 10px 10px;
+   position: absolute;
+   left: 10px;
+   top: 95px;
+   width: 50px;
+}
+
+.add {
+   height: 30px;
+   padding: 10px 10px; 
+   position: absolute;
+   top: 25px;
+   left: 10px;
+   width: 50px;
+}

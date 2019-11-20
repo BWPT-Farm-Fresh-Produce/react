@@ -7,13 +7,15 @@ import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import farmerRegister  from '../src/reducers/farmerRegister';
 import farmerLogin  from '../src/reducers/farmerLogin'
+import farmerProduce from '../src/reducers/farmerProduce';
 import './index.scss';
 import App from './App';
 
 const reducer = combineReducers(
   {
-  farmRegister:farmerRegister, 
-  farmLogin:farmerLogin
+  farmRegister:farmerRegister,
+  farmLogin:farmerLogin,
+  farmProduce:farmerProduce
 });
 const middleware = applyMiddleware(thunk,logger);
 const store = createStore(reducer,middleware);

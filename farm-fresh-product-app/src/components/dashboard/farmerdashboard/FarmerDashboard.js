@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {NavLink} from 'react-router-dom'
 import axios from 'axios';
 import Header from '../../header/Header';
 import SideMenu from './SdieMenu';
@@ -8,7 +9,11 @@ const FarmerDashboard = () => {
    const [farmerProduce, setFarmerProduce] = useState([]);
    useEffect(()=>{
       axios
-      .get('https://cors-anywhere.herokuapp.com/https://swapi.co/api/people')
+      .get('https://farm-fresh-bw.herokuapp.com/api/farmers/produce/categories', {
+         headers: {
+            authorization: localStorage.getItem('token')
+         }
+      })
       .then(response=>{
          console.log(response)
          setFarmerProduce(response.data.results)
@@ -18,12 +23,15 @@ const FarmerDashboard = () => {
       })
    },[]
    )
+
    return(
+      
       <div className='dashboard'>
        <Header />      
       
       <h3>Produce</h3>
       <div className='farmerproduce'>
+      
       {farmerProduce.map((farmer,index)=>(
          <div key={index} className='farmerProducts'>
          <p className='productcontent'>{farmer.name}</p>
@@ -35,6 +43,7 @@ const FarmerDashboard = () => {
 
 
    </div> 
+ 
       
    );
 };
