@@ -9,6 +9,7 @@ import PageNotFound from './errors/PageNotFound';
 import ServerSideError from './errors/ServerSideError';
 import UnauthorizedError from './errors/UnauthorizedError';
 import Load from './components/load/Load';
+import Feedback from './components/form/Feedback/Feedback';
 import './App.scss';
 
 
@@ -28,6 +29,7 @@ function App() {
            <Route  path="/page-not-found-error" component={PageNotFound} />
            <Route  path="/unauthorized-error" component={UnauthorizedError} />
            <Route path="/farmer-dashboard" component={FarmerDashboard}/>
+           <Route path="/feedback" component={Feedback}/>
          </Switch>
       </div>
     </div>
