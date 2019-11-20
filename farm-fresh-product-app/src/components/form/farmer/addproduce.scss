@@ -1,0 +1,59 @@
+form { 
+   border: 3px solid #f1f1f1; 
+   width: 320px;
+   margin: 50px auto 0px auto;
+   button {
+     background-color: #4CAF50;
+     color: white; 
+     padding: 14px 20px; 
+     margin:0px; 
+     border: none; 
+     cursor: pointer; 
+     width: 50%; 
+     height: 44px;
+     &:hover {
+        background:#006400; 
+        color: #FFFFFF;
+     }
+     &:visited {
+       background: #ADFF2F;
+       color: #FF0000;
+     }
+   }
+   
+   .container {
+       padding: 16px;
+       .error {
+         margin-bottom: 20px;
+         position: absolute; 
+         color: #721c24; 
+         text-align: left;
+         background-color: #f8d7da; 
+         border-color: #f5c6cb;
+         border-radius: 4px; 
+         padding: 5px 10px; 
+         top: 157px;
+         width: 268px;
+       }
+       .name {
+         top: 0px;
+       }
+       .quantity{
+         top: 38px;
+       }
+       .price {
+         top:77px;
+       }
+       .id{
+         top: 113px;
+       }
+ 
+       
+ 
+     }
+   
+    
+   }
+ 
+ 
+ 
