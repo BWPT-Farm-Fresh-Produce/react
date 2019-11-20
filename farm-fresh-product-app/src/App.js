@@ -34,7 +34,7 @@ function App() {
           <Route path="/unauthorized-error" component={UnauthorizedError} />
           <Route path="/farmer-dashboard" component={FarmerDashboard} />
           <Route path="/feedback" component={Feedback} />
-          <Route path='/add-farm-item/:id' component={FormikAddProduce}/>
+          <Route path='/add-farm-item/' component={FormikAddProduce}/>
         </Switch>
       </div>
     </div>

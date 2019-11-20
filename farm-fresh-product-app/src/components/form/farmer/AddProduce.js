@@ -47,10 +47,10 @@ const FormikAddProduce= withFormik({
      category: Yup.string().required('Enter the ID')
   }),
   handleSubmit(values,{resetForm, setStatus, setSubmitting}){
-     const farmid = params.match.params.id;
+   //   const farmid = props.params.match.id;
 
      axios
-     .post(`https://farm-fresh-bw.herokuapp.com//api/farmers/produce/:farmId${farmid}`,{
+     .post(`https://farm-fresh-bw.herokuapp.com//api/farmers/produce/:farmId`,{
         headers: {
          authorization: localStorage.getItem('token'),
          values
