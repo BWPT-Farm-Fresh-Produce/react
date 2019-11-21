@@ -1,11 +1,11 @@
 import React,{useState} from 'react';
 
-function Farm() {
+function AddFarm() {
   const defaultFarm = {
     name: "",
     address: "",
     year_founded: "",
-    bio: " ",
+    bio: "",
     city_id: "",
     state_id: ""
 }
@@ -19,6 +19,7 @@ function Farm() {
   }
   return (
     <div>
+    <h4>Add a New Farm</h4>
      <form>
         <input type="text"
               value={farm.name}
@@ -60,4 +61,4 @@ function Farm() {
   )
 }
 
-export default Farm;
+export default AddFarm;
