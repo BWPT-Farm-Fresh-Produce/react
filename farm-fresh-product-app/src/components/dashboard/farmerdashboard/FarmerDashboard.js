@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Route} from 'react-router-dom'
+import {Route, NavLink} from 'react-router-dom'
 import axios from 'axios';
 import Header from '../../header/Header';
 import './farmerdashboard.scss';
@@ -50,7 +50,7 @@ const FarmerDashboard = () => {
          <Route path="/farmer-dashboard/edit-farm" component={EditFarm} />
          </div>
          </div>
-
+         <NavLink to='/feedback'><button>Feedback</button></NavLink>
    </div> 
  
       

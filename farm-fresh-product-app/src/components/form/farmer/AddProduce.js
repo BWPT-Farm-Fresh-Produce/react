@@ -1,12 +1,19 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {withFormik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
-import '../addProduce/addproduce.scss';
-const AddProduce = ({touched, errors}) =>{
+import './addproduce.scss';
+import axios from 'axios';
+import Header from '../../header/Header'
+const AddProduce = ({touched, errors, status, isSubmitting}) =>{
 
+   const [farmItems, setFarmItems] = useState([]);
+   useEffect(()=>{
+      status && setFarmItems(farmItems => [...farmItems, status])
+   }, [status])
 
    return(
-      
+      <>
+      <Header/>
       <Form>
          <div className='container'>
          { touched.name && errors.name && <p className='error name'>{errors.name}</p>}
@@ -17,9 +24,10 @@ const AddProduce = ({touched, errors}) =>{
          <Field type='text' name='price' placeholder='Price' className='input'/>
          {touched.category && errors.category && <p className='error id'>{errors.category}</p>}
          <Field type='text' name='category' placeholder='ID' className='input'/>
-         <button className ='sign-up' type='submit'>Add</button>
+         <button className='sign-up' type='submit' disabled={isSubmitting}>Add</button>
          </div>
          </Form>
+         </>
    );
 }
 
@@ -38,8 +46,24 @@ const FormikAddProduce= withFormik({
      price:  Yup.string().required('Enter the price'),
      category: Yup.string().required('Enter the ID')
   }),
-  handleSubmit({resetForm}){
-     resetForm();
+  handleSubmit(values,{resetForm, setStatus, setSubmitting}){
+   //   const farmid = props.params.match.id;
+
+     axios
+     .post(`https://farm-fresh-bw.herokuapp.com//api/farmers/produce/:farmId`,{
+        headers: {
+         authorization: localStorage.getItem('token'),
+         values
+   }})
+     .then(response=>{
+        console.log(response);
+        setStatus(response.data)
+        resetForm();
+        setSubmitting(false);
+     })
+     .catch(error=>{
+      console.log(error)
+     })
   }
   
 })(AddProduce)
