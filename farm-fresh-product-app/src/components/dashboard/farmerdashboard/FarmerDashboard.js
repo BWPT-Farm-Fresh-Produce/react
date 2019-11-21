@@ -1,34 +1,23 @@
 import React, {useEffect, useState} from 'react';
-import {Route} from 'react-router-dom'
+import {Route} from 'react-router-dom';
+import { connect } from 'react-redux';
 import axios from 'axios';
 import Header from '../../header/Header';
 import './farmerdashboard.scss';
 import SideMenu from '../farmerdashboard/SideMenu'
 import AddFarm from './farm/AddFarm';
 import EditFarm from './farm/EditFarm';
+import { getAllFarms } from '../../../actions/farmerFarm';
 
 
 import './farmerdashboard.scss';
 
-const FarmerDashboard = () => {
-   // const [farmerProduce, setFarmerProduce] = useState([]);
-   // useEffect(()=>{
-   //    axios
-   //    .get('https://cors-anywhere.herokuapp.com/https://swapi.co/api/people', {
-   //       headers: {
-   //          authorization: localStorage.getItem('token')
-   //       }
-   //    })
-   //    .then(response=>{
-   //       console.log(response)
-   //       setFarmerProduce(response.data.results)
-   //    })
-   //    .catch(error=>{
-   //       console.log(error)
-   //    })
-   // },[]
-   // )
-
+const FarmerDashboard = (props) => {
+  
+   useEffect(()=>{
+      props.getAllFarms();
+   },[]);
+   console.log('Line Number 20', props.farms)
    return(
       
       <div className='dashboard'>
@@ -39,7 +28,7 @@ const FarmerDashboard = () => {
       <div className='farmcontainer'>
       <SideMenu />
       <div className='farmerproduce'>
-      {/* {farmerProduce.map((farmer,index)=>(
+      {/* {props.farms.map((farm,index)=>(
          <div key={index} className='farmerProducts'>
          <p className='productcontent'>{farmer.name}</p>
          <p className='productcontent'>{farmer.homeworld}</p>
@@ -57,4 +46,16 @@ const FarmerDashboard = () => {
    );
 };
 
-export default FarmerDashboard;
+const mapDispatchToProps = {
+   getAllFarms
+}
+
+function mapStateToProps(state) {
+   return {
+     isLoadingFarm:state.farmFarm.isLoadingFarm,
+     isFarmLoaded:state.farmFarm.isFarmLoaded,
+     farms:state.farmFarm.farms,
+     error:state.farmFarm.error
+   }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(FarmerDashboard);
