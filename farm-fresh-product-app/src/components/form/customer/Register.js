@@ -103,7 +103,7 @@ export default withRouter(withFormik({
    }),
 
    handleSubmit: (values, FormikBag) => {      
-      axios.post("https://farm-fresh-bw.herokuapp.com/api/auth/shop/register", values)
+      axios.post("https://aqueous-ocean-41606.herokuapp.com/api/auth/shop/register", values)
            .then( response => {              
               console.log(response.data.user)
               console.log('sign-up Line81', FormikBag);

@@ -9,7 +9,7 @@ export function farmerLogin(values,props) {
           dispatch({type:LOGIN_START});
           console.log(values)
           console.log(props)
-          axios.post("https://farm-fresh-bw.herokuapp.com/api/auth/farmer/login", values)
+          axios.post("https://aqueous-ocean-41606.herokuapp.com/api/auth/farmer/login", values)
            .then( response => {              
               console.log(response.data);
               if(response) {

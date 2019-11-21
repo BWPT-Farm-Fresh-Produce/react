@@ -10,7 +10,11 @@ import AddProduce from '../../form/farmer/AddProduce'
 import EditProduce from '../../form/farmer/EditProduce'
 
 
+
 import './farmerdashboard.scss';
+import FarmProduceCard from './FarmProduceCard';
+import Produce from './Produce';
+import Farm from './Farm';
 
 const FarmerDashboard = () => {
    const [farmerProduce, setFarmerProduce] = useState([]);
@@ -52,6 +56,8 @@ const FarmerDashboard = () => {
          <Route path="/farmer-dashboard/edit-farm" component={EditFarm} />
          <Route path="/farmer-dashboard/add-item" component={AddProduce}/>
          <Route path='/farmer-dashboard/edit-item' component={EditProduce}/>
+         <Route path='/farmer-dashboard/view-farm' component={Farm}/>
+         <Route path='/farmer-dashboard/produce' component={Produce}/>
          </div>
          </div>
          <NavLink to='/feedback'><button>Feedback</button></NavLink>

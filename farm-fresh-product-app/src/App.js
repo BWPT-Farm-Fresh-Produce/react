@@ -11,7 +11,7 @@ import PageNotFound from './errors/PageNotFound';
 import ServerSideError from './errors/ServerSideError';
 import UnauthorizedError from './errors/UnauthorizedError';
 import Load from './components/load/Load';
-import Feedback from './components/form/feedback/Feedback'
+import Feedback from './components/form/Feedback/Feedback'
 import './App.scss';
 import FormikAddProduce from './components/form/farmer/AddProduce';
 
