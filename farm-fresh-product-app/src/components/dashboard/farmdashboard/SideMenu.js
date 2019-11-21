@@ -7,7 +7,7 @@ const SideMenu = () =>{
    <button className='non-active'>Manage the Farm</button>
   <button className="active" >Add Farm </button>
   <button className='active'>Edit Farm </button>
-  <button className='active'>Delete Farm</button>
+  
    </div>
    );
 }
