@@ -6,6 +6,8 @@ import './farmerdashboard.scss';
 import SideMenu from '../farmerdashboard/SideMenu'
 import AddFarm from './farm/AddFarm';
 import EditFarm from './farm/EditFarm';
+import AddProduce from '../../form/farmer/AddProduce'
+import EditProduce from '../../form/farmer/EditProduce'
 
 
 import './farmerdashboard.scss';
@@ -48,6 +50,8 @@ const FarmerDashboard = () => {
          ))} */}
          <Route path="/farmer-dashboard/add-farm" component={AddFarm} />
          <Route path="/farmer-dashboard/edit-farm" component={EditFarm} />
+         <Route path="/farmer-dashboard/add-item" component={AddProduce}/>
+         <Route path='/farmer-dashboard/edit-item' component={EditProduce}/>
          </div>
          </div>
          <NavLink to='/feedback'><button>Feedback</button></NavLink>
