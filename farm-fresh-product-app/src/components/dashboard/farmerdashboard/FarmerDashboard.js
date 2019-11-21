@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {NavLink} from 'react-router-dom'
+import {Route, NavLink} from 'react-router-dom'
 import axios from 'axios';
 import Header from '../../header/Header';
 import './farmerdashboard.scss';
 import SideMenu from '../farmerdashboard/SideMenu'
+import AddFarm from './farm/AddFarm';
+import EditFarm from './farm/EditFarm';
 
 
 import './farmerdashboard.scss';
@@ -37,13 +39,15 @@ const FarmerDashboard = () => {
       <div className='farmcontainer'>
       <SideMenu />
       <div className='farmerproduce'>
-      {farmerProduce.map((farmer,index)=>(
+      {/* {farmerProduce.map((farmer,index)=>(
          <div key={index} className='farmerProducts'>
          <p className='productcontent'>{farmer.name}</p>
          <p className='productcontent'>{farmer.homeworld}</p>
          </div>
 
-         ))}
+         ))} */}
+         <Route path="/farmer-dashboard/add-farm" component={AddFarm} />
+         <Route path="/farmer-dashboard/edit-farm" component={EditFarm} />
          </div>
          </div>
          <NavLink to='/feedback'><button>Feedback</button></NavLink>

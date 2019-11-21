@@ -33,6 +33,7 @@ function App() {
           <Route path="/page-not-found-error" component={PageNotFound} />
           <Route path="/unauthorized-error" component={UnauthorizedError} />
           <Route path="/farmer-dashboard" component={FarmerDashboard} />
+          {/* <Route path="/farmer-dashboard-addfarm" component={Farm} /> */}
           <Route path="/feedback" component={Feedback} />
           <Route path='/add-farm-item/' component={FormikAddProduce}/>
         </Switch>
