@@ -9,6 +9,7 @@ import farmerRegister from "./reducers/farmerRegister";
 import farmerLogin from "./reducers/farmerLogin";
 import farmerProduce from "./reducers/farmerProduce";
 import farmerFarm from "./reducers/farmerFarm";
+import customerShoppingReducer from "./reducers/customerShopping";
 import "./index.scss";
 import App from "./App";
 
@@ -16,7 +17,8 @@ const reducer = combineReducers({
   farmRegister: farmerRegister,
   farmLogin: farmerLogin,
   farmProduce: farmerProduce,
-  farmerFarm
+  farmerFarm,
+  customerShoppingReducer
 });
 const middleware = applyMiddleware(thunk, logger);
 const store = createStore(reducer, middleware);

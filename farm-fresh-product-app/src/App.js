@@ -1,19 +1,20 @@
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import FarmerRegister from './components/form/farmer/Register';
-import FarmerLogin from './components/form/farmer/Login';
-import CurstomerRegister from './components/form/customer/Register';
-import CusstomerLogin from './components/form/customer/Login';
-import ConsumerProductList from './components/dashboard/consumerdashboard/ConsumerProductList';
-import ConsumerProductCard from './components/dashboard/consumerdashboard/ConsumerProductCard';
-import FarmerDashboard from './components/dashboard/farmerdashboard/FarmerDashboard';
-import PageNotFound from './errors/PageNotFound';
-import ServerSideError from './errors/ServerSideError';
-import UnauthorizedError from './errors/UnauthorizedError';
-import Load from './components/load/Load';
-import Feedback from './components/form/feedback/Feedback'
-import './App.scss';
-import FormikAddProduce from './components/form/farmer/AddProduce';
+import React from "react";
+import { Route, Switch } from "react-router-dom";
+import FarmerRegister from "./components/form/farmer/Register";
+import FarmerLogin from "./components/form/farmer/Login";
+import CurstomerRegister from "./components/form/customer/Register";
+import CusstomerLogin from "./components/form/customer/Login";
+import ConsumerProductList from "./components/dashboard/consumerdashboard/ConsumerProductList";
+import ConsumerProductCard from "./components/dashboard/consumerdashboard/ConsumerProductCard";
+import ConsumerDashboard from "./components/dashboard/consumerdashboard/ConsumerDashboard";
+import FarmerDashboard from "./components/dashboard/farmerdashboard/FarmerDashboard";
+import PageNotFound from "./errors/PageNotFound";
+import ServerSideError from "./errors/ServerSideError";
+import UnauthorizedError from "./errors/UnauthorizedError";
+import Load from "./components/load/Load";
+import Feedback from "./components/form/feedback/Feedback";
+import "./App.scss";
+import FormikAddProduce from "./components/form/farmer/AddProduce";
 
 function App() {
   return (
@@ -35,7 +36,8 @@ function App() {
           <Route path="/farmer-dashboard" component={FarmerDashboard} />
           {/* <Route path="/farmer-dashboard-addfarm" component={Farm} /> */}
           <Route path="/feedback" component={Feedback} />
-          <Route path='/add-farm-item/' component={FormikAddProduce}/>
+          <Route path="/add-farm-item/" component={FormikAddProduce} />
+          <Route path="/customer-dashboard" component={ConsumerDashboard} />
         </Switch>
       </div>
     </div>
