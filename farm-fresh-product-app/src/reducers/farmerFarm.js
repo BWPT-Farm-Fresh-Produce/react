@@ -11,7 +11,7 @@ import {
  DELETING_FARM_START,
  DELETING_FARM_SUCCESS,
  DELETING_FARM_ERROR,
-} from '../actions/farmerProduce';
+} from '../actions/farmerFarm';
 
 const initialState = {
   isLoadingFarm:false,

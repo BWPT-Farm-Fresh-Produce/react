@@ -1,6 +1,8 @@
 import React,{useState} from 'react';
+import { connect } from 'react-redux';
+import { addFarmerFarm } from '../../../../actions/farmerFarm';
 
-function AddFarm() {
+function AddFarm(props) {
   const defaultFarm = {
     name: "",
     address: "",
@@ -9,18 +11,24 @@ function AddFarm() {
     city_id: "",
     state_id: ""
 }
+
   const [farm,setFarm] = useState(defaultFarm);
   const handleChange = (event) => {
       setFarm({...farm, [event.target.name]:event.target.value});
   }
   const handleSubmit = (event) => {
      event.preventDefault();
+//      const newFarm = {...farm, parseInt(farm.city_id), parseInt(farm.state_id)}
+     console.log(farm);
+     props.addFarmerFarm(farm);
+     setFarm(defaultFarm);
 
   }
+  console.log(props.addFarmerFarm)
   return (
     <div>
     <h4>Add a New Farm</h4>
-     <form>
+     <form onSubmit={handleSubmit}>
         <input type="text"
               value={farm.name}
               name="name" placeholder="Name"
@@ -61,4 +69,15 @@ function AddFarm() {
   )
 }
 
-export default AddFarm;
+const mapDispatchToProps = {
+      addFarmerFarm
+}
+function mapStateToProps(state) {
+   return {
+      isAddingFarm:state.farmFarm.isAddingFarm,
+      isFarmAdded:state.farmFarm.isFarmAdded,
+      farms:state.farmFarm.farms,
+      error:state.farmFarm.error
+   }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(AddFarm);

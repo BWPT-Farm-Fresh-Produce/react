@@ -11,23 +11,23 @@ import EditFarm from './farm/EditFarm';
 import './farmerdashboard.scss';
 
 const FarmerDashboard = () => {
-   const [farmerProduce, setFarmerProduce] = useState([]);
-   useEffect(()=>{
-      axios
-      .get('https://cors-anywhere.herokuapp.com/https://swapi.co/api/people', {
-         headers: {
-            authorization: localStorage.getItem('token')
-         }
-      })
-      .then(response=>{
-         console.log(response)
-         setFarmerProduce(response.data.results)
-      })
-      .catch(error=>{
-         console.log(error)
-      })
-   },[]
-   )
+   // const [farmerProduce, setFarmerProduce] = useState([]);
+   // useEffect(()=>{
+   //    axios
+   //    .get('https://cors-anywhere.herokuapp.com/https://swapi.co/api/people', {
+   //       headers: {
+   //          authorization: localStorage.getItem('token')
+   //       }
+   //    })
+   //    .then(response=>{
+   //       console.log(response)
+   //       setFarmerProduce(response.data.results)
+   //    })
+   //    .catch(error=>{
+   //       console.log(error)
+   //    })
+   // },[]
+   // )
 
    return(
       

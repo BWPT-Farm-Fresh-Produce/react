@@ -7,7 +7,7 @@ export const SIGN_UP_ERROR = "SIGN_UP_ERROR";
 export function farmerRegister(values,props) {
     return (dispatch) => {
           dispatch({type:SIGN_UP_START});         
-          axios.post("https://farm-fresh-bw.herokuapp.com/api/auth/farmer/register", values)
+          axios.post("https://aqueous-ocean-41606.herokuapp.com/api/auth/farmer/register", values)
            .then( response => {              
               console.log(response.data.user);
               props.history.push('/farmer-login');
