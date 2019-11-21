@@ -11,7 +11,7 @@ export default function ConsumerProductList(props) {
   useEffect(() => {
     axios
       .get(
-        `https://farm-fresh-bw.herokuapp.com/api/consumers/shop/categories`,
+        `https://aqueous-ocean-41606.herokuapp.com/api/consumers/shop/categories`,
         {
           headers: {
             authorization: localStorage.getItem('token'),

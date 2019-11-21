@@ -14,7 +14,7 @@ const EditProduce = ({touched, errors, status, isSubmitting}) =>{
    return(
       <>
       
-      <Form>
+      <Form className='edit-produce'>
          <h3>Edit Produce</h3>
          <div className='container'>
          { touched.name && errors.name && <p className='error name'>{errors.name}</p>}
@@ -51,7 +51,7 @@ const FormikEditProduce= withFormik({
    //   const farmid = props.params.match.id;
 
      axios
-     .post(`https://farm-fresh-bw.herokuapp.com//api/farmers/produce/:farmId`,{
+     .post(`https://aqueous-ocean-41606.herokuapp.com//api/farmers/produce/:farmId`,{
         headers: {
          authorization: localStorage.getItem('token'),
          values

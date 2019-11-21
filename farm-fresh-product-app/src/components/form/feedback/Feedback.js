@@ -14,7 +14,7 @@ const Feedback = ({touched, errors, isSubmitting,status}) =>{
    return(
       <>
       <Header />
-      <Form>
+      <Form className='feedback-form'>
       <div className='container'>
          {touched.name && errors.name && <p className='error name'>{errors.name}</p>}
          <Field type='text' name='name' placeholder='Name' className='input'/>
