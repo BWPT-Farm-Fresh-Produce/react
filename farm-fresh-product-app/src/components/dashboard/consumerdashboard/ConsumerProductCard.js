@@ -12,7 +12,7 @@ export default function ConsumerProductCard(props) {
     }
     axios
       .get(
-        `https://farm-fresh-bw.herokuapp.com//api/consumers/shop/:category/:categoryId${id}`
+        `https://aqueous-ocean-41606.herokuapp.com//api/consumers/shop/:category/:categoryId${id}`
       )
 
       .then(response => {

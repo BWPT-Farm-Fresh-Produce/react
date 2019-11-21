@@ -51,7 +51,7 @@ const FormikEditProduce= withFormik({
    //   const farmid = props.params.match.id;
 
      axios
-     .post(`https://farm-fresh-bw.herokuapp.com//api/farmers/produce/:farmId`,{
+     .post(`https://aqueous-ocean-41606.herokuapp.com/api/farmers/produce/:farmId`,{
         headers: {
          authorization: localStorage.getItem('token'),
          values
