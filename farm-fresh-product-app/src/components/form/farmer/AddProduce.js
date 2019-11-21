@@ -6,6 +6,7 @@ import axios from "axios";
 import Header from "../../header/Header";
 import { connect } from "react-redux";
 import { getProduceCategories } from "../../../actions/farmerProduce";
+import { getFarms } from "../../../actions/farmerFarm";
 import Load from "../../load/Load";
 const AddProduce = ({
   handleChange,
@@ -13,20 +14,26 @@ const AddProduce = ({
   errors,
   status,
   isSubmitting,
-  ...props
+  produceCategories,
+  farms,
+  getProduceCategories: innerGetProduceCategories,
+  getFarms: innerGetFarms
 }) => {
-  console.log(props);
   const [farmItems, setFarmItems] = useState([]);
   useEffect(() => {
-    if (props.produceCategories) return;
-    props.getProduceCategories();
-  }, []);
+    if (produceCategories) return;
+    innerGetProduceCategories();
+  }, [innerGetProduceCategories, produceCategories]);
+  useEffect(() => {
+    if (farms) return;
+    innerGetFarms();
+  }, [innerGetFarms, farms]);
   useEffect(() => {
     status && setFarmItems(farmItems => [...farmItems, status]);
   }, [status]);
   return (
     <>
-      {props.produceCategories ? (
+      {produceCategories && farms ? (
         <Form>
           <h3>Add Produce</h3>
           <div className="container">
@@ -43,7 +50,7 @@ const AddProduce = ({
               <p className="error quantity">{errors.quantity}</p>
             )}
             <Field
-              type="text"
+              type="number"
               name="quantity"
               placeholder="Quantity"
               className="input"
@@ -52,7 +59,7 @@ const AddProduce = ({
               <p className="error price">{errors.price}</p>
             )}
             <Field
-              type="text"
+              type="number"
               name="price"
               placeholder="Price"
               className="input"
@@ -61,13 +68,13 @@ const AddProduce = ({
               <p className="error id">{errors.category}</p>
             )}
             <select
-              name="category"
+              name="category_id"
               placeholder="Select Category"
               className="input"
               onChange={handleChange}
             >
               <option value="" label="Select Category" />
-              {props.produceCategories.map(category => (
+              {produceCategories.map(category => (
                 <option
                   key={category.id}
                   value={category.id}
@@ -93,42 +100,47 @@ const FormikAddProduce = withFormik({
       name: values.name || "",
       quantity: values.quantity || "",
       price: values.price || "",
-      category: values.category || ""
+      category_id: values.category_id || ""
     };
   },
   validationSchema: Yup.object().shape({
     name: Yup.string().required("Enter a produce name."),
-    quantity: Yup.string().required("Enter a quantity"),
-    price: Yup.string().required("Enter the price"),
-    category: Yup.string().required("Enter the ID")
+    quantity: Yup.number().required("Enter a quantity"),
+    price: Yup.number().required("Enter the price"),
+    category_id: Yup.number().required("Enter the ID")
   }),
   handleSubmit(values, { resetForm, setStatus, setSubmitting }) {
     //   const farmid = props.params.match.id;
-    console.log(values);
-    //   axios
-    //   .post(`https://aqueous-ocean-41606.herokuapp.com/api/farmers/produce/:farmId`,{
-    //      headers: {
-    //       authorization: localStorage.getItem('token'),
-    //       values
-    // }})
-    //   .then(response=>{
-    //      console.log(response);
-    //      setStatus(response.data)
-    //      resetForm();
-    //      setSubmitting(false);
-    //   })
-    //   .catch(error=>{
-    //    console.log(error)
-    //   })
+    axios
+      .post(
+        `https://aqueous-ocean-41606.herokuapp.com/api/farmers/produce/:farmId`,
+        { ...values, category_id: Number(values.category_id) },
+        {
+          headers: {
+            authorization: JSON.parse(localStorage.getItem("FARMER_LOGIN_KEY"))
+              .token
+          }
+        }
+      )
+      .then(response => {
+        console.log(response);
+        setStatus(response.data);
+        resetForm();
+        setSubmitting(false);
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 })(AddProduce);
 
-const mapStateToProps = ({ farmProduce }) => {
+const mapStateToProps = ({ farmProduce, farmerFarm }) => {
   return {
-    produceCategories: farmProduce.produceCategories
+    produceCategories: farmProduce.produceCategories,
+    farms: farmerFarm.farms
   };
 };
 
-export default connect(mapStateToProps, { getProduceCategories })(
+export default connect(mapStateToProps, { getProduceCategories, getFarms })(
   FormikAddProduce
 );
