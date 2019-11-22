@@ -8,6 +8,7 @@ import ConsumerProductList from "./components/dashboard/consumerdashboard/Consum
 import ConsumerProductCard from "./components/dashboard/consumerdashboard/ConsumerProductCard";
 import ConsumerDashboard from "./components/dashboard/consumerdashboard/ConsumerDashboard";
 import FarmerDashboard from "./components/dashboard/farmerdashboard/FarmerDashboard";
+import ConsumerFarmView from "./components/dashboard/consumerdashboard/ConsumerFarmView";
 import PageNotFound from "./errors/PageNotFound";
 import ServerSideError from "./errors/ServerSideError";
 import UnauthorizedError from "./errors/UnauthorizedError";
@@ -38,6 +39,7 @@ function App() {
           <Route path="/feedback" component={Feedback} />
           <Route path="/add-farm-item/" component={FormikAddProduce} />
           <Route path="/customer-dashboard" component={ConsumerDashboard} />
+          <Route path="/farms/:id" component={ConsumerFarmView} />
         </Switch>
       </div>
     </div>

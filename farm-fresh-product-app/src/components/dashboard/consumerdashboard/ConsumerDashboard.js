@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import { addItemToCart } from "../../../actions/customerShopping";
@@ -11,6 +11,7 @@ import ConsumerHome from './ConsumerHome';
 import ConsumerProductList from './ConsumerProductList';
 import ConsumerProductCard from './ConsumerProductCard';
 import ConsumerCheckoutCart from './ConsumerCheckout';
+import Axios from "axios";
 
 // for Materials UI
 // const useStyles = makeStyles(theme => ({
@@ -24,9 +25,26 @@ import ConsumerCheckoutCart from './ConsumerCheckout';
 
 function ConsumerDashboard(props) {
   // const classes = useStyles();
-  const [item] = useState();
+  const [farms, setFarms] = useState([]);
 
   const [cartItems, setCartItems] = useState ( [] );
+
+  useEffect(() => {
+    Axios
+      .get('https://aqueous-ocean-41606.herokuapp.com/api/farms/',{
+        headers: {
+          authorization: JSON.parse(localStorage.getItem('CUSTOMER_LOGIN_KEY')).token
+        }
+      } )
+      .then(response => {
+        console.log(response.data)
+        setFarms(response.data)
+      })
+      .catch(error => {
+        console.log('Error, oh to error:',error)
+      })
+  }, [])
+
   const addToCheckoutCart = item => {
     setCartItems( previousCartItems => [...previousCartItems, item] )
   }
@@ -49,20 +67,23 @@ function ConsumerDashboard(props) {
         </div>
       </nav>
 
-      <Route exact path="/" component={ConsumerHome} />
+      {farms.map(farm => {
+        return <Link key={farm.id} to={`/farms/${farm.id}`}>{farm.name}</Link>
+      })}
+      {/* <Route exact path="/" component={ConsumerHome} />
       <Route
         exact
         path="/product-list"
-        render={props => <ConsumerProductList {...props} product={item} />}
+        render={props => <ConsumerProductList {...props} />}
       />
       <Route
         path="/product-list/:id"
-        render={props => <ConsumerProductCard {...props} product={item} addToCheckoutCart={addToCheckoutCart} />}
+        render={props => <ConsumerProductCard {...props} addToCheckoutCart={addToCheckoutCart} />}
       />
       <Route 
         path='/checkout-cart'
         render={props => <ConsumerCheckoutCart {...props} cartItems={cartItems} /> }
-      />
+      /> */}
     </div>
     </div>
 }
