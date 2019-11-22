@@ -6,7 +6,6 @@ import axios from "axios";
 import Header from "../../header/Header";
 import { connect } from "react-redux";
 import { getProduceCategories } from "../../../actions/farmerProduce";
-import { getFarms } from "../../../actions/farmerFarm";
 import Load from "../../load/Load";
 const AddProduce = ({
   handleChange,
@@ -16,18 +15,13 @@ const AddProduce = ({
   isSubmitting,
   produceCategories,
   farms,
-  getProduceCategories: innerGetProduceCategories,
-  getFarms: innerGetFarms
+  getProduceCategories: innerGetProduceCategories
 }) => {
   const [farmItems, setFarmItems] = useState([]);
   useEffect(() => {
     if (produceCategories) return;
     innerGetProduceCategories();
   }, [innerGetProduceCategories, produceCategories]);
-  useEffect(() => {
-    if (farms) return;
-    innerGetFarms();
-  }, [innerGetFarms, farms]);
   useEffect(() => {
     status && setFarmItems(farmItems => [...farmItems, status]);
   }, [status]);
@@ -134,13 +128,13 @@ const FormikAddProduce = withFormik({
   }
 })(AddProduce);
 
-const mapStateToProps = ({ farmProduce, farmerFarm }) => {
+const mapStateToProps = ({ farmProduce, farmFarm }) => {
   return {
     produceCategories: farmProduce.produceCategories,
-    farms: farmerFarm.farms
+    farms: farmFarm.farms
   };
 };
 
-export default connect(mapStateToProps, { getProduceCategories, getFarms })(
+export default connect(mapStateToProps, { getProduceCategories })(
   FormikAddProduce
 );
