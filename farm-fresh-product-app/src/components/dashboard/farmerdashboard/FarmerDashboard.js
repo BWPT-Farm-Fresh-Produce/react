@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Route} from 'react-router-dom';
+import {Route, NavLink} from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import Header from '../../header/Header';
@@ -8,9 +8,12 @@ import SideMenu from '../farmerdashboard/SideMenu'
 import AddFarm from './farm/AddFarm';
 import EditFarm from './farm/EditFarm';
 import { getAllFarms } from '../../../actions/farmerFarm';
-
-
+import AddProduce from '../../form/farmer/AddProduce'
+import EditProduce from '../../form/farmer/EditProduce';
 import './farmerdashboard.scss';
+import FarmProduceCard from './FarmProduceCard';
+import Produce from './Produce';
+import Farm from './Farm';
 
 const FarmerDashboard = (props) => {
   
@@ -19,27 +22,22 @@ const FarmerDashboard = (props) => {
    },[]);
    console.log('Line Number 20', props.farms)
    return(
-      
-      <div className='dashboard'>
-       <Header />
-
-      <h1 className='farmdTitle'>Farmer's Dashboard</h1>
-      
+   <div className='dashboard'>
+        <Header />
+      <h1 className='farmdTitle'>Farmer's Dashboard</h1>      
       <div className='farmcontainer'>
-      <SideMenu />
-      <div className='farmerproduce'>
-      {/* {props.farms.map((farm,index)=>(
-         <div key={index} className='farmerProducts'>
-         <p className='productcontent'>{farmer.name}</p>
-         <p className='productcontent'>{farmer.homeworld}</p>
+         <SideMenu />
+         <Farm />
+         <div className='farmerproduce'>     
+            <Route path="/farmer-dashboard/add-farm" component={AddFarm} />
+            <Route path="/farmer-dashboard/edit-farm" component={EditFarm} />
+            <Route path="/farmer-dashboard/add-item" component={AddProduce}/>
+            <Route path='/farmer-dashboard/edit-item' component={EditProduce}/>
+            {/* <Route path='/farmer-dashboard/view-farm' component={Farm}/> */}
+            <Route path='/farmer-dashboard/produce' component={Produce}/>
          </div>
-
-         ))} */}
-         <Route path="/farmer-dashboard/add-farm" component={AddFarm} />
-         <Route path="/farmer-dashboard/edit-farm" component={EditFarm} />
-         </div>
-         </div>
-
+      </div>
+         <NavLink to='/feedback'><button>Feedback</button></NavLink>
    </div> 
  
       

@@ -1,58 +1,66 @@
 import React,{useState} from 'react';
+import { connect} from 'react-redux';
+import { editFarmerFarm } from '../../../../actions/farmerFarm';
+import { FARMER_LOGIN_KEY } from '../../../../constants/Constant';
 
-function EditFarm() {
-  const defaultFarm = {
-    name: "",
-    address: "",
-    year_founded: "",
-    bio: "",
-    city_id: "",
-    state_id: ""
-}
+function EditFarm(props) {
+  const defaultFarm = { id:"", name: "", address: "", year_founded: "", bio: "", city_id: "", state_id: ""};    
+  const farmArray = props.newFarms    
+  const {id, name, address, year_founded, bio, city_id, state_id} = farmArray || defaultFarm;  
   const [farm,setFarm] = useState(defaultFarm);
   const handleChange = (event) => {
       setFarm({...farm, [event.target.name]:event.target.value});
   }
   const handleSubmit = (event) => {
+     const farmerId = JSON.parse(localStorage.getItem(FARMER_LOGIN_KEY)).id;  
+     const newFarm = {...farm, id, farmer_id: farmerId};
+     console.log("line14",newFarm);
+     console.log('id',id);
+     console.log('farmer_id', props.farmer_id)
      event.preventDefault();
-
+     props.editFarmerFarm(id, newFarm);
+     setFarm(defaultFarm);
   }
+console.log(props)
+  console.log(props.newFarms);
+  console.log(farmArray)
   return (
     <div>
      <h4>update Your Farm</h4>
-     <form>
+     <form onSubmit={handleSubmit}>
         <input type="text"
               value={farm.name}
-              name="name" placeholder="Name"
+              name="name" 
+              placeholder={name}
               onChange={handleChange}             
         />
 
         <input type="text" 
               value={farm.address} 
-              name="address" placeholder="Address" 
+              name="address" placeholder={address} 
               onChange={handleChange}               
         />
         <input type="text" 
               value={farm.year_founded} 
-              name="year_founded" placeholder="Year Founded" 
+              name="year_founded" placeholder={year_founded} 
               onChange={handleChange}               
         />
 
         <input type="text" 
               value={farm.bio} 
-              name="bio" placeholder="bio" 
+              name="bio" placeholder={bio}
               onChange={handleChange}               
         />
 
         <input type="text" 
               value={farm.city_id} 
-              name="city_id" placeholder="City ID" 
+              name="city_id" placeholder={city_id} 
               onChange={handleChange}               
         />
 
         <input type="text" 
               value={farm.state_id} 
-              name="state_id" placeholder="State ID" 
+              name="state_id" placeholder={state_id}
               onChange={handleChange}               
         /> 
         <button type="submit">Update Farm</button>       
@@ -60,5 +68,13 @@ function EditFarm() {
     </div>
   )
 }
-
-export default EditFarm;
+const mapDispatchToProps ={
+      editFarmerFarm
+}
+function mapStateToprops(state) {
+      return {
+         newFarms:state.farmFarm.farms[0]
+         
+      }
+}
+export default connect(mapStateToprops, mapDispatchToProps)(EditFarm);

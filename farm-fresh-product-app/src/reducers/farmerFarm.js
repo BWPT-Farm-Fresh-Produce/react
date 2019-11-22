@@ -23,6 +23,7 @@ const initialState = {
   isDeletingFarm:false,
   isFarmDeleted:false,
   farms:[],
+  farmer_id: undefined,
   error:null
 }
 

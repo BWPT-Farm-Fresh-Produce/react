@@ -13,12 +13,13 @@ function AddFarm(props) {
 }
 
   const [farm,setFarm] = useState(defaultFarm);
+
   const handleChange = (event) => {
       setFarm({...farm, [event.target.name]:event.target.value});
   }
+
   const handleSubmit = (event) => {
-     event.preventDefault();
-//      const newFarm = {...farm, parseInt(farm.city_id), parseInt(farm.state_id)}
+     event.preventDefault();  
      console.log(farm);
      props.addFarmerFarm(farm);
      setFarm(defaultFarm);

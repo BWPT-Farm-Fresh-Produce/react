@@ -1,7 +1,8 @@
-form { 
+.addproduce, .edit-produce, .view-farm , .view-produce { 
    border: 3px solid #f1f1f1; 
    width: 320px;
    margin: 50px auto 0px auto;
+   height: 300px;
    button {
      background-color: #4CAF50;
      color: white; 
@@ -36,16 +37,16 @@ form {
          width: 268px;
        }
        .name {
-         top: 0px;
+         top: 75px;
        }
        .quantity{
-         top: 38px;
+         top: 120px;
        }
        .price {
-         top:77px;
+         top:167px;
        }
        .id{
-         top: 113px;
+         top: 210px;
        }
  
        

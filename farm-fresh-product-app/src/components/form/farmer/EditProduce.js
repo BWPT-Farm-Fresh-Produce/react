@@ -3,8 +3,8 @@ import {withFormik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
 import './addproduce.scss';
 import axios from 'axios';
-import Header from '../../header/Header'
-const AddProduce = ({touched, errors, status, isSubmitting}) =>{
+
+const EditProduce = ({touched, errors, status, isSubmitting}) =>{
 
    const [farmItems, setFarmItems] = useState([]);
    useEffect(()=>{
@@ -14,8 +14,8 @@ const AddProduce = ({touched, errors, status, isSubmitting}) =>{
    return(
       <>
       
-      <Form className='addproduce'>
-         <h3>Add Produce</h3>
+      <Form className='edit-produce'>
+         <h3>Edit Produce</h3>
          <div className='container'>
          { touched.name && errors.name && <p className='error name'>{errors.name}</p>}
          <Field type='text' name='name' placeholder='Name of Produce' className='input'/>
@@ -25,14 +25,14 @@ const AddProduce = ({touched, errors, status, isSubmitting}) =>{
          <Field type='text' name='price' placeholder='Price' className='input'/>
          {touched.category && errors.category && <p className='error id'>{errors.category}</p>}
          <Field type='text' name='category' placeholder='ID' className='input'/>
-         <button className='sign-up' type='submit' disabled={isSubmitting}>Add</button>
+         <button className='sign-up' type='submit' disabled={isSubmitting}>Edit</button>
          </div>
          </Form>
          </>
    );
 }
 
-const FormikAddProduce= withFormik({
+const FormikEditProduce= withFormik({
   mapPropsToValues(values){
      return{
      name: values.name || '',
@@ -67,6 +67,6 @@ const FormikAddProduce= withFormik({
      })
   }
   
-})(AddProduce)
+})(EditProduce)
 
-export default FormikAddProduce;
+export default FormikEditProduce;
