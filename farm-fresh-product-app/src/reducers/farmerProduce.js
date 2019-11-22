@@ -11,6 +11,8 @@ import {
  DELETING_PRODUCE_START, 
  DELETING_PRODUCE_SUCCESS, 
  DELETING_PRODUCE_ERROR,
+ SET_CATEGORIES,
+ SET_CATEGORIES_ERROR,
 } from '../actions/farmerProduce';
 
 const initialState = {
@@ -23,6 +25,7 @@ const initialState = {
   isDeletingProduce:false,
   isProduceDeleted:false,
   produceItems:[],
+  produceCategories: null,
   error:null
 }
 
@@ -110,6 +113,19 @@ export default function farmerProduce(state=initialState, action) {
            isProduceDeleted:false,
            error:action.payload
          }  
+      case SET_CATEGORIES:
+        return {
+          ...state,
+          isLoadingProduce: false,
+          error: null,
+          produceCategories: action.payload
+        }
+      case SET_CATEGORIES_ERROR:
+        return {
+          ...state,
+          isLoadingProduce: false,
+          error: action.payload,
+        }
       default:
       return state
     }
