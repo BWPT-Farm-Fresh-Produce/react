@@ -56,7 +56,7 @@ const FarmerDashboard = props => {
           <Route path="/farmer-dashboard/add-item" component={AddProduce} />
           <Route path="/farmer-dashboard/edit-item" component={EditProduce} />
           {/* <Route path='/farmer-dashboard/view-farm' component={Farm}/> */}
-          <Route path="/farmer-dashboard/produce" component={Produce} />
+          <Route path="/farmer-dashboard/produce/:id" component={Produce} />
         </div>
       </div>
       <NavLink to="/feedback">

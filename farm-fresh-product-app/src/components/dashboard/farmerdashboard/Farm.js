@@ -21,7 +21,7 @@ const Farm = props => {
           <button onClick={props.increment}> >>></button>
         </div>
       ) : null}
-      <Link to="/farmer-dashboard/produce">
+      <Link to={`/farmer-dashboard/produce/${props.id}`}>
         <button className="produce-btn">View Produce Items</button>
       </Link>
     </div>
