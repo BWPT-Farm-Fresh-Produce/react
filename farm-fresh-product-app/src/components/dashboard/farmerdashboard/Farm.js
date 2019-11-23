@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { getAllFarms } from "../../../actions/farmerFarm";
 import { Link } from "react-router-dom";
-import "../../form/farmer/addproduce.scss";
+// import "../../form/farmer/addproduce.scss";
 
 const Farm = props => {
   useEffect( () => {
@@ -12,8 +12,8 @@ const Farm = props => {
 
   return (
     <div className="view-farm">
-      <button onClick={props.decrement}>{"<<<"}</button>
-       <button onClick={props.increment}>{">>>"}</button> 
+      <button className="decrement" onClick={props.decrement}>{"<<<"}</button>
+       <button className="increment" onClick={props.increment}>{">>>"}</button> 
       <h3>View farm</h3>
       {props.currentFarm ? (
         <div className="farms">        
@@ -26,7 +26,9 @@ const Farm = props => {
         </div>
       ) : null}
       <Link to={`/farmer-dashboard/produce/${props.id}`}>
-        <button className="produce-btn">View Produce Items</button>
+        <button 
+         className="produce-btn"
+         style={{height:"40px"}}>View Produce Items</button>
       </Link>
     </div>
   );

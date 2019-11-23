@@ -3,7 +3,7 @@ import { withFormik, Form, Field } from "formik";
 import {withRouter, NavLink} from 'react-router-dom';
 import axios from 'axios';
 import * as yup from 'yup';
-import '../form.scss';
+import './form.scss';
 
 function Register (props){
   const {errors,touched, status}= props;   
@@ -69,7 +69,7 @@ function Register (props){
       <Field type="password" name="password" placeholder="password" className="input"/>
 
       <div className='sign-in-sign-up-button'>
-        <button className='sign-button' type='submit' variant="danger" size="lg">Register</button>
+        <button className='register' type='submit' variant="danger" size="lg">Register</button>
       </div>
       <label>
         <input type="checkbox" checked="checked" name="remember" /> Remember me

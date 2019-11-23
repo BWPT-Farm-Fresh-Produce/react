@@ -23,6 +23,13 @@
   margin-left: 50px;
   
 }
+button.increment, button.decrement {
+    width:50%;
+}
+button.produce-btn {
+   width:90%;
+   padding: 5px 25px;
+}
 button{
    background-color: #4CAF50;
    color: white; 
@@ -74,25 +81,45 @@ h2 {
    width: 50px;
 }
 .vertical-menu {
+<<<<<<< HEAD
    width: 300px;
    margin-top: 10px;
+||||||| merged common ancestors
+   width: 300px;
+   margin-top: 100px;
+=======
+   width: 320px;
+   margin-top: 50px;
+>>>>>>> master
    margin-bottom: 100px;
+   padding-bottom:50px;
    
   
    
  }
- 
+ a {
+   text-decoration: none;
+}
  .vertical-menu button {
    background-color: #eee;
    color: black;
    display: block;
-   padding: 10px;
+   padding: 12px;
    text-decoration: none;
    width: 150px;
+<<<<<<< HEAD
    padding-left: 20px;
    height: 80px;
    font-size: 15px;
    
+||||||| merged common ancestors
+   padding-left: 20px;
+=======
+   padding-left: 30px;
+   text-align: left;
+   margin-bottom:5px;
+   
+>>>>>>> master
  
  }
  
@@ -110,7 +137,12 @@ h2 {
  }
  .vertical-menu button.non-active {
     cursor: none;
+<<<<<<< HEAD
     background-color: #eee;
+||||||| merged common ancestors
+=======
+    background-color:gold;
+>>>>>>> master
 
  }
  

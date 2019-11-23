@@ -24,7 +24,7 @@ const Feedback = ({touched, errors, isSubmitting,status}) =>{
          {touched.suggestion}
          <Field type='text' name='suggestion' placeholder='Suggestion' className='input'/>
          
-         <button type='submit' className ='sign-up feeback' disabled={isSubmitting}>Submit</button>
+         <button type='submit' className ='sign-up feedback-button feeback' disabled={isSubmitting}>Submit</button>
          {farmers.map((farm,index)=>
             <ul key={index}>
             <li>{farm.name}</li>

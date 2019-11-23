@@ -4,7 +4,7 @@ import {withRouter, NavLink} from 'react-router-dom';
 import PersonImage from '../../../assets/images/person.jpg';
 import axios from 'axios';
 import * as yup from 'yup';
-import '../form.scss';
+import './form.scss';
 
 function Login (props){
   const {errors,touched, status}= props;   
@@ -35,13 +35,13 @@ function Login (props){
         <NavLink to='/customer-register'>
           <button  
           size="lg" 
-          className='custom-btn'
+          className='custom-btn register'
           onClick={(event) => toggleBackground(event)}>Register</button>
         </NavLink>
         <NavLink to='/customer-login'>
            <button  
            size="lg" 
-           className='custom-btn'
+           className='custom-btn login'
            onClick={(event) => toggleBackground(event)}>Login</button>
         </NavLink>
       </div> 
@@ -59,7 +59,7 @@ function Login (props){
       <label htmlFor="psw"><b>Password</b></label>
       <Field type="password" name="password" placeholder="password" className="input"/>    
       <div className='sign-in-sign-up-button'>
-        <button className='sign-button' type='submit' variant="danger" size="lg">Login</button>
+        <button className='login-button' type='submit' variant="danger" size="lg">Login</button>
       </div>
       <label>
         <input type="checkbox" checked="checked" name="remember" /> Remember me
