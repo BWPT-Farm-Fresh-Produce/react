@@ -5,12 +5,13 @@ import "../../form/farmer/addproduce.scss";
 const Produce = (props) => {
   const [produce, setProduce] = useState([]);
   const farmId = props.match.params.id;
+  console.log('farm', farmId)
   useEffect(() => {
     const produceInfo = JSON.parse(localStorage.getItem("FARMER_LOGIN_KEY"));
     console.log("produce" , produceInfo);
     axios
       .get(
-        `https://aqueous-ocean-41606.herokuapp.com/api/farmers/produce/${farmId}`,
+        `https://aqueous-ocean-41606.herokuapp.com/api/farmers/produce/${produceInfo}`,
         {
           headers: {
             authorization: produceInfo.token

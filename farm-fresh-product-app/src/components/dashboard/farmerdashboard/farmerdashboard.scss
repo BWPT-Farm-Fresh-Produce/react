@@ -2,6 +2,7 @@
 .farmdTitle {
   margin-left: 300px;
   text-decoration-line: underline;
+ margin-top: 0;
  }
 
 
@@ -82,8 +83,8 @@ h2 {
 }
 .vertical-menu {
    width: 320px;
-   margin-top: 20px;
-   margin-bottom: 100px;
+   margin-top: 0px;
+   margin-bottom: 0px;
    padding-bottom:50px;
    
   
@@ -124,10 +125,7 @@ h2 {
 
  }
  
- .smenu {
-   
-   margin-bottom: 300px;
- }
+ 
 
  .farmcontainer{
     display: flex;
@@ -161,4 +159,8 @@ h2 {
 h2{
    text-emphasis: bold;
    color: grey;
+}
+p{
+   color: green;
+   
 }
