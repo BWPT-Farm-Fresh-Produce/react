@@ -52,7 +52,7 @@ const EditProduce = ({ touched, errors, status, isSubmitting }) => {
             className="input"
           />
           <button className="sign-up" type="submit" disabled={isSubmitting}>
-            Edit
+            Update Farm
           </button>
         </div>
       </Form>

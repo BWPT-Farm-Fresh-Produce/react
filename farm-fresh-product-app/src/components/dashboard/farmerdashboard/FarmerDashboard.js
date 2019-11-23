@@ -14,6 +14,7 @@ import "./farmerdashboard.scss";
 import FarmProduceCard from "./FarmProduceCard";
 import Produce from "./Produce";
 import Farm from "./Farm";
+import Feedback from '../../form/feedback/Feedback';
 
 const FarmerDashboard = props => {
   const [index, setIndex] = useState(0);
@@ -56,12 +57,10 @@ const FarmerDashboard = props => {
           <Route path="/farmer-dashboard/add-item" component={AddProduce} />
           <Route path="/farmer-dashboard/edit-item" component={EditProduce} />
           {/* <Route path='/farmer-dashboard/view-farm' component={Farm}/> */}
+          <Route path="/farmer-dashboard/feedback" component={Feedback} />
           <Route path="/farmer-dashboard/produce/:id" component={Produce} />
         </div>
-      </div>
-      <NavLink to="/feedback">
-        <button>Feedback</button>
-      </NavLink>
+      </div>     
     </div>
   );
 };

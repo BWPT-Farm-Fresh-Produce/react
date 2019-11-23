@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { editFarmerFarm } from "../../../../actions/farmerFarm";
 import { FARMER_LOGIN_KEY } from "../../../../constants/Constant";
+import './Farm.scss';
 
 function EditFarm(props) {
   const defaultFarm = {
@@ -30,14 +31,17 @@ function EditFarm(props) {
   };
   return (
     <div>
-      <h4>update Your Farm</h4>
-      <form onSubmit={handleSubmit}>
+      
+      <form onSubmit={handleSubmit}>      
+       <div className="container">
+       <h4>update Your Farm</h4>
         <input
           type="text"
           value={farm.name}
           name="name"
           placeholder="Name"
           onChange={handleChange}
+          className="input"
         />
 
         <input
@@ -46,6 +50,7 @@ function EditFarm(props) {
           name="address"
           placeholder="Address"
           onChange={handleChange}
+          className="input"
         />
         <input
           type="text"
@@ -53,6 +58,7 @@ function EditFarm(props) {
           name="year_founded"
           placeholder="Year Founded"
           onChange={handleChange}
+          className="input"
         />
 
         <input
@@ -61,6 +67,7 @@ function EditFarm(props) {
           name="bio"
           placeholder="Bio"
           onChange={handleChange}
+          className="input"
         />
 
         <input
@@ -69,6 +76,7 @@ function EditFarm(props) {
           name="city_id"
           placeholder="City ID"
           onChange={handleChange}
+          className="input"
         />
 
         <input
@@ -77,9 +85,12 @@ function EditFarm(props) {
           name="state_id"
           placeholder="State ID"
           onChange={handleChange}
+          className="input"
         />
         <button type="submit">Update Farm</button>
+        </div>
       </form>
+     
     </div>
   );
 }

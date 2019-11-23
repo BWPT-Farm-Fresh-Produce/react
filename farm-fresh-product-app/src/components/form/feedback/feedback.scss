@@ -1,16 +1,16 @@
 .feedback-form { 
   border: 3px solid #f1f1f1; 
-  width: 320px;
+  width: 280px;
   margin: 50px auto 0px auto;
-  height: 200px;
+  height: 390px;
   button {
     background-color: #4CAF50;
     color: white; 
-    padding: 14px 20px; 
-    margin:0px; 
+    padding: 7px 25px; 
+    margin:40px auto; 
     border: none; 
     cursor: pointer; 
-    width: 50%; 
+    width: 90%; 
     height: 44px;
     &:hover {
        background:#006400; 
@@ -21,7 +21,9 @@
       color: #FF0000;
     }
   }
-  
+  .feedback {
+    margin-top: 60px;
+  }
   .container {
       padding: 16px;
       .error {

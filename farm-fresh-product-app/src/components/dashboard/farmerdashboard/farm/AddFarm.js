@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { addFarmerFarm } from "../../../../actions/farmerFarm";
+import './Farm.scss';
 
 function AddFarm(props) {
   const defaultFarm = {
@@ -24,14 +25,17 @@ function AddFarm(props) {
   console.log(props.addFarmerFarm);
   return (
     <div>
-      <h4>Add a New Farm</h4>
+      
       <form onSubmit={handleSubmit}>
+      <div className="container">
+      <h4>Add a New Farm</h4>
         <input
           type="text"
           value={farm.name}
           name="name"
           placeholder="Name"
           onChange={handleChange}
+          className="input"
         />
 
         <input
@@ -40,6 +44,7 @@ function AddFarm(props) {
           name="address"
           placeholder="Address"
           onChange={handleChange}
+          className="input"
         />
         <input
           type="text"
@@ -47,6 +52,7 @@ function AddFarm(props) {
           name="year_founded"
           placeholder="Year Founded"
           onChange={handleChange}
+          className="input"
         />
 
         <input
@@ -55,6 +61,7 @@ function AddFarm(props) {
           name="bio"
           placeholder="bio"
           onChange={handleChange}
+          className="input"
         />
 
         <input
@@ -63,6 +70,7 @@ function AddFarm(props) {
           name="city_id"
           placeholder="City ID"
           onChange={handleChange}
+          className="input"
         />
 
         <input
@@ -71,8 +79,10 @@ function AddFarm(props) {
           name="state_id"
           placeholder="State ID"
           onChange={handleChange}
+          className="input"
         />
         <button type="submit">Add Farm</button>
+        </div>
       </form>
     </div>
   );

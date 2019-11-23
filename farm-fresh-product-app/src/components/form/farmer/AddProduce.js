@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { withFormik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import "./addproduce.scss";
 import axios from "axios";
 import Header from "../../header/Header";
 import { connect } from "react-redux";
 import { getProduceCategories } from "../../../actions/farmerProduce";
 import Load from "../../load/Load";
+import "./addproduce.scss";
+
 const AddProduce = ({
   handleChange,
   touched,
@@ -76,8 +77,8 @@ const AddProduce = ({
                 />
               ))}
             </select>
-            <button className="sign-up" type="submit" disabled={isSubmitting}>
-              Add
+            <button className="sign-up add-item" type="submit" disabled={isSubmitting}>
+              Add Farm
             </button>
           </div>
         </Form>
