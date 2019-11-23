@@ -34,7 +34,7 @@ function EditFarm(props) {
       
       <form onSubmit={handleSubmit}>      
        <div className="container">
-       <h4>update Your Farm</h4>
+       <h4>Update Your Farm</h4>
         <input
           type="text"
           value={farm.name}
