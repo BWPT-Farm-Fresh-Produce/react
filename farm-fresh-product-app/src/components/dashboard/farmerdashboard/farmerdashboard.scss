@@ -1,8 +1,8 @@
 
-.farmerdtitle {
-  text-align: center;
-  text-emphasis: bold;
-}
+.farmdTitle {
+  margin-left: 300px;
+  text-decoration-line: underline;
+ }
 
 
 .farmerproduce {
@@ -75,8 +75,10 @@ h2 {
 }
 .vertical-menu {
    width: 300px;
-   margin-top: 100px;
+   margin-top: 10px;
    margin-bottom: 100px;
+   
+  
    
  }
  
@@ -88,6 +90,9 @@ h2 {
    text-decoration: none;
    width: 150px;
    padding-left: 20px;
+   height: 80px;
+   font-size: 15px;
+   
  
  }
  
@@ -99,9 +104,13 @@ h2 {
  .vertical-menu button.active {
    background: #2a8000;
    color: white;
+   text-decoration: none;
+   font-size: 13px;
+   
  }
  .vertical-menu button.non-active {
     cursor: none;
+    background-color: #eee;
 
  }
  
@@ -123,3 +132,23 @@ h2 {
    width: 50%; 
    height: 54px;
  }
+
+ a:link {
+    text-decoration: none;
+
+ }
+
+ a:visited{
+    text-decoration: none;
+ }
+ a:hover {
+   text-decoration: none;
+ }
+ 
+ a:active {
+   text-decoration: none;
+ }
+h2{
+   text-emphasis: bold;
+   color: grey;
+}

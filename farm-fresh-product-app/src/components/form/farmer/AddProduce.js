@@ -78,7 +78,7 @@ const AddProduce = ({
               ))}
             </select>
             <button className="sign-up add-item" type="submit" disabled={isSubmitting}>
-              Add Farm
+              Add Produce
             </button>
           </div>
         </Form>
