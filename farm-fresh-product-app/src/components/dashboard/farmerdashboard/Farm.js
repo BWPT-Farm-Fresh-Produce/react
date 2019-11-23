@@ -9,7 +9,8 @@ const Farm = props => {
   useEffect( () => {
     props.getAllFarms();
   },[]);
-
+ 
+  console.log(props);
   return (
     <div className="view-farm">
       <button className="decrement" onClick={props.decrement}>{"<<<"}</button>
@@ -26,11 +27,7 @@ const Farm = props => {
           <p>Farm ID:{props.currentFarm.id}</p>      
         </div>
       ) : null}
-      <Link to={`/farmer-dashboard/produce/${props.id}`}>
-        <button 
-         className="produce-btn"
-         style={{height:"40px"}}>View Produce Items</button>
-      </Link>
+      
     </div>
   );
 };
