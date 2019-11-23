@@ -54,7 +54,8 @@ const FarmerDashboard = props => {
             path="/farmer-dashboard/edit-farm"
             render={props => <EditFarm {...props} currentFarm={currentFarm} />}
           />
-          <Route path="/farmer-dashboard/add-item" component={AddProduce} />
+          {/* <Route path="/farmer-dashboard/add-item" currentFarm={currentFarm} component={AddProduce} /> */}
+          <Route path="/farmer-dashboard/add-item" render={ (props) => <AddProduce {...props} id={currentFarm.id}/> } />
           <Route path="/farmer-dashboard/edit-item" component={EditProduce} />
           {/* <Route path='/farmer-dashboard/view-farm' component={Farm}/> */}
           <Route path="/farmer-dashboard/feedback" component={Feedback} />

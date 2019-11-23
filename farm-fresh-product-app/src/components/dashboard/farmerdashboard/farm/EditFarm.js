@@ -15,13 +15,16 @@ function EditFarm(props) {
     state_id: ""
   };
   const [farm, setFarm] = useState(props.currentFarm || defaultFarm);
+
   useEffect(() => {
     if (!props.currentFarm) return;
     setFarm(props.currentFarm);
   }, [props.currentFarm]);
+
   const handleChange = event => {
     setFarm({ ...farm, [event.target.name]: event.target.value });
   };
+
   const handleSubmit = event => {
     const farmerId = JSON.parse(localStorage.getItem(FARMER_LOGIN_KEY)).id;
     const newFarm = { ...farm, farmer_id: farmerId };
@@ -29,6 +32,7 @@ function EditFarm(props) {
     props.editFarmerFarm(newFarm);
     setFarm(defaultFarm);
   };
+  console.log(props);
   return (
     <div>
       

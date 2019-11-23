@@ -22,7 +22,8 @@ const Farm = props => {
           <p>{props.currentFarm.bio}</p>
           <p>City ID:{props.currentFarm.city_id}</p>
           <p>State ID:{props.currentFarm.state_id}</p>
-          <p>Farmer ID:{props.currentFarm.farmer_id}</p>          
+          <p>Farmer ID:{props.currentFarm.farmer_id}</p>    
+          <p>Farm ID:{props.currentFarm.id}</p>      
         </div>
       ) : null}
       <Link to={`/farmer-dashboard/produce/${props.id}`}>
