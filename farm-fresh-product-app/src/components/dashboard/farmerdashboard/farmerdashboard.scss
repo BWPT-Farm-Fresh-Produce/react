@@ -23,6 +23,13 @@
   margin-left: 50px;
   
 }
+button.increment, button.decrement {
+    width:50%;
+}
+button.produce-btn {
+   width:90%;
+   padding: 5px 25px;
+}
 button{
    background-color: #4CAF50;
    color: white; 
@@ -74,20 +81,26 @@ h2 {
    width: 50px;
 }
 .vertical-menu {
-   width: 300px;
-   margin-top: 100px;
+   width: 320px;
+   margin-top: 50px;
    margin-bottom: 100px;
+   padding-bottom:50px;
    
  }
- 
+ a {
+   text-decoration: none;
+}
  .vertical-menu button {
    background-color: #eee;
    color: black;
    display: block;
-   padding: 10px;
+   padding: 12px;
    text-decoration: none;
    width: 150px;
-   padding-left: 20px;
+   padding-left: 30px;
+   text-align: left;
+   margin-bottom:5px;
+   
  
  }
  
@@ -102,6 +115,7 @@ h2 {
  }
  .vertical-menu button.non-active {
     cursor: none;
+    background-color:gold;
 
  }
  

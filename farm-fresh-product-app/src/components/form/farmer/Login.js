@@ -5,7 +5,7 @@ import { farmerLogin } from '../../../actions/farmerLogin';
 import {connect} from 'react-redux';
 import PersonImage from '../../../assets/images/person.png';
 import * as yup from 'yup';
-import '../form.scss';
+import './form.scss';
 
 function Login (props){
   const {errors,touched, status}= props;   

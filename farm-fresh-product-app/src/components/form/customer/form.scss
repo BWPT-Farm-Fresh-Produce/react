@@ -3,7 +3,7 @@ form {
   border: 3px solid #f1f1f1; 
   width: 320px;
   margin: 50px auto 0px auto;
-  button {
+  button.login, button.register {
     background-color: #4CAF50;
     color: white; 
     padding: 14px 20px; 
@@ -28,6 +28,9 @@ form {
         width: 28%; 
         border-radius: 50%;
       }
+    }
+    button.login, button.register {
+       width:50%;
     }
   .container {
       padding: 16px;

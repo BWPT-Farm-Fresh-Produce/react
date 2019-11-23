@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { farmerRegister } from '../../../actions/farmerRegister';
 import PersonImage from '../../../assets/images/person.png';
 import * as yup from 'yup';
-import '../form.scss';
+import './form.scss';
 
 function Register (props){
   const {errors,touched, status}= props;   

@@ -77,8 +77,12 @@ const AddProduce = ({
                 />
               ))}
             </select>
-            <button className="sign-up add-item" type="submit" disabled={isSubmitting}>
-              Add Farm
+            <button 
+             className="add-item" 
+             type="submit" 
+             style={{width:'90%', padding: '7px 28px', height: '40px', marginTop:'25px'}}
+             disabled={isSubmitting}>
+              Add Item
             </button>
           </div>
         </Form>
