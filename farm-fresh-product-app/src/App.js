@@ -11,7 +11,7 @@ import PageNotFound from './errors/PageNotFound';
 import ServerSideError from './errors/ServerSideError';
 import UnauthorizedError from './errors/UnauthorizedError';
 import Load from './components/load/Load';
-import Feedback from './components/form/feedback/Feedback'
+// import Feedback from './components/form/feedback/Feedback'
 import './App.scss';
 import FormikAddProduce from './components/form/farmer/AddProduce';
 
@@ -34,7 +34,7 @@ function App() {
           <Route path="/unauthorized-error" component={UnauthorizedError} />
           <Route path="/farmer-dashboard" component={FarmerDashboard} />
           {/* <Route path="/farmer-dashboard-addfarm" component={Farm} /> */}
-          <Route path="/feedback" component={Feedback} />
+          {/* <Route path="/feedback" component={Feedback} /> */}
           <Route path='/add-farm-item/' component={FormikAddProduce}/>
         </Switch>
       </div>

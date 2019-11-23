@@ -1,13 +1,14 @@
 .addproduce, .edit-produce, .view-farm , .view-produce { 
-   border: 3px solid #f1f1f1; 
-   width: 320px;
+   border: 3px solid #f1f1f1;    
+   width: 280px;
    margin: 50px auto 0px auto;
-   height: 300px;
+   height: 390px;
+   
    button {
      background-color: #4CAF50;
      color: white; 
-     padding: 14px 20px; 
-     margin:0px; 
+     padding: 7px 30px; 
+     margin:0px;     
      border: none; 
      cursor: pointer; 
      width: 50%; 
@@ -20,6 +21,15 @@
        background: #ADFF2F;
        color: #FF0000;
      }
+   }
+
+   .sign-up {
+      width: 90%;
+      margin-top: 25px;
+   } 
+
+   .add-item{
+    margin-top: 25px;
    }
    
    .container {
