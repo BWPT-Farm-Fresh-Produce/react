@@ -87,7 +87,7 @@ function EditFarm(props) {
           onChange={handleChange}
           className="input"
         />
-        <button type="submit">Update Farm</button>
+        <button type="submit" className='edit-farm'>Update Farm</button>
         </div>
       </form>
      
