@@ -1,29 +1,30 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import { connect} from 'react-redux';
 import { editFarmerFarm } from '../../../../actions/farmerFarm';
 import { FARMER_LOGIN_KEY } from '../../../../constants/Constant';
 
 function EditFarm(props) {
-  const defaultFarm = { id:"", name: "", address: "", year_founded: "", bio: "", city_id: "", state_id: ""};    
+  const defaultFarm = { name: "", address: "", year_founded: "", bio: "", city_id: "", state_id: ""};    
   const farmArray = props.newFarms    
   const {id, name, address, year_founded, bio, city_id, state_id} = farmArray || defaultFarm;  
   const [farm,setFarm] = useState(defaultFarm);
-  const handleChange = (event) => {
+   const handleChange = (event) => {
       setFarm({...farm, [event.target.name]:event.target.value});
   }
+ 
   const handleSubmit = (event) => {
+     event.preventDefault();   
      const farmerId = JSON.parse(localStorage.getItem(FARMER_LOGIN_KEY)).id;  
      const newFarm = {...farm, id, farmer_id: farmerId};
      console.log("line14",newFarm);
-     console.log('id',id);
-     console.log('farmer_id', props.farmer_id)
-     event.preventDefault();
+     console.log('id',id);         
      props.editFarmerFarm(id, newFarm);
      setFarm(defaultFarm);
   }
-console.log(props)
-  console.log(props.newFarms);
-  console.log(farmArray)
+//   console.log(props)
+//   console.log(props.newFarms);
+//   console.log(farmArray)
+  console.log('Line 28', id);
   return (
     <div>
      <h4>update Your Farm</h4>
