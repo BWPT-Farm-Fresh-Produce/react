@@ -11,7 +11,7 @@ const Produce = (props) => {
     console.log("produce" , produceInfo);
     axios
       .get(
-        `https://aqueous-ocean-41606.herokuapp.com/api/farmers/produce/${produceInfo}`,
+        `https://aqueous-ocean-41606.herokuapp.com/api/farmers/produce/${props.id}`,
         {
           headers: {
             authorization: produceInfo.token
@@ -30,13 +30,13 @@ const Produce = (props) => {
   return (
     <div className="view-produce">
       <h3>View Produce</h3>
-      {produce.map(produces => (
+      {/* {produce.map(produces => (
         <div className="produces" key={produces.id}>
           <p>{produces.name}</p>
           <p>{produces.quantity}</p>
           <p>{produces.price}</p>
         </div>
-      ))}
+      ))} */}
     </div>
   );
 };

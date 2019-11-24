@@ -26,6 +26,8 @@ const AddProduce = ({
   useEffect(() => {
     status && setFarmItems(farmItems => [...farmItems, status]);
   }, [status]);
+  
+
   return (
     <>
       {produceCategories && farms ? (
@@ -98,7 +100,8 @@ const FormikAddProduce = withFormik({
       name: values.name || "",
       quantity: values.quantity || "",
       price: values.price || "",
-      category_id: values.category_id || ""
+      category_id: values.category_id || "",
+      id: values.id
     };
   },
   validationSchema: Yup.object().shape({
@@ -107,11 +110,12 @@ const FormikAddProduce = withFormik({
     price: Yup.number().required("Enter the price"),
     category_id: Yup.number().required("Enter the ID")
   }),
-  handleSubmit(values, { resetForm, setStatus, setSubmitting }) {
+  handleSubmit(values, { resetForm, setStatus, setSubmitting ,  }) {
     //   const farmid = props.params.match.id;
+    console.log('line115',values.id);
     axios
       .post(
-        `https://aqueous-ocean-41606.herokuapp.com/api/farmers/produce/:farmId`,
+        `https://aqueous-ocean-41606.herokuapp.com/api/farmers/produce/${values.id}`,
         { ...values, category_id: Number(values.category_id) },
         {
           headers: {

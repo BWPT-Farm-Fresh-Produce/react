@@ -14,6 +14,7 @@ import "./farmerdashboard.scss";
 import FarmProduceCard from "./FarmProduceCard";
 import Produce from "./Produce";
 import Farm from "./Farm";
+import Load from "../../load/Load";
 import Feedback from '../../form/feedback/Feedback';
 
 const FarmerDashboard = props => {
@@ -36,6 +37,9 @@ const FarmerDashboard = props => {
       setIndex(prevIndex => prevIndex - 1);
     }
   };
+  if(!currentFarm ) {
+      return <Load />;
+  }
   console.log("Line Number 20", props.farms);
   return (
     <div className="dashboard">
@@ -54,11 +58,13 @@ const FarmerDashboard = props => {
             path="/farmer-dashboard/edit-farm"
             render={props => <EditFarm {...props} currentFarm={currentFarm} />}
           />
-          <Route path="/farmer-dashboard/add-item" component={AddProduce} />
+          {/* <Route path="/farmer-dashboard/add-item" currentFarm={currentFarm} component={AddProduce} /> */}
+          <Route path="/farmer-dashboard/add-item" render={ (props) => <AddProduce {...props} id={currentFarm.id}/> } />
           <Route path="/farmer-dashboard/edit-item" component={EditProduce} />
           {/* <Route path='/farmer-dashboard/view-farm' component={Farm}/> */}
           <Route path="/farmer-dashboard/feedback" component={Feedback} />
-          <Route path="/farmer-dashboard/produce/:id" component={Produce} />
+          {/* <Route path="/farmer-dashboard/produce/:id" component={Produce} /> */}
+          <Route path="/farmer-dashboard/get-produce" render={(props) => <Produce {...props}  id={currentFarm.id}/>} />
         </div>
       </div>     
     </div>
