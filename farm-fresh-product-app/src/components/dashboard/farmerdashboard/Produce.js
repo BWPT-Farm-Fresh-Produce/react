@@ -4,7 +4,8 @@ import "../../form/farmer/addproduce.scss";
 
 const Produce = (props) => {
   const [produce, setProduce] = useState([]);
-  const farmId = props.match.params.id;
+  // const farmId = props.match.params.id;
+  // console.log('farm', farmId)
   useEffect(() => {
     const produceInfo = JSON.parse(localStorage.getItem("FARMER_LOGIN_KEY"));
     console.log("produce" , produceInfo);
@@ -19,7 +20,7 @@ const Produce = (props) => {
       )
       .then(response => {
         const info = response.data;
-        console.log(response.produce);
+        console.log("produce",response.data);
         setProduce(info);
       })
       .catch(error => {
@@ -29,6 +30,7 @@ const Produce = (props) => {
   return (
     <div className="view-produce">
       <h3>View Produce</h3>
+      <p>{produce.name}</p>
       {/* {produce.map(produces => (
         <div className="produces" key={produces.id}>
           <p>{produces.name}</p>

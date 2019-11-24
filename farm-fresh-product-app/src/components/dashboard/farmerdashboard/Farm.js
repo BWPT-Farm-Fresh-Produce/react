@@ -18,13 +18,14 @@ const Farm = props => {
       <h3>View farm</h3>
       {props.currentFarm ? (
         <div className="farms">        
-          <p>{props.currentFarm.name}</p>
-          <p>{props.currentFarm.address}</p>
-          <p>{props.currentFarm.bio}</p>
-          <p>City ID:{props.currentFarm.city_id}</p>
-          <p>State ID:{props.currentFarm.state_id}</p>
-          <p>Farmer ID:{props.currentFarm.farmer_id}</p>    
-          <p>Farm ID:{props.currentFarm.id}</p>      
+          <p>Name: {props.currentFarm.name}</p>
+          <p>Address: {props.currentFarm.address}</p>
+          <p>Bio: {props.currentFarm.bio}</p>
+          <p>City ID:
+          {props.currentFarm.city_id}</p>
+          <p>State ID: {props.currentFarm.state_id}</p>
+          <p>Farmer ID: {props.currentFarm.farmer_id}</p>    
+          <p>Farm ID: {props.currentFarm.id}</p>      
         </div>
       ) : null}
       
