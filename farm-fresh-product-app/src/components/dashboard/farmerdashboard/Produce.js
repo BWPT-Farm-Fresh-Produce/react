@@ -20,7 +20,7 @@ const Produce = (props) => {
       )
       .then(response => {
         const info = response.data;
-        console.log("produce",response.data);
+        console.log("produce",info);
         setProduce(info);
       })
       .catch(error => {
@@ -32,13 +32,13 @@ const Produce = (props) => {
       <h3>View Produce</h3>
       <p>{produce.name}</p>
       {/* {produce.map(produces => (
-        <div className="produces" key={produces.id}>
+        <div className="produces" key={}>
           <p>{produces.name}</p>
           <p>{produces.quantity}</p>
           <p>{produces.price}</p>
         </div>
-      ))} */}
+      ))}  */}
     </div>
   );
-};
+      }
 export default Produce;
