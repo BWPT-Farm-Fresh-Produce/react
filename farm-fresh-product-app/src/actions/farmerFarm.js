@@ -1,5 +1,6 @@
 import axios from "axios";
 import { FARMER_LOGIN_KEY } from "../constants/Constant";
+import { axiosWithAuth } from '../auth/Authorization';
 
 export const GETTING_FARM_START = "GETTING_FARM_START";
 export const GETTING_FARM_SUCCESS = "GETTING_FARM_SUCCESS";
@@ -24,18 +25,15 @@ export function getAllFarms(farmerId) {
   };
   return dispatch => {
     dispatch({ type: GETTING_FARM_START });
-    axios
-      .get(
-        `https://aqueous-ocean-41606.herokuapp.com/api/farmers/${id}/farms`,
-        { headers }
-      )
-      .then(response => {
-        console.log("Line Number 26", response);
-        dispatch({ type: GETTING_FARM_SUCCESS, payload: response.data.farms });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    axiosWithAuth()
+              .get(`/api/farmers/${id}/farms`)
+              .then(response => {
+                console.log("Line Number 26", response);
+                dispatch({ type: GETTING_FARM_SUCCESS, payload: response.data.farms });
+              })
+              .catch(err => {
+                console.log(err);
+              });
   };
 }
 
@@ -50,8 +48,8 @@ export function addFarmerFarm(farm) {
   console.log(farm);
   return dispatch => {
     dispatch({ type: ADDING_FARM_START });
-    axios
-      .post(`https://aqueous-ocean-41606.herokuapp.com/api/farms/${id}`, farm, {
+    axiosWithAuth()
+      .post(`/api/farms/${id}`, farm, {
         headers
       })
       .then(response => {
