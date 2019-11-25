@@ -1,13 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link,withRouter } from 'react-router-dom'
 import './farmerdashboard.scss';
 import {NavLink} from 'react-router-dom';
-const Sidebar =()=>{
-
+const Sidebar =(props)=>{
+    const {url} = props.match;
+    console.log('line 6', url)
    return(
    <div className="vertical-menu">
    <button className='non-active'>Manage Farm</button>
-      <Link to="/farmer-dashboard/add-farm">
+      <Link to={`${url}/add-farm}`}>
          <button className="active">Add Farm </button>
       </Link>
       <Link to="/farmer-dashboard/edit-farm">
@@ -30,4 +31,4 @@ const Sidebar =()=>{
 
 }
 
-export default Sidebar;
+export default withRouter(Sidebar);

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, NavLink } from "react-router-dom";
+import { Route, NavLink, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import axios from "axios";
 import Header from "../../header/Header";
@@ -18,6 +18,7 @@ import Load from "../../load/Load";
 import Feedback from '../../form/feedback/Feedback';
 
 const FarmerDashboard = props => {
+  const {path} = props.match;
   const [index, setIndex] = useState(0);
   const currentFarm = props.farms[index];
   useEffect(() => {
@@ -53,18 +54,19 @@ const FarmerDashboard = props => {
           decrement={decrement}
         />
         <div className="farmerproduce">
-          <Route path="/farmer-dashboard/add-farm" component={AddFarm} />
+          <Route path={`${path}`} render={() => <Redirect to={`${path}/add-farm`}/>} />
+          <Route path={`${path}/add-farm`} component={AddFarm} />
           <Route
-            path="/farmer-dashboard/edit-farm"
+            path={`${path}/edit-farm`}
             render={props => <EditFarm {...props} currentFarm={currentFarm} />}
           />
           {/* <Route path="/farmer-dashboard/add-item" currentFarm={currentFarm} component={AddProduce} /> */}
-          <Route path="/farmer-dashboard/add-item" render={ (props) => <AddProduce {...props} id={currentFarm.id}/> } />
-          <Route path="/farmer-dashboard/edit-item" component={EditProduce} />
+          <Route path={`${path}/add-item`} render={ (props) => <AddProduce {...props} id={currentFarm.id}/> } />
+          <Route path={`${path}/edit-item`} component={EditProduce} />
           {/* <Route path='/farmer-dashboard/view-farm' component={Farm}/> */}
-          <Route path="/farmer-dashboard/feedback" component={Feedback} />
+          <Route path={`${path}/feedback`} component={Feedback} />
           {/* <Route path="/farmer-dashboard/produce/:id" component={Produce} /> */}
-          <Route path="/farmer-dashboard/get-produce" render={(props) => <Produce {...props}  id={currentFarm.id}/>} />
+          <Route path={`${path}/get-produce`} render={(props) => <Produce {...props}  id={currentFarm.id}/>} />
         </div>
       </div>     
     </div>
