@@ -1,5 +1,6 @@
 import axios from "axios";
 import { FARMER_LOGIN_KEY } from "../constants/Constant";
+import { axiosWithAuth } from '../auth/Authorization';
 
 export const GETTING_PRODUCE_START = "GETTING_PRODUCE_START";
 export const GETTING_PRODUCE_SUCCESS = "GETTING_PRODUCE_SUCCESS";
@@ -28,20 +29,11 @@ export function getFarmerProduce() {
 
 export const getProduceCategories = () => dispatch => {
   dispatch({ type: GETTING_PRODUCE_START });
-  axios
-    .get(
-      "https://aqueous-ocean-41606.herokuapp.com/api/farmers/produce/categories",
-      {
-        headers: {
-          authorization: JSON.parse(localStorage.getItem(FARMER_LOGIN_KEY))
-            .token
-        }
-      }
-    )
-    .then(res =>
-      dispatch({ type: SET_CATEGORIES, payload: res.data.categories })
-    )
-    .catch(err =>
-      dispatch({ type: SET_CATEGORIES_ERROR, payload: err.message })
-    );
+  axiosWithAuth().get( "/api/farmers/produce/categories")
+                  .then(res =>
+                    dispatch({ type: SET_CATEGORIES, payload: res.data.categories })
+                  )
+                  .catch(err =>
+                    dispatch({ type: SET_CATEGORIES_ERROR, payload: err.message })
+                  );
 };
