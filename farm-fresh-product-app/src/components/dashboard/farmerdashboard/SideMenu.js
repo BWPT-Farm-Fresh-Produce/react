@@ -8,7 +8,7 @@ const Sidebar =(props)=>{
    return(
    <div className="vertical-menu">
    <button className='non-active'>Manage Farm</button>
-      <Link to={`${url}/add-farm}`}>
+      <Link to="/farmer-dashboard/add-farm">
          <button className="active">Add Farm </button>
       </Link>
       <Link to="/farmer-dashboard/edit-farm">
