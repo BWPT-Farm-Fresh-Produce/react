@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Load from '../../load/Load';
 import "../../form/farmer/addproduce.scss";
 
 const Produce = (props) => {
-  const [produce, setProduce] = useState([]);
+  const defaultProduce = {name:'No Produce!!!', quantity:'No Produce!!!', price:'No Produce!!!'};
+  const [produce, setProduce] = useState(defaultProduce);
+  const [isLoading, setIsLoading] = useState(false)
   // const farmId = props.match.params.id;
   // console.log('farm', farmId)
   console.log('props',props)
@@ -20,22 +23,29 @@ const Produce = (props) => {
         }
       )
       .then(response => {
+        console.log(response)
         const info = response.data.current_stock[0]
-        console.log("produce",info);
-        setProduce(info);
+        console.log("produce",info);       
+          setProduce({...produce, ...info});
+          setIsLoading(true);
       })
       .catch(error => {
         console.log(error);
       });
   }, []);
+  console.log(produce)
+  if(!isLoading) {
+    return <Load />
+  }
   return (
-    <div className="view-produce">
+    <>   
+    <div className="view-produce">      
       <h3>View Produce</h3>
       <p>Produce Name: {produce.name}</p>
       <p>Quantity: {produce.quantity}</p>
       <p>Price: {produce.price}</p>
-      
-    </div>
+    </div>    
+    </>
   );
-      }
+}
 export default Produce;
