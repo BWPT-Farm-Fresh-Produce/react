@@ -16,6 +16,7 @@ import Produce from "./Produce";
 import Farm from "./Farm";
 import Load from "../../load/Load";
 import Feedback from '../../form/feedback/Feedback';
+import Welcome from './welcome/Welcome';
 
 const FarmerDashboard = props => {
   const {path} = props.match;
@@ -54,7 +55,8 @@ const FarmerDashboard = props => {
           decrement={decrement}
         />
         <div className="farmerproduce">
-          <Route path={`${path}`} render={() => <Redirect to={`${path}/add-farm`}/>} />
+          <Route path={`${path}`} render={() => <Redirect to={`${path}/welcome`}/>} />
+          <Route path={`${path}/welcome`} component={Welcome} />
           <Route path={`${path}/add-farm`} component={AddFarm} />
           <Route
             path={`${path}/edit-farm`}

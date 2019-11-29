@@ -3,7 +3,8 @@ import axios from "axios";
 import "../../form/farmer/addproduce.scss";
 
 const Produce = (props) => {
-  const [produce, setProduce] = useState([]);
+  const defaultProduce = {name:'', quantity:'', price:''};
+  const [produce, setProduce] = useState(defaultProduce);
   // const farmId = props.match.params.id;
   // console.log('farm', farmId)
   console.log('props',props)
@@ -20,22 +21,33 @@ const Produce = (props) => {
         }
       )
       .then(response => {
+        console.log(response)
         const info = response.data.current_stock[0]
         console.log("produce",info);
-        setProduce(info);
+        setProduce({...produce, ...info});
       })
       .catch(error => {
         console.log(error);
       });
   }, []);
+  console.log(produce)
+  // if(!produce.name) {
+  //   return <h4>There are no produce at this time.</h4>
+  // }
   return (
-    <div className="view-produce">
+    <>
+    { produce.name  ?
+    (<div className="view-produce">      
       <h3>View Produce</h3>
       <p>Produce Name: {produce.name}</p>
       <p>Quantity: {produce.quantity}</p>
       <p>Price: {produce.price}</p>
-      
-    </div>
+    </div>) : 
+    (<div className="view-produce">      
+       <h4>There are not produce at this time.</h4>
+    </div>)
+    }
+    </>
   );
-      }
+}
 export default Produce;
