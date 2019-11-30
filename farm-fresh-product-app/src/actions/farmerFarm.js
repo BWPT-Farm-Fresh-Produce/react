@@ -88,3 +88,28 @@ export function editFarmerFarm(farm) {
       });
   };
 }
+
+export function deleteFarm(farm) {
+  const { token, id } = JSON.parse(localStorage.getItem(FARMER_LOGIN_KEY));
+  const headers = {
+    authorization: token
+  };
+   return (dispatch) => {
+      dispatch({type:DELETING_FARM_START});
+      axios
+      .delete(
+        `https://aqueous-ocean-41606.herokuapp.com/api/farms/${farm.id}`,
+       {
+          headers
+        }
+      )
+      .then(response => {
+        console.log(response);
+        dispatch({ type: DELETING_FARM_SUCCESS, payload: response.data });        
+      })
+      .catch(err => {
+        console.log(err);
+        dispatch({ type: DELETING_FARM_ERROR, payload: err });
+      });
+   }
+}

@@ -11,6 +11,7 @@ import farmerProduce from "../src/reducers/farmerProduce";
 import farmerFarm from "../src/reducers/farmerFarm";
 import "./index.scss";
 import App from "./App";
+import '../src/components/fontawesome/fontAwesome';
 
 const reducer = combineReducers({
   farmRegister: farmerRegister,

@@ -2,6 +2,7 @@ import React, {useState,useEffect} from 'react';
 import { withFormik, Form, Field } from "formik";
 import {withRouter, NavLink} from 'react-router-dom';
 import PersonImage from '../../../assets/images/person.jpg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import * as yup from 'yup';
 import './form.scss';
@@ -51,13 +52,18 @@ function Login (props){
           </div>
     <div className="container">
       { touched.username && errors.username && <p className='error'>{errors.username}</p>}
-      <label htmlFor="uname"><b>Username</b></label>
-      <Field type="text" name="username" placeholder="username" className="input"/>
-      
+      <label htmlFor="uname"><b>Username</b></label>      
+      <div className='wrapper'>
+        <FontAwesomeIcon icon="user" />      
+        <Field type="text" name="username" placeholder="   username" className="input"/>
+      </div>
       
       {errors.password && touched.password && <p className='error login-password'>{errors.password}</p>}
       <label htmlFor="psw"><b>Password</b></label>
-      <Field type="password" name="password" placeholder="password" className="input"/>    
+      <div className="wrapper">
+        <FontAwesomeIcon icon="key" /> 
+        <Field type="password" name="password" placeholder="    password" className="input"/> 
+      </div>    
       <div className='sign-in-sign-up-button'>
         <button className='login-button' type='submit' variant="danger" size="lg">Login</button>
       </div>

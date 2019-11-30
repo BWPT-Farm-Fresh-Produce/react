@@ -3,6 +3,7 @@ form {
   border: 3px solid #f1f1f1; 
   width: 320px;
   margin: 50px auto 0px auto;
+  
   button {
     background-color: #4CAF50;
     color: white; 
@@ -46,6 +47,14 @@ form {
         top: 157px;
         width: 268px;
       }
+      .wrapper {
+        position:relative;       
+        .svg-inline--fa {
+          position: absolute;
+           top: 13px; 
+           left: 6px; 
+        }
+      }
       .username {
         top: 50px;
       }
@@ -69,7 +78,8 @@ form {
       }
       .input { 
         width: 100%;
-         padding: 9px 12px 9px 12px; 
+         padding: 9px 12px 9px 25px; 
+         padding-left: 20px;
          margin: 3px 0px 8px 0px; 
          display: inline-block; 
          border: 1px solid #ccc;
@@ -88,6 +98,8 @@ form {
        width: 100%;
         height: 50px
     }
+   
+
   }
 
 

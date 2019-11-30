@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { getAllFarms } from "../../../actions/farmerFarm";
+import { getAllFarms, deleteFarm } from "../../../actions/farmerFarm";
 import { Link } from "react-router-dom";
 // import "../../form/farmer/addproduce.scss";
 
@@ -17,7 +17,10 @@ const Farm = props => {
        <button className="increment" onClick={props.increment}>{">>>"}</button> 
       <h3>View farm</h3>
       {props.currentFarm ? (
-        <div className="farms">        
+        <div className="farms">       
+          <div style={{color:'red', display:'flex', justifyContent:'flex-end', marginRight:'20px', cursor:'pointer'}}
+               onClick={() => props.deleteFarm(props.currentFarm)}
+              >Delete</div> 
           <p>Name: {props.currentFarm.name}</p>
           <p>Address: {props.currentFarm.address}</p>
           <p>Bio: {props.currentFarm.bio}</p>
@@ -34,7 +37,8 @@ const Farm = props => {
 };
 
 const mapDispatchToProps = {
-  getAllFarms
+  getAllFarms,
+  deleteFarm
 };
 function mapStateToProps(state) {
   return {
