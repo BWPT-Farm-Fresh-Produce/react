@@ -10,7 +10,8 @@ import { faUser,
           faEdit, 
           faCarrot,     
           faCommentAlt,
-          faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
+          faSignOutAlt,
+          faSignInAlt} from '@fortawesome/free-solid-svg-icons';
 
 library.add(
   faUser,
@@ -24,5 +25,6 @@ library.add(
   faTrashAlt,
   faCommentAlt,
   faCarrot,
-  faSignOutAlt
+  faSignOutAlt,
+  faSignInAlt
 );
