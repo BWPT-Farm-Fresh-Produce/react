@@ -29,7 +29,11 @@ export function getAllFarms(farmerId) {
               .get(`/api/farmers/${id}/farms`)
               .then(response => {
                 console.log("Line Number 26", response);
-                dispatch({ type: GETTING_FARM_SUCCESS, payload: response.data.farms });
+                if(response.data.farms.length>0) {
+                  dispatch({ type: GETTING_FARM_SUCCESS, payload: response.data.farms });
+                } else {
+                  dispatch({ type: GETTING_FARM_SUCCESS, payload: 'No Farms!!! Need to Add' });
+                }
               })
               .catch(err => {
                 console.log(err);

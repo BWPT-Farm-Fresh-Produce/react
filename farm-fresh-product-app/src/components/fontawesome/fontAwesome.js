@@ -6,15 +6,23 @@ import { faUser,
           faTrashAlt,
           faEnvelope,
           faIdCardAlt,
-          faIdCard} from '@fortawesome/free-solid-svg-icons';
+          faIdCard,
+          faEdit, 
+          faCarrot,     
+          faCommentAlt,
+          faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
 
 library.add(
   faUser,
   faKey,
   faEnvelope,
-  faPlusCircle,
-  faTrashAlt,
+  faPlusCircle,  
   faEnvelope,
   faIdCardAlt,
-  faIdCard
+  faIdCard,
+  faEdit,
+  faTrashAlt,
+  faCommentAlt,
+  faCarrot,
+  faSignOutAlt
 );

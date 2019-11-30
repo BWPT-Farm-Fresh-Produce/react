@@ -66,7 +66,9 @@ function Login (props){
         <Field type="password" name="password" placeholder="    password" className="input"/> 
       </div>   
       <div className='sign-in-sign-up-button'>
-        <button className='sign-button' type='submit' variant="danger" size="lg">Login</button>
+        <button className='sign-button' type='submit' variant="danger" size="lg">
+        
+        Login</button>
       </div>
       <label>
         <input type="checkbox" checked="checked" name="remember" /> Remember me
