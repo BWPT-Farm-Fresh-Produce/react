@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { getAllFarms, deleteFarm } from "../../../actions/farmerFarm";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 // import "../../form/farmer/addproduce.scss";
 
 const Farm = props => {
@@ -19,13 +19,7 @@ const Farm = props => {
       <h3>View farm</h3>
       {props.currentFarm ? (
         <div className="farms">   
-          <div className="edit-delete" style={{display:'flex', justifyContent:'flex-end'}}>    
-            <div style={{color:'red', display:'flex', justifyContent:'flex-end', marginRight:'20px', cursor:'pointer'}}
-                onClick={() => props.deleteFarm(props.currentFarm)}>  
-                 <Link to="/farmer-dashboard/edit-farm">               
-                  <FontAwesomeIcon icon="edit" style={{ color: 'red' }} />
-                </Link> 
-            </div> 
+          <div className="edit-delete" style={{display:'flex', justifyContent:'flex-end'}}>  
             <div style={{color:'red', display:'flex', justifyContent:'flex-end', margin:'3px 20px 0px 0px', cursor:'pointer'}}
                 onClick={() => props.deleteFarm(props.currentFarm)}>    
                   <FontAwesomeIcon icon="trash-alt" style={{ color: 'red' }} />

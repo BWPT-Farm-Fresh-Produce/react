@@ -2,7 +2,7 @@ import React from 'react';
 import { Link,withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './farmerdashboard.scss';
-import {NavLink} from 'react-router-dom';
+
 const Sidebar =(props)=>{
     const {url} = props.match;
     console.log('line 6', url)
@@ -17,7 +17,7 @@ const Sidebar =(props)=>{
       <Link to="/farmer-dashboard/edit-farm">
          <button className='active'>
          <FontAwesomeIcon icon="edit" style={{ color: 'white' }} />
-         Edit Farm Item</button>
+          Edit Farm Item</button>
       </Link>
         
          <button className='non-active'>Manage Produce</button>
