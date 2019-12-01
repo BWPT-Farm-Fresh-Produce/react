@@ -3,6 +3,7 @@ import { withFormik, Form, Field } from "formik";
 import {withRouter, NavLink} from 'react-router-dom';
 import { farmerLogin } from '../../../actions/farmerLogin';
 import {connect} from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PersonImage from '../../../assets/images/person.png';
 import * as yup from 'yup';
 import './form.scss';
@@ -53,14 +54,21 @@ function Login (props){
     <div className="container">
       { touched.username && errors.username && <p className='error'>{errors.username}</p>}
       <label htmlFor="uname"><b>Username</b></label>
-      <Field type="text" name="username" placeholder="username" className="input"/>
-      
+      <div className='wrapper'>
+        <FontAwesomeIcon icon="user" />      
+        <Field type="text" name="username" placeholder="   username" className="input"/>
+      </div>
       
       {errors.password && touched.password && <p className='error login-password'>{errors.password}</p>}
       <label htmlFor="psw"><b>Password</b></label>
-      <Field type="password" name="password" placeholder="password" className="input"/>    
+      <div className="wrapper">
+        <FontAwesomeIcon icon="key" /> 
+        <Field type="password" name="password" placeholder="    password" className="input"/> 
+      </div>   
       <div className='sign-in-sign-up-button'>
-        <button className='sign-button' type='submit' variant="danger" size="lg">Login</button>
+        <button className='sign-button' type='submit' variant="danger" size="lg">
+        
+        Login</button>
       </div>
       <label>
         <input type="checkbox" checked="checked" name="remember" /> Remember me

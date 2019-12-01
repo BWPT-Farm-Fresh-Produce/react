@@ -1,6 +1,7 @@
 import React, {useState,useEffect} from 'react';
 import { withFormik, Form, Field } from "formik";
 import {withRouter, NavLink} from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import * as yup from 'yup';
 import './form.scss';
@@ -48,25 +49,40 @@ function Register (props){
     </div> */}
     <div className="container">
       { touched.username && errors.username && <p className='error username'>{errors.username}</p>}
-      <label htmlFor="uname"><b>Username</b></label>
-      <Field type="text" name="username" placeholder="username" className="input"/>
+      <label htmlFor="uname"><b>Username</b></label>     
+      <div className='wrapper'>
+        <FontAwesomeIcon icon="user" />      
+        <Field type="text" name="username" placeholder="   username" className="input"/>
+      </div>
 
       { touched.email && errors.email && <p className='error email-customer'>{errors.email}</p>}
       <label htmlFor="email"><b>Email</b></label>
-      <Field type="email" name="email" placeholder="email" className="input"/>      
+      <div className="wrapper">
+        <FontAwesomeIcon icon="envelope" /> 
+        <Field type="email" name="email" placeholder="    email" className="input"/>
+      </div>      
       
 
       {errors.city_id && touched.city_id && <p className='error password city_id'>{errors.city_id}</p>}
-      <label htmlFor="psw"><b>City ID</b></label>
-      <Field type="text" name="city_id" placeholder="Your city ID" className="input"/>
+      <label htmlFor="psw"><b>City ID</b></label>      
+      <div className="wrapper">
+        <FontAwesomeIcon icon="id-card-alt" /> 
+        <Field type="text" name="city_id" placeholder="    Your city ID" className="input"/> 
+      </div>
 
       {errors.state_id && touched.state_id && <p className='error password state_id'>{errors.state_id}</p>}
-      <label htmlFor="psw"><b>State ID</b></label>
-      <Field type="text" name="state_id" placeholder="Your state ID" className="input"/> 
+      <label htmlFor="psw"><b>State ID</b></label>       
+      <div className="wrapper">
+        <FontAwesomeIcon icon="id-card" /> 
+        <Field type="text" name="state_id" placeholder="    Your state ID" className="input"/>
+      </div>
 
       {errors.password && touched.password && <p className='error password-customer'>{errors.password}</p>}
       <label htmlFor="psw"><b>Password</b></label>
-      <Field type="password" name="password" placeholder="password" className="input"/>
+      <div className="wrapper">
+        <FontAwesomeIcon icon="key" /> 
+        <Field type="password" name="password" placeholder="    password" className="input"/> 
+      </div>
 
       <div className='sign-in-sign-up-button'>
         <button className='register' type='submit' variant="danger" size="lg">Register</button>

@@ -3,6 +3,7 @@ import { withFormik, Form, Field } from "formik";
 import {withRouter, NavLink} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { farmerRegister } from '../../../actions/farmerRegister';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PersonImage from '../../../assets/images/person.png';
 import * as yup from 'yup';
 import './form.scss';
@@ -51,15 +52,24 @@ function Register (props){
     <div className="container">
       { touched.username && errors.username && <p className='error'>{errors.username}</p>}
       <label htmlFor="uname"><b>Username</b></label>
-      <Field type="text" name="username" placeholder="username" className="input"/>
+      <div className='wrapper'>
+        <FontAwesomeIcon icon="user" />      
+        <Field type="text" name="username" placeholder="   username" className="input"/>
+      </div>
 
       { touched.email && errors.email && <p className='error email'>{errors.email}</p>}
       <label htmlFor="email"><b>Email</b></label>
-      <Field type="email" name="email" placeholder="email" className="input"/>
+      <div className="wrapper">
+        <FontAwesomeIcon icon="envelope" /> 
+        <Field type="email" name="email" placeholder="    email" className="input"/>
+      </div>
       
       {errors.password && touched.password && <p className='error password'>{errors.password}</p>}
       <label htmlFor="psw"><b>Password</b></label>
-      <Field type="password" name="password" placeholder="password" className="input"/> 
+      <div className="wrapper">
+        <FontAwesomeIcon icon="key" /> 
+        <Field type="password" name="password" placeholder="    password" className="input"/> 
+      </div>
 
       <div className='sign-in-sign-up-button'>
         <button className='sign-button' type='submit' variant="danger" size="lg">Register</button>

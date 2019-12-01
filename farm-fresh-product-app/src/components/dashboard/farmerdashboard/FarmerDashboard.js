@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Route, NavLink, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import axios from "axios";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Header from "../../header/Header";
 import "./farmerdashboard.scss";
 import SideMenu from "../farmerdashboard/SideMenu";

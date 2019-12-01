@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import { FARMER_LOGIN_KEY } from "../../constants/Constant";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import "./Header.scss";
 
 function Header(props) {
@@ -13,6 +14,7 @@ function Header(props) {
     <>
       <div className="header">
         <button className="logoff-btn" onClick={e => logout(e)}>
+        <FontAwesomeIcon icon="sign-out-alt" style={{ color: 'white' }} />
           Log out
         </button>
       </div>

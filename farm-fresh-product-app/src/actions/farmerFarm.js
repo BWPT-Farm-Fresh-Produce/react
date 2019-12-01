@@ -29,7 +29,11 @@ export function getAllFarms(farmerId) {
               .get(`/api/farmers/${id}/farms`)
               .then(response => {
                 console.log("Line Number 26", response);
-                dispatch({ type: GETTING_FARM_SUCCESS, payload: response.data.farms });
+                if(response.data.farms.length>0) {
+                  dispatch({ type: GETTING_FARM_SUCCESS, payload: response.data.farms });
+                } else {
+                  dispatch({ type: GETTING_FARM_SUCCESS, payload: 'No Farms!!! Need to Add' });
+                }
               })
               .catch(err => {
                 console.log(err);
@@ -87,4 +91,29 @@ export function editFarmerFarm(farm) {
         dispatch({ type: EDITING_FARM_ERROR, payload: err });
       });
   };
+}
+
+export function deleteFarm(farm) {
+  const { token, id } = JSON.parse(localStorage.getItem(FARMER_LOGIN_KEY));
+  const headers = {
+    authorization: token
+  };
+   return (dispatch) => {
+      dispatch({type:DELETING_FARM_START});
+      axios
+      .delete(
+        `https://aqueous-ocean-41606.herokuapp.com/api/farms/${farm.id}`,
+       {
+          headers
+        }
+      )
+      .then(response => {
+        console.log(response);
+        dispatch({ type: DELETING_FARM_SUCCESS, payload: response.data });        
+      })
+      .catch(err => {
+        console.log(err);
+        dispatch({ type: DELETING_FARM_ERROR, payload: err });
+      });
+   }
 }
