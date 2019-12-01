@@ -19,8 +19,10 @@ function AddFarm(props) {
   const handleSubmit = event => {
     event.preventDefault();
     console.log(farm);
+    console.log(props)
     props.addFarmerFarm(farm);
     setFarm(defaultFarm);
+    props.history.push('/farmer-dashboard');
   };
   console.log(props.addFarmerFarm);
   return (
