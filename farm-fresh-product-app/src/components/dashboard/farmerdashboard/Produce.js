@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import {connect} from 'react-redux';
 import axios from "axios";
 import Load from '../../load/Load';
+import {getFarmerProduce} from '../../../actions/farmerProduce';
 import "../../form/farmer/addproduce.scss";
 
 const Produce = (props) => {
@@ -11,41 +13,52 @@ const Produce = (props) => {
   // console.log('farm', farmId)
   console.log('props',props)
   useEffect(() => {
-    const produceInfo = JSON.parse(localStorage.getItem("FARMER_LOGIN_KEY"));
-    console.log("produce" , produceInfo);
-    axios
-      .get(
-        `https://aqueous-ocean-41606.herokuapp.com/api/farmers/produce/${props.id}`,
-        {
-          headers: {
-            authorization: produceInfo.token
-          }
-        }
-      )
-      .then(response => {
-        console.log(response)
-        const info = response.data.current_stock[0]
-        console.log("produce",info);       
-          setProduce({...produce, ...info});
-          setIsLoading(true);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    props.getFarmerProduce(props.id);
+    // const produceInfo = JSON.parse(localStorage.getItem("FARMER_LOGIN_KEY"));
+    // console.log("produce" , produceInfo);
+    // axios
+    //   .get(
+    //     `https://aqueous-ocean-41606.herokuapp.com/api/farmers/produce/${props.id}`,
+    //     {
+    //       headers: {
+    //         authorization: produceInfo.token
+    //       }
+    //     }
+    //   )
+    //   .then(response => {
+    //     console.log(response)
+    //     const info = response.data.current_stock[0]
+    //     console.log("produce",info);       
+    //       setProduce({...produce, ...info});
+    //       setIsLoading(true);
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //   });
   }, []);
-  console.log(produce)
-  if(!isLoading) {
+  console.log('produce.js>>>>>>>>>>>', props)
+  if(!props.isLoadingProduce && !props.isProduceLoaded) {
     return <Load />
   }
   return (
     <>   
     <div className="view-produce">      
       <h3>View Produce</h3>
-      <p>Produce Name: {produce.name}</p>
-      <p>Quantity: {produce.quantity}</p>
-      <p>Price: {produce.price}</p>
+      <p>Produce Name: {props.produce.name}</p>
+      <p>Quantity: {props.produce.quantity}</p>
+      <p>Price: {props.produce.price}</p>
     </div>    
     </>
   );
 }
-export default Produce;
+const mapDispatchToProps = {
+  getFarmerProduce
+}
+function mapStateToProps(state) {
+    return {
+      produce: state.farmProduce.produceItems,
+      isLoadingProduce:state.farmProduce.isLoadingProduce, 
+      isProduceLoaded:state.farmProduce.isProduceLoaded
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Produce);

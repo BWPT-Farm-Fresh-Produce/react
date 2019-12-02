@@ -104,6 +104,7 @@ const mapDispatchToProps = {
 function mapStateToprops(state) {
   return {
     newFarms: state.farmFarm.farms[0]
+    
   };
 }
 export default connect(mapStateToprops, mapDispatchToProps)(EditFarm);
