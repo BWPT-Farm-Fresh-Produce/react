@@ -20,12 +20,12 @@ const Farm = props => {
       {props.currentFarm ? (
         <div className="farms">   
           <div className="edit-delete" style={{display:'flex', justifyContent:'flex-end'}}>    
-            <div style={{color:'red', display:'flex', justifyContent:'flex-end', marginRight:'20px', cursor:'pointer'}}
+            {/* <div style={{color:'red', display:'flex', justifyContent:'flex-end', marginRight:'20px', cursor:'pointer'}}
                 onClick={() => props.deleteFarm(props.currentFarm)}>  
                  <Link to="/farmer-dashboard/edit-farm">               
                   <FontAwesomeIcon icon="edit" style={{ color: 'red' }} />
                 </Link> 
-            </div> 
+            </div>  */}
             <div style={{color:'red', display:'flex', justifyContent:'flex-end', margin:'3px 20px 0px 0px', cursor:'pointer'}}
                 onClick={() => props.deleteFarm(props.currentFarm)}>    
                   <FontAwesomeIcon icon="trash-alt" style={{ color: 'red' }} />
