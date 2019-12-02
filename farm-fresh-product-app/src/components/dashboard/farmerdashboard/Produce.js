@@ -41,13 +41,22 @@ const Produce = (props) => {
     return <Load />
   }
   return (
-    <>   
-    <div className="view-produce">      
+    <>
+    {typeof props.produce === 'undefined' ?
+    (<div className="view-produce">      
+      <h3>View Produce</h3>
+      <p>Produce Name: {produce.name}</p>
+      <p>Quantity: {produce.quantity}</p>
+      <p>Price: {produce.price}</p>
+    </div>) 
+    : (
+      <div className="view-produce">      
       <h3>View Produce</h3>
       <p>Produce Name: {props.produce.name}</p>
       <p>Quantity: {props.produce.quantity}</p>
       <p>Price: {props.produce.price}</p>
-    </div>    
+    </div>
+    )}    
     </>
   );
 }
