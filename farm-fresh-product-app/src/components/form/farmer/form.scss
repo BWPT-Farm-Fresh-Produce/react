@@ -4,6 +4,7 @@ form {
   width: 320px;
   margin: 50px auto 0px auto;
   
+  
   button {
     background-color: #4CAF50;
     color: white; 
@@ -55,9 +56,35 @@ form {
            left: 6px; 
         }
       }
-      .username {
-        top: 50px;
+      #user-login {
+        top: 140px;
+        
       }
+      #login-password{
+        top: 200px;
+        width: 16%;
+      }
+      #reg-login{
+        top: 140px;
+       
+      }
+      #reg-email {
+        top: 200px;
+        
+      }
+      #reg-password {
+        top: 267px;
+        
+      }
+
+      .login-user, .password-user{
+        padding-left: 80px;
+      }
+
+      .reg-user, .reg-password, .reg-email {
+        padding-left: 80px;
+      }
+
       .email, .login-password {
         top: 227px;
       }
@@ -79,7 +106,7 @@ form {
       .input { 
         width: 100%;
          padding: 9px 12px 9px 25px; 
-         padding-left: 20px;
+         padding-left: 10px;
          margin: 3px 0px 8px 0px; 
          display: inline-block; 
          border: 1px solid #ccc;

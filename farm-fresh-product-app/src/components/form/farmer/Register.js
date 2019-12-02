@@ -50,25 +50,25 @@ function Register (props){
             <img src={PersonImage} alt="Avatar" className="avatar" />
           </div>
     <div className="container">
-      { touched.username && errors.username && <p className='error'>{errors.username}</p>}
+      { touched.username && errors.username && <p className='error' id='reg-login'>{errors.username}</p>}
       <label htmlFor="uname"><b>Username</b></label>
       <div className='wrapper'>
-        <FontAwesomeIcon icon="user" />      
-        <Field type="text" name="username" placeholder="   username" className="input"/>
+        <FontAwesomeIcon icon="user" className='reg-user' />      
+        <Field type="text" name="username" placeholder="username" className="input"/>
       </div>
 
-      { touched.email && errors.email && <p className='error email'>{errors.email}</p>}
+      { touched.email && errors.email && <p className='error' id='reg-email'>{errors.email}</p>}
       <label htmlFor="email"><b>Email</b></label>
       <div className="wrapper">
-        <FontAwesomeIcon icon="envelope" /> 
-        <Field type="email" name="email" placeholder="    email" className="input"/>
+        <FontAwesomeIcon icon="envelope" className='reg-email'/> 
+        <Field type="email" name="email" placeholder="email" className="input"/>
       </div>
       
-      {errors.password && touched.password && <p className='error password'>{errors.password}</p>}
+      {errors.password && touched.password && <p className='error' id='reg-password'>{errors.password}</p>}
       <label htmlFor="psw"><b>Password</b></label>
       <div className="wrapper">
-        <FontAwesomeIcon icon="key" /> 
-        <Field type="password" name="password" placeholder="    password" className="input"/> 
+        <FontAwesomeIcon icon="key" className='reg-password'/> 
+        <Field type="password" name="password" placeholder="password" className="input"/> 
       </div>
 
       <div className='sign-in-sign-up-button'>
