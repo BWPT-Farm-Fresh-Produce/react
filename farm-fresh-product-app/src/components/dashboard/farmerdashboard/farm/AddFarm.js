@@ -28,7 +28,7 @@ function AddFarm(props) {
   return (
     <div>
       
-      <form onSubmit={handleSubmit}>
+      <form className="add-farm" onSubmit={handleSubmit}>
       <div className="container">
       <h4>Add a New Farm</h4>
         <input

@@ -31,7 +31,7 @@ const AddProduce = ({
   return (
     <>
       {produceCategories && farms ? (
-        <Form>
+        <Form className='edit-produce'>
           <h3>Add Produce</h3>
           <div className="container">
             {touched.name && errors.name && (

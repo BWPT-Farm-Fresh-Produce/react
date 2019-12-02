@@ -36,7 +36,7 @@ function EditFarm(props) {
   return (
     <div>
       
-      <form onSubmit={handleSubmit}>      
+      <form className='edit-farm' onSubmit={handleSubmit}>      
        <div className="container">
        <h4>Update Your Farm</h4>
         <input

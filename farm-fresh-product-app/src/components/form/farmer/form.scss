@@ -4,6 +4,7 @@ form {
   width: 320px;
   margin: 50px auto 0px auto;
   
+  
   button {
     background-color: #4CAF50;
     color: white; 
@@ -55,9 +56,41 @@ form {
            left: 6px; 
         }
       }
-      .username {
-        top: 50px;
+      #user-login {
+        top: 135px;
+        
       }
+      #user-input, #reg-input {
+        padding-left:20px;
+      }
+      #login-password{
+        top: 205px;
+        
+      }
+      #reg-login{
+        top: 130px;
+       
+      }
+      #reg-email {
+        top: 205px;
+        
+      }
+      #reg-password {
+        top: 277px;
+        
+      }
+
+      .login-user, .password-user{
+        font-size: 14px;
+        
+        
+        
+      }
+
+      .reg-user, .reg-password, .reg-email {
+        font-size: 12px;
+      }
+
       .email, .login-password {
         top: 227px;
       }
@@ -79,11 +112,12 @@ form {
       .input { 
         width: 100%;
          padding: 9px 12px 9px 25px; 
-         padding-left: 20px;
+     
          margin: 3px 0px 8px 0px; 
          display: inline-block; 
          border: 1px solid #ccc;
           box-sizing: border-box;
+          font-size: 17px;
       }
       label { 
         padding: 4px 36px 0px 2px;

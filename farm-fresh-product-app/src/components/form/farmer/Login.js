@@ -52,18 +52,18 @@ function Login (props){
             <img src={PersonImage} alt="Avatar" className="avatar" />
           </div>
     <div className="container">
-      { touched.username && errors.username && <p className='error'>{errors.username}</p>}
+      { touched.username && errors.username && <p className='error' id='user-login'>{errors.username}</p>}
       <label htmlFor="uname"><b>Username</b></label>
       <div className='wrapper'>
-        <FontAwesomeIcon icon="user" />      
-        <Field type="text" name="username" placeholder="   username" className="input"/>
+       <FontAwesomeIcon icon="user" className="login-user" />
+        <Field type="text" name="username" placeholder="username" className="input" id="user-input"/>
       </div>
       
-      {errors.password && touched.password && <p className='error login-password'>{errors.password}</p>}
+      {errors.password && touched.password && <p className='error' id='login-password'>{errors.password}</p>}
       <label htmlFor="psw"><b>Password</b></label>
       <div className="wrapper">
-        <FontAwesomeIcon icon="key" /> 
-        <Field type="password" name="password" placeholder="    password" className="input"/> 
+        <FontAwesomeIcon icon="key" className="password-user" /> 
+        <Field type="password" name="password" placeholder="password" className="input" id="user-input"/> 
       </div>   
       <div className='sign-in-sign-up-button'>
         <button className='sign-button' type='submit' variant="danger" size="lg">
