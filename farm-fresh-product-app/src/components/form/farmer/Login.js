@@ -1,11 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { withFormik, Form, Field } from "formik";
+<<<<<<< HEAD
 import { withRouter, NavLink, Link } from "react-router-dom";
 import { farmerLogin } from "../../../actions/farmerLogin";
 import { connect } from "react-redux";
 import PersonImage from "../../../assets/images/person.png";
 import * as yup from "yup";
 import "../form.scss";
+=======
+import {withRouter, NavLink} from 'react-router-dom';
+import { farmerLogin } from '../../../actions/farmerLogin';
+import {connect} from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import PersonImage from '../../../assets/images/person.png';
+import * as yup from 'yup';
+import './form.scss';
+>>>>>>> 3c3ed1ea53f19a677a7e0a2a2c950336acf71b2e
 
 function Login(props) {
   const { errors, touched, status } = props;
@@ -29,6 +39,7 @@ function Login(props) {
     setIsBackgroundChanged(!isBackgroundChanged);
   };
 
+<<<<<<< HEAD
   return (
     <Form>
       <div className="sign-up-sign-in-form">
@@ -52,6 +63,47 @@ function Login(props) {
             </button>
           </NavLink>
         </div>
+=======
+ return(
+   <Form>
+    <div className='sign-up-sign-in-form'>
+      <div className='nav-links'>
+        <NavLink to='/'>
+          <button  
+          size="lg" 
+          className='custom-btn'
+          onClick={(event) => toggleBackground(event)}>Register</button>
+        </NavLink>
+        <NavLink to='/farmer-login'>
+           <button  
+           size="lg" 
+           className='custom-btn'
+           onClick={(event) => toggleBackground(event)}>Login</button>
+        </NavLink>
+      </div> 
+    </div>
+    <div className="imgcontainer">
+            <img src={PersonImage} alt="Avatar" className="avatar" />
+          </div>
+    <div className="container">
+      { touched.username && errors.username && <p className='error' id='user-login'>{errors.username}</p>}
+      <label htmlFor="uname"><b>Username</b></label>
+      <div className='wrapper'>
+       <FontAwesomeIcon icon="user" className="login-user" />
+        <Field type="text" name="username" placeholder="username" className="input" id="user-input"/>
+      </div>
+      
+      {errors.password && touched.password && <p className='error' id='login-password'>{errors.password}</p>}
+      <label htmlFor="psw"><b>Password</b></label>
+      <div className="wrapper">
+        <FontAwesomeIcon icon="key" className="password-user" /> 
+        <Field type="password" name="password" placeholder="password" className="input" id="user-input"/> 
+      </div>   
+      <div className='sign-in-sign-up-button'>
+        <button className='sign-button' type='submit' variant="danger" size="lg">
+        
+        Login</button>
+>>>>>>> 3c3ed1ea53f19a677a7e0a2a2c950336acf71b2e
       </div>
       <div className="imgcontainer">
         <img src={PersonImage} alt="Avatar" className="avatar" />

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { withFormik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import "./addproduce.scss";
 import axios from "axios";
 import Header from "../../header/Header";
 import { connect } from "react-redux";
 import { getProduceCategories } from "../../../actions/farmerProduce";
-import { getFarms } from "../../../actions/farmerFarm";
 import Load from "../../load/Load";
+import "./addproduce.scss";
+
 const AddProduce = ({
   handleChange,
   touched,
@@ -16,8 +16,7 @@ const AddProduce = ({
   isSubmitting,
   produceCategories,
   farms,
-  getProduceCategories: innerGetProduceCategories,
-  getFarms: innerGetFarms
+  getProduceCategories: innerGetProduceCategories
 }) => {
   const [farmItems, setFarmItems] = useState([]);
   useEffect(() => {
@@ -25,16 +24,14 @@ const AddProduce = ({
     innerGetProduceCategories();
   }, [innerGetProduceCategories, produceCategories]);
   useEffect(() => {
-    if (farms) return;
-    innerGetFarms();
-  }, [innerGetFarms, farms]);
-  useEffect(() => {
     status && setFarmItems(farmItems => [...farmItems, status]);
   }, [status]);
+  
+
   return (
     <>
       {produceCategories && farms ? (
-        <Form>
+        <Form className='edit-produce'>
           <h3>Add Produce</h3>
           <div className="container">
             {touched.name && errors.name && (
@@ -82,8 +79,11 @@ const AddProduce = ({
                 />
               ))}
             </select>
-            <button className="sign-up" type="submit" disabled={isSubmitting}>
-              Add
+            <button className="add-item" 	              
+             type="submit" 	
+             style={{width:'90%', padding: '7px 28px', height: '40px', marginTop:'25px'}}	
+             disabled={isSubmitting}>	
+              Add Produce
             </button>
           </div>
         </Form>
@@ -100,7 +100,8 @@ const FormikAddProduce = withFormik({
       name: values.name || "",
       quantity: values.quantity || "",
       price: values.price || "",
-      category_id: values.category_id || ""
+      category_id: values.category_id || "",
+      id: values.id
     };
   },
   validationSchema: Yup.object().shape({
@@ -109,11 +110,12 @@ const FormikAddProduce = withFormik({
     price: Yup.number().required("Enter the price"),
     category_id: Yup.number().required("Enter the ID")
   }),
-  handleSubmit(values, { resetForm, setStatus, setSubmitting }) {
+  handleSubmit(values, { resetForm, setStatus, setSubmitting ,  }) {
     //   const farmid = props.params.match.id;
+    console.log('line115',values.id);
     axios
       .post(
-        `https://aqueous-ocean-41606.herokuapp.com/api/farmers/produce/:farmId`,
+        `https://aqueous-ocean-41606.herokuapp.com/api/farmers/produce/${values.id}`,
         { ...values, category_id: Number(values.category_id) },
         {
           headers: {
@@ -134,13 +136,13 @@ const FormikAddProduce = withFormik({
   }
 })(AddProduce);
 
-const mapStateToProps = ({ farmProduce, farmerFarm }) => {
+const mapStateToProps = ({ farmProduce, farmFarm }) => {
   return {
     produceCategories: farmProduce.produceCategories,
-    farms: farmerFarm.farms
+    farms: farmFarm.farms
   };
 };
 
-export default connect(mapStateToProps, { getProduceCategories, getFarms })(
+export default connect(mapStateToProps, { getProduceCategories })(
   FormikAddProduce
 );

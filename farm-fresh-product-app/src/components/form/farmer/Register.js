@@ -1,11 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { withFormik, Form, Field } from "formik";
+<<<<<<< HEAD
 import { withRouter, NavLink, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { farmerRegister } from "../../../actions/farmerRegister";
 import PersonImage from "../../../assets/images/person.png";
 import * as yup from "yup";
 import "../form.scss";
+=======
+import {withRouter, NavLink} from 'react-router-dom';
+import { connect } from 'react-redux';
+import { farmerRegister } from '../../../actions/farmerRegister';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import PersonImage from '../../../assets/images/person.png';
+import * as yup from 'yup';
+import './form.scss';
+>>>>>>> 3c3ed1ea53f19a677a7e0a2a2c950336acf71b2e
 
 function Register(props) {
   const { errors, touched, status } = props;
@@ -17,6 +27,7 @@ function Register(props) {
       setUsers([...users, status]);
     }
   }, [status]);
+<<<<<<< HEAD
   const toggleBackground = event => {
     if (!isBackgroundChanged) {
       event.target.style.backgroundColor = "#006400";
@@ -80,6 +91,60 @@ function Register(props) {
           placeholder="email"
           className="input"
         />
+=======
+ const toggleBackground = (event) => {
+   if(!isBackgroundChanged) {
+       event.target.style.backgroundColor = '#006400';
+       event.target.style.color = '#FFFF00';
+   } else {
+      event.target.style.backgroundColor = '#4CAF50';
+      event.target.style.color = '#FFFFFF';
+   }
+      setIsBackgroundChanged(!isBackgroundChanged);
+ }
+ return(
+   <Form>
+    <div className='sign-up-sign-in-form'>
+      <div className='nav-links'>
+        <NavLink to='/'>
+          <button  
+           size="lg"
+           className='custom-btn'
+           onClick={(event) => toggleBackground(event)}>Register</button>
+        </NavLink>
+        <NavLink to='/farmer-login'>
+           <button  
+           size="lg" 
+           className='custom-btn'
+           onClick={(event) => toggleBackground(event)}>Login</button>
+        </NavLink>
+      </div> 
+    </div>
+    <div className="imgcontainer">
+            <img src={PersonImage} alt="Avatar" className="avatar" />
+          </div>
+    <div className="container">
+      { touched.username && errors.username && <p className='error' id='reg-login'>{errors.username}</p>}
+      <label htmlFor="uname"><b>Username</b></label>
+      <div className='wrapper'>
+        <FontAwesomeIcon icon="user" className='reg-user' />      
+        <Field type="text" name="username" placeholder="username" className="input" id="reg-input"/>
+      </div>
+
+      { touched.email && errors.email && <p className='error' id='reg-email'>{errors.email}</p>}
+      <label htmlFor="email"><b>Email</b></label>
+      <div className="wrapper">
+        <FontAwesomeIcon icon="envelope" className='reg-email'/> 
+        <Field type="email" name="email" placeholder="email" className="input"id="reg-input" />
+      </div>
+      
+      {errors.password && touched.password && <p className='error' id='reg-password'>{errors.password}</p>}
+      <label htmlFor="psw"><b>Password</b></label>
+      <div className="wrapper">
+        <FontAwesomeIcon icon="key" className='reg-password'/> 
+        <Field type="password" name="password" placeholder="password" className="input"id="reg-input" /> 
+      </div>
+>>>>>>> 3c3ed1ea53f19a677a7e0a2a2c950336acf71b2e
 
         {errors.password && touched.password && (
           <p className="error password">{errors.password}</p>

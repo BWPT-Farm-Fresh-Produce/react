@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { withFormik, Form, Field } from "formik";
+<<<<<<< HEAD
 import { withRouter, NavLink } from "react-router-dom";
 import axios from "axios";
 import * as yup from "yup";
 import "../form.scss";
+=======
+import {withRouter, NavLink} from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from 'axios';
+import * as yup from 'yup';
+import './form.scss';
+>>>>>>> 3c3ed1ea53f19a677a7e0a2a2c950336acf71b2e
 
 function Register(props) {
   const { errors, touched, status } = props;
@@ -52,6 +60,7 @@ function Register(props) {
       {/* <div className="imgcontainer">
         <img src={PersonImage} alt="Avatar" className="avatar" />
     </div> */}
+<<<<<<< HEAD
       <div className="container">
         {touched.username && errors.username && (
           <p className="error username">{errors.username}</p>
@@ -132,6 +141,58 @@ function Register(props) {
           <input type="checkbox" checked="checked" name="remember" /> Remember
           me
         </label>
+=======
+    <div className="container">
+      { touched.username && errors.username && <p className='error username'>{errors.username}</p>}
+      <label htmlFor="uname"><b>Username</b></label>     
+      <div className='wrapper'>
+        <FontAwesomeIcon icon="user" />      
+        <Field type="text" name="username" placeholder="   username" className="input"/>
+      </div>
+
+      { touched.email && errors.email && <p className='error email-customer'>{errors.email}</p>}
+      <label htmlFor="email"><b>Email</b></label>
+      <div className="wrapper">
+        <FontAwesomeIcon icon="envelope" /> 
+        <Field type="email" name="email" placeholder="    email" className="input"/>
+      </div>      
+      
+
+      {errors.city_id && touched.city_id && <p className='error password city_id'>{errors.city_id}</p>}
+      <label htmlFor="psw"><b>City ID</b></label>      
+      <div className="wrapper">
+        <FontAwesomeIcon icon="id-card-alt" /> 
+        <Field type="text" name="city_id" placeholder="    Your city ID" className="input"/> 
+      </div>
+
+      {errors.state_id && touched.state_id && <p className='error password state_id'>{errors.state_id}</p>}
+      <label htmlFor="psw"><b>State ID</b></label>       
+      <div className="wrapper">
+        <FontAwesomeIcon icon="id-card" /> 
+        <Field type="text" name="state_id" placeholder="    Your state ID" className="input"/>
+      </div>
+
+      {errors.password && touched.password && <p className='error password-customer'>{errors.password}</p>}
+      <label htmlFor="psw"><b>Password</b></label>
+      <div className="wrapper">
+        <FontAwesomeIcon icon="key" /> 
+        <Field type="password" name="password" placeholder="    password" className="input"/> 
+      </div>
+
+      <div className='sign-in-sign-up-button'>
+        <button className='register' type='submit' variant="danger" size="lg">Register</button>
+      </div>
+      <label>
+        <input type="checkbox" checked="checked" name="remember" /> Remember me
+      </label>
+    
+    { users.length>0 && <p className='success-msg'>{users[users.length-1].username} successfully signed up</p>}
+     
+   </div>
+   </Form>
+  )
+};
+>>>>>>> 3c3ed1ea53f19a677a7e0a2a2c950336acf71b2e
 
         {users.length > 0 && (
           <p className="success-msg">

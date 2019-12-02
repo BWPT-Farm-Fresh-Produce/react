@@ -1,16 +1,17 @@
 .feedback-form { 
   border: 3px solid #f1f1f1; 
-  width: 320px;
-  margin: 50px auto 0px auto;
-  height: 200px;
-  button {
+  width: 280px;
+  margin: 20px auto 0px auto;
+  height: 390px;
+  
+  button.feedback-button {
     background-color: #4CAF50;
     color: white; 
-    padding: 14px 20px; 
-    margin:0px; 
+    padding: 7px 25px; 
+    margin:40px auto; 
     border: none; 
     cursor: pointer; 
-    width: 50%; 
+    width: 90%; 
     height: 44px;
     &:hover {
        background:#006400; 
@@ -21,7 +22,9 @@
       color: #FF0000;
     }
   }
-  
+  .feedback {
+    margin-top: 60px;
+  }
   .container {
       padding: 16px;
       .error {
@@ -37,19 +40,26 @@
         width: 268px;
       }
       .name {
-        top: 20px;
+        top: 100px;
+
       }
       .comment {
        top: 50px;
+       
       }
       
       
     li{
         list-style-type: none;
-        padding: 5px;
+        padding: 2px;
         margin-right: 30px;
+        bottom: 50px;
+        color: white;
       }
-
+      ul{
+        border: 3px solid #f1f1f1; 
+        background: green;
+        }
     }
   
    

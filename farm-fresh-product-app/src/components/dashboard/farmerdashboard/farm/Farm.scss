@@ -1,0 +1,31 @@
+.add-farm, .edit-farm {
+  border: 3px solid #f1f1f1;    
+   width: 280px;
+   margin: 20px auto 0px auto;
+   height: 390px; 
+  h4{
+     margin: 0px 0px 15px 0px;
+  }
+  button.add-farm, button.edit-farm {
+    background-color: #4CAF50;
+    color: white; 
+    padding: 7px 30px; 
+    margin:0px; 
+    margin-top: 8px;
+    border: none; 
+    cursor: pointer; 
+    width: 90%; 
+    height: 44px;
+    &:hover {
+       background:#006400; 
+       color: #FFFFFF;
+    }
+    &:visited {
+      background: #ADFF2F;
+      color: #FF0000;
+    }
+  }  
+   
+  }
+
+

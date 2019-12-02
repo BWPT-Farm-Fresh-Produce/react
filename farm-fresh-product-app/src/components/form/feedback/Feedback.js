@@ -2,8 +2,8 @@ import React ,{useState,useEffect} from 'react';
 import {withFormik, Form, Field} from 'formik'
 import * as Yup from 'yup';
 import Axios from 'axios';
-import './feedback.scss'
-import Header from '../../header/Header'
+import './feedback.scss';
+
 
 
 const Feedback = ({touched, errors, isSubmitting,status}) =>{
@@ -13,8 +13,9 @@ const Feedback = ({touched, errors, isSubmitting,status}) =>{
    }, [status])
    return(
       <>
-      <Header />
+     
       <Form className='feedback-form'>
+       <h3>Provide Your Feedback</h3>
       <div className='container'>
          {touched.name && errors.name && <p className='error name'>{errors.name}</p>}
          <Field type='text' name='name' placeholder='Name' className='input'/>
@@ -23,7 +24,7 @@ const Feedback = ({touched, errors, isSubmitting,status}) =>{
          {touched.suggestion}
          <Field type='text' name='suggestion' placeholder='Suggestion' className='input'/>
          
-         <button type='submit' className ='sign-up' disabled={isSubmitting}>Submit</button>
+         <button type='submit' className ='sign-up feedback-button feeback' disabled={isSubmitting}>Submit</button>
          {farmers.map((farm,index)=>
             <ul key={index}>
             <li>{farm.name}</li>

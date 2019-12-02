@@ -1,10 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { withFormik, Form, Field } from "formik";
+<<<<<<< HEAD
 import { withRouter, NavLink } from "react-router-dom";
 import PersonImage from "../../../assets/images/person.jpg";
 import axios from "axios";
 import * as yup from "yup";
 import "../form.scss";
+=======
+import {withRouter, NavLink} from 'react-router-dom';
+import PersonImage from '../../../assets/images/person.jpg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from 'axios';
+import * as yup from 'yup';
+import './form.scss';
+>>>>>>> 3c3ed1ea53f19a677a7e0a2a2c950336acf71b2e
 
 function Login(props) {
   const { errors, touched } = props;
@@ -62,6 +71,7 @@ function Login(props) {
           className="input"
         />
 
+<<<<<<< HEAD
         {errors.password && touched.password && (
           <p className="error login-password">{errors.password}</p>
         )}
@@ -88,6 +98,45 @@ function Login(props) {
           <input type="checkbox" checked="checked" name="remember" /> Remember
           me
         </label>
+=======
+ return(
+   <Form>
+    <div className='sign-up-sign-in-form'>
+      <div className='nav-links'>
+        <NavLink to='/customer-register'>
+          <button  
+          size="lg" 
+          className='custom-btn register'
+          onClick={(event) => toggleBackground(event)}>Register</button>
+        </NavLink>
+        <NavLink to='/customer-login'>
+           <button  
+           size="lg" 
+           className='custom-btn login'
+           onClick={(event) => toggleBackground(event)}>Login</button>
+        </NavLink>
+      </div> 
+    </div>
+    <div className="imgcontainer">
+            <img src={PersonImage} alt="Avatar" className="avatar" />
+          </div>
+    <div className="container">
+      { touched.username && errors.username && <p className='error'>{errors.username}</p>}
+      <label htmlFor="uname"><b>Username</b></label>      
+      <div className='wrapper'>
+        <FontAwesomeIcon icon="user" />      
+        <Field type="text" name="username" placeholder="   username" className="input"/>
+      </div>
+      
+      {errors.password && touched.password && <p className='error login-password'>{errors.password}</p>}
+      <label htmlFor="psw"><b>Password</b></label>
+      <div className="wrapper">
+        <FontAwesomeIcon icon="key" /> 
+        <Field type="password" name="password" placeholder="    password" className="input"/> 
+      </div>    
+      <div className='sign-in-sign-up-button'>
+        <button className='login-button' type='submit' variant="danger" size="lg">Login</button>
+>>>>>>> 3c3ed1ea53f19a677a7e0a2a2c950336acf71b2e
       </div>
     </Form>
   );

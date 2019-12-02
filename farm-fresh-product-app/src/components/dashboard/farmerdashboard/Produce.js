@@ -1,40 +1,64 @@
-import React , {useEffect, useState} from 'react'
-import  axios from 'axios'
-import '../../form/farmer/addproduce.scss'
+import React, { useEffect, useState } from "react";
+import {connect} from 'react-redux';
+import axios from "axios";
+import Load from '../../load/Load';
+import {getFarmerProduce} from '../../../actions/farmerProduce';
+import "../../form/farmer/addproduce.scss";
 
-const Produce = (props) =>{
-   const [produce, setProduce] = useState([]);
-   useEffect(()=>{
-      const produceId = props.match.params.id;
-      axios
-      .get(`https://aqueous-ocean-41606.herokuapp.com/api//api/farmers/produce/:farmId`,{headers:{
-         authorization: localStorage.getItem("token") 
-      }})
-      .then(response=>{
-         console.log(response.data)
-         setProduce(response.data)
-
-      })
-      .catch(error=>{
-         console.log(error)
-      })
-
-   },[])
-   return(
-<div className='view-produce'>
-   <h3>View Produce</h3>
-   {produce.map((produces)=>(
-    
-      
-      <div className='produces' key={produces.id}>
-      <p>{produces.name}</p>
-      <p>{produces.quantity}</p>
-      <p>{produces.price}</p>
-      </div>
-   
-   ))}
-</div>
-
-   );
+const Produce = (props) => {
+  const defaultProduce = {name:'No Produce!!!', quantity:'No Produce!!!', price:'No Produce!!!'};
+  const [produce, setProduce] = useState(defaultProduce);
+  const [isLoading, setIsLoading] = useState(false)
+  // const farmId = props.match.params.id;
+  // console.log('farm', farmId)
+  console.log('props',props)
+  useEffect(() => {
+    props.getFarmerProduce(props.id);
+    // const produceInfo = JSON.parse(localStorage.getItem("FARMER_LOGIN_KEY"));
+    // console.log("produce" , produceInfo);
+    // axios
+    //   .get(
+    //     `https://aqueous-ocean-41606.herokuapp.com/api/farmers/produce/${props.id}`,
+    //     {
+    //       headers: {
+    //         authorization: produceInfo.token
+    //       }
+    //     }
+    //   )
+    //   .then(response => {
+    //     console.log(response)
+    //     const info = response.data.current_stock[0]
+    //     console.log("produce",info);       
+    //       setProduce({...produce, ...info});
+    //       setIsLoading(true);
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //   });
+  }, []);
+  console.log('produce.js>>>>>>>>>>>', props)
+  if(!props.isLoadingProduce && !props.isProduceLoaded) {
+    return <Load />
+  }
+  return (
+    <>   
+    <div className="view-produce">      
+      <h3>View Produce</h3>
+      <p>Produce Name: {props.produce.name}</p>
+      <p>Quantity: {props.produce.quantity}</p>
+      <p>Price: {props.produce.price}</p>
+    </div>    
+    </>
+  );
 }
-export default Produce;
+const mapDispatchToProps = {
+  getFarmerProduce
+}
+function mapStateToProps(state) {
+    return {
+      produce: state.farmProduce.produceItems,
+      isLoadingProduce:state.farmProduce.isLoadingProduce, 
+      isProduceLoaded:state.farmProduce.isProduceLoaded
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Produce);

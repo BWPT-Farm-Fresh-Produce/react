@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { withFormik, Form, Field, ErrorMessage } from "formik";
+import {connect} from 'react-redux';
 import * as Yup from "yup";
 import "./addproduce.scss";
 import axios from "axios";
 
-const EditProduce = ({ touched, errors, status, isSubmitting }) => {
+const EditProduce = (props) => {
+  const { touched, errors, status, isSubmitting ,produce} = props;
   const [farmItems, setFarmItems] = useState([]);
   useEffect(() => {
     status && setFarmItems(farmItems => [...farmItems, status]);
   }, [status]);
-
+  console.log(produce)
   return (
     <>
       <Form className="edit-produce">
@@ -21,7 +23,7 @@ const EditProduce = ({ touched, errors, status, isSubmitting }) => {
           <Field
             type="text"
             name="name"
-            placeholder="Name of Produce"
+            placeholder={produce.name}
             className="input"
           />
           {touched.quantity && errors.quantity && (
@@ -30,7 +32,7 @@ const EditProduce = ({ touched, errors, status, isSubmitting }) => {
           <Field
             type="text"
             name="quantity"
-            placeholder="Quantity"
+            placeholder={produce.quantity}
             className="input"
           />
           {touched.price && errors.price && (
@@ -39,7 +41,7 @@ const EditProduce = ({ touched, errors, status, isSubmitting }) => {
           <Field
             type="text"
             name="price"
-            placeholder="Price"
+            placeholder={produce.price}
             className="input"
           />
           {touched.category && errors.category && (
@@ -48,11 +50,12 @@ const EditProduce = ({ touched, errors, status, isSubmitting }) => {
           <Field
             type="text"
             name="category"
-            placeholder="ID"
+            placeholder={produce.id}
             className="input"
           />
-          <button className="sign-up" type="submit" disabled={isSubmitting}>
-            Edit
+          <button className="edit-item" type="submit" disabled={isSubmitting}>	         
+            Update Produce
+             
           </button>
         </div>
       </Form>
@@ -75,16 +78,16 @@ const FormikEditProduce = withFormik({
     price: Yup.string().required("Enter the price"),
     category: Yup.string().required("Enter the ID")
   }),
-  handleSubmit(values, { resetForm, setStatus, setSubmitting }) {
+  handleSubmit(values, { props, resetForm, setStatus, setSubmitting }) {
     //   const farmid = props.params.match.id;
 
     axios
-      .post(
-        `https://aqueous-ocean-41606.herokuapp.com/api/farmers/produce/:farmId`,
+      .put(
+        `https://aqueous-ocean-41606.herokuapp.com/api/farmers/produce/${props.produce.farm_id}/${props.produce.category_id}`, values,
         {
           headers: {
-            authorization: localStorage.getItem("token"),
-            values
+            authorization: JSON.parse(localStorage.getItem("FARMER_LOGIN_KEY")).token
+           
           }
         }
       )
@@ -100,4 +103,10 @@ const FormikEditProduce = withFormik({
   }
 })(EditProduce);
 
-export default FormikEditProduce;
+function mapStateToProps(state) {
+   return {
+      produce:state.farmProduce.produceItems
+   }
+}
+
+export default connect(mapStateToProps,null)(FormikEditProduce);

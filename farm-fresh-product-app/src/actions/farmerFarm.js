@@ -1,26 +1,119 @@
 import axios from "axios";
+import { FARMER_LOGIN_KEY } from "../constants/Constant";
+import { axiosWithAuth } from '../auth/Authorization';
 
-export const RETRIEVING_FARMS = "RETRIEVING_FARMS";
-export const RETRIEVING_FARMS_SUCCESS = "RETRIEVING_FARMS_SUCCESS";
-export const RETRIEVING_FARMS_ERROR = "RETRIEVING_FARMS_ERROR";
+export const GETTING_FARM_START = "GETTING_FARM_START";
+export const GETTING_FARM_SUCCESS = "GETTING_FARM_SUCCESS";
+export const GETTING_FARM_ERROR = "GETTING_FARM_ERROR";
 
-export const getFarms = () => dispatch => {
-  const farmerInfo = JSON.parse(localStorage.getItem("FARMER_LOGIN_KEY"));
-  console.log("INFO: ", farmerInfo);
-  dispatch({ type: RETRIEVING_FARMS });
-  axios
-    .get(
-      `https://aqueous-ocean-41606.herokuapp.com/api/farmers/${farmerInfo.id}/farms`,
-      {
-        headers: {
-          authorization: farmerInfo.token
+export const ADDING_FARM_START = "ADDING_FARM_START";
+export const ADDING_FARM_SUCCESS = "ADDING_FARM_SUCCESS";
+export const ADDING_FARM_ERROR = "ADDING_FARM_ERROR";
+
+export const EDITING_FARM_START = "EDITING_FARM_START";
+export const EDITING_FARM_SUCCESS = "EDITING_FARM_SUCCESS";
+export const EDITING_FARM_ERROR = "EDITING_FARM_ERROR";
+
+export const DELETING_FARM_START = "DELETING_FARM_START";
+export const DELETING_FARM_SUCCESS = "DELETING_FARM_SUCCESS";
+export const DELETING_FARM_ERROR = "DELETING_FARM_ERROR";
+
+export function getAllFarms(farmerId) {
+  const { token, id } = JSON.parse(localStorage.getItem(FARMER_LOGIN_KEY));
+  const headers = {
+    authorization: token
+  };
+  return dispatch => {
+    dispatch({ type: GETTING_FARM_START });
+    axiosWithAuth()
+              .get(`/api/farmers/${id}/farms`)
+              .then(response => {
+                console.log("Line Number 26", response);
+                if(response.data.farms.length>0) {
+                  dispatch({ type: GETTING_FARM_SUCCESS, payload: response.data.farms });
+                } else {
+                  dispatch({ type: GETTING_FARM_SUCCESS, payload: 'No Farms!!! Need to Add' });
+                }
+              })
+              .catch(err => {
+                console.log(err);
+              });
+  };
+}
+
+export function addFarmerFarm(farm) {
+  const { token, id } = JSON.parse(localStorage.getItem(FARMER_LOGIN_KEY));
+  const headers = {
+    authorization: token
+  };
+  console.log("working now");
+  console.log(id);
+  console.log(headers);
+  console.log(farm);
+  return dispatch => {
+    dispatch({ type: ADDING_FARM_START });
+    axiosWithAuth()
+      .post(`/api/farms/${id}`, farm, {
+        headers
+      })
+      .then(response => {
+        console.log("adding", response);
+        dispatch({ type: ADDING_FARM_SUCCESS, payload: response.data });
+      })
+      .catch(error => {
+        dispatch({ type: ADDING_FARM_ERROR, payload: error });
+      });
+  };
+}
+
+export function editFarmerFarm(farm) {
+  const { token, id } = JSON.parse(localStorage.getItem(FARMER_LOGIN_KEY));
+  const headers = {
+    authorization: token
+  };
+  console.log(farm);
+  return dispatch => {
+    dispatch({ type: EDITING_FARM_START });
+    axios
+      .put(
+        `https://aqueous-ocean-41606.herokuapp.com/api/farms/${farm.id}`,
+        farm,
+        {
+          headers
         }
-      }
-    )
-    .then(res =>
-      dispatch({ type: RETRIEVING_FARMS_SUCCESS, payload: res.data.farms })
-    )
-    .catch(err =>
-      dispatch({ type: RETRIEVING_FARMS_ERROR, payload: err.message })
-    );
-};
+      )
+      .then(response => {
+        console.log(response);
+        dispatch({ type: EDITING_FARM_SUCCESS, payload: response.data });
+      })
+      .catch(err => {
+        console.log(err);
+        dispatch({ type: EDITING_FARM_ERROR, payload: err });
+      });
+  };
+}
+
+export function deleteFarm(farm) {
+  const { token, id } = JSON.parse(localStorage.getItem(FARMER_LOGIN_KEY));
+  const headers = {
+    authorization: token
+  };
+   return (dispatch) => {
+      dispatch({type:DELETING_FARM_START});
+      axios
+      .delete(
+        `https://aqueous-ocean-41606.herokuapp.com/api/farms/${farm.id}`,
+       {
+          headers
+        }
+      )
+      .then(response => {
+        console.log(response);
+        dispatch({ type: DELETING_FARM_SUCCESS, payload: response.data });        
+      })
+      .catch(err => {
+        console.log(err);
+        dispatch({ type: DELETING_FARM_ERROR, payload: err });
+      });
+   }
+}
