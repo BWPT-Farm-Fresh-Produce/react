@@ -55,6 +55,7 @@ const Produce = (props) => {
       <p>Produce Name: {props.produce.name}</p>
       <p>Quantity: {props.produce.quantity}</p>
       <p>Price: {props.produce.price}</p>
+      <p>Category ID: {props.produce.category_id}</p>
     </div>
     )}    
     </>

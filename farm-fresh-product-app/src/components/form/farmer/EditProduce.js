@@ -49,7 +49,7 @@ const EditProduce = (props) => {
           )}
           <Field
             type="text"
-            name="category"
+            name="category_id"
             placeholder={produce.id}
             className="input"
           />
@@ -69,21 +69,23 @@ const FormikEditProduce = withFormik({
       name: values.name || "",
       quantity: values.quantity || "",
       price: values.price || "",
-      category: values.category || ""
+      category_id: values.category_id || ""
     };
   },
   validationSchema: Yup.object().shape({
     name: Yup.string().required("Enter a produce name."),
     quantity: Yup.string().required("Enter a quantity"),
     price: Yup.string().required("Enter the price"),
-    category: Yup.string().required("Enter the ID")
+    category_id: Yup.string().required("Enter the ID")
   }),
   handleSubmit(values, { props, resetForm, setStatus, setSubmitting }) {
     //   const farmid = props.params.match.id;
-
+    console.log('line # 83 Edit produce>>>>>>>>>>>>',values);
+    console.log(JSON.parse(localStorage.getItem("FARMER_LOGIN_KEY")).token);
     axios
       .put(
-        `https://aqueous-ocean-41606.herokuapp.com/api/farmers/produce/${props.produce.farm_id}/${props.produce.category_id}`, values,
+        `https://aqueous-ocean-41606.herokuapp.com/api/farmers/produce/${props.produce.farm_id}/${props.produce.category_id}`,
+        { ...values, category_id: Number(values.category_id) },
         {
           headers: {
             authorization: JSON.parse(localStorage.getItem("FARMER_LOGIN_KEY")).token
