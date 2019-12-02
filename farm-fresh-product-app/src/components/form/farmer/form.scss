@@ -57,32 +57,38 @@ form {
         }
       }
       #user-login {
-        top: 140px;
+        top: 135px;
         
       }
+      #user-input, #reg-input {
+        padding-left:20px;
+      }
       #login-password{
-        top: 200px;
-        width: 16%;
+        top: 205px;
+        
       }
       #reg-login{
-        top: 140px;
+        top: 130px;
        
       }
       #reg-email {
-        top: 200px;
+        top: 205px;
         
       }
       #reg-password {
-        top: 267px;
+        top: 277px;
         
       }
 
       .login-user, .password-user{
-        padding-left: 80px;
+        font-size: 14px;
+        
+        
+        
       }
 
       .reg-user, .reg-password, .reg-email {
-        padding-left: 80px;
+        font-size: 12px;
       }
 
       .email, .login-password {
@@ -106,11 +112,12 @@ form {
       .input { 
         width: 100%;
          padding: 9px 12px 9px 25px; 
-         padding-left: 10px;
+     
          margin: 3px 0px 8px 0px; 
          display: inline-block; 
          border: 1px solid #ccc;
           box-sizing: border-box;
+          font-size: 17px;
       }
       label { 
         padding: 4px 36px 0px 2px;

@@ -54,21 +54,21 @@ function Register (props){
       <label htmlFor="uname"><b>Username</b></label>
       <div className='wrapper'>
         <FontAwesomeIcon icon="user" className='reg-user' />      
-        <Field type="text" name="username" placeholder="username" className="input"/>
+        <Field type="text" name="username" placeholder="username" className="input" id="reg-input"/>
       </div>
 
       { touched.email && errors.email && <p className='error' id='reg-email'>{errors.email}</p>}
       <label htmlFor="email"><b>Email</b></label>
       <div className="wrapper">
         <FontAwesomeIcon icon="envelope" className='reg-email'/> 
-        <Field type="email" name="email" placeholder="email" className="input"/>
+        <Field type="email" name="email" placeholder="email" className="input"id="reg-input" />
       </div>
       
       {errors.password && touched.password && <p className='error' id='reg-password'>{errors.password}</p>}
       <label htmlFor="psw"><b>Password</b></label>
       <div className="wrapper">
         <FontAwesomeIcon icon="key" className='reg-password'/> 
-        <Field type="password" name="password" placeholder="password" className="input"/> 
+        <Field type="password" name="password" placeholder="password" className="input"id="reg-input" /> 
       </div>
 
       <div className='sign-in-sign-up-button'>
