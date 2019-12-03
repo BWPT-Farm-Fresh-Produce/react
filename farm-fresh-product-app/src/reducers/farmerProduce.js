@@ -24,7 +24,7 @@ const initialState = {
   isProduceEdited:false,
   isDeletingProduce:false,
   isProduceDeleted:false,
-  produceItems:[],
+  produceItems:[{name:'No produce!!!', quantity:'No Produce', price:'No Produce'}],
   produceCategories: null,
   error:null
 }
