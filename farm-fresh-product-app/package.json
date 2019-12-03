@@ -3,9 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
+    "@material-ui/core": "^4.6.1",
+=======
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.7",
+>>>>>>> 3c3ed1ea53f19a677a7e0a2a2c950336acf71b2e
     "axios": "^0.19.0",
     "formik": "^2.0.4",
     "node-sass": "^4.13.0",

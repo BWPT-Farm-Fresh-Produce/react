@@ -34,8 +34,15 @@ function App() {
           <Route path="/unauthorized-error" component={UnauthorizedError} />
           <Route path="/farmer-dashboard" component={FarmerDashboard} />
           {/* <Route path="/farmer-dashboard-addfarm" component={Farm} /> */}
+<<<<<<< HEAD
+          <Route path="/feedback" component={Feedback} />
+          <Route path="/add-farm-item/" component={FormikAddProduce} />
+          <Route path="/customer-dashboard" component={ConsumerDashboard} />
+          <Route path="/farms/:id" component={ConsumerFarmView} />
+=======
           {/* <Route path="/feedback" component={Feedback} /> */}
           <Route path='/add-farm-item/' component={FormikAddProduce}/>
+>>>>>>> 3c3ed1ea53f19a677a7e0a2a2c950336acf71b2e
         </Switch>
       </div>
     </div>
